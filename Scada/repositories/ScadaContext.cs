@@ -10,13 +10,9 @@ using Scada.models;
 
 namespace Scada.repositories
 {
-    [DbConfigurationType(typeof(MySqlEFConfiguration))]
     public class ScadaContext : DbContext
     {
         public DbSet<User> Users { get; set; }
 
-        public ScadaContext() : base("name=ScadaContext")
-        {
-        }
     }
 }
