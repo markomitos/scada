@@ -1,11 +1,11 @@
 ﻿using System;
-using DatabaseManagerApp.CoreServiceReference;
+using DatabaseManagerApp.UserServiceReference;
 
 namespace DatabaseManagerApp
 {
     internal class Program
     {
-        private static UserServiceClient userServiceClient = new UserServiceClient();
+        private static UserServiceReference.UserServiceClient userServiceClient = new UserServiceClient();
         private static string currentToken = null;
 
         static void Main(string[] args)
@@ -13,35 +13,72 @@ namespace DatabaseManagerApp
             while (true)
             {
                 Console.Clear();
-                Console.WriteLine("SCADA System - User Management");
-                Console.WriteLine("1. Register");
-                Console.WriteLine("2. Login");
-                Console.WriteLine("3. Logout");
-                Console.WriteLine("4. Exit");
-                Console.Write("Select an option: ");
-
-                string choice = Console.ReadLine();
-
-                switch (choice)
+                if (currentToken == null)
                 {
-                    case "1":
-                        RegisterUser();
-                        break;
-                    case "2":
-                        LoginUser();
-                        break;
-                    case "3":
-                        LogoutUser();
-                        break;
-                    case "4":
-                        return;
-                    default:
-                        Console.WriteLine("Invalid option. Please try again.");
-                        break;
+                    ShowMainMenu();
+                }
+                else
+                {
+                    ShowLoggedInMenu();
                 }
 
                 Console.WriteLine("Press any key to continue...");
                 Console.ReadKey();
+            }
+        }
+
+        private static void ShowMainMenu()
+        {
+            Console.WriteLine("SCADA System - User Management");
+            Console.WriteLine("1. Register");
+            Console.WriteLine("2. Login");
+            Console.WriteLine("3. Exit");
+            Console.Write("Select an option: ");
+
+            string choice = Console.ReadLine();
+
+            switch (choice)
+            {
+                case "1":
+                    RegisterUser();
+                    break;
+                case "2":
+                    LoginUser();
+                    break;
+                case "3":
+                    Environment.Exit(0);
+                    break;
+                default:
+                    Console.WriteLine("Invalid option. Please try again.");
+                    break;
+            }
+        }
+
+        private static void ShowLoggedInMenu()
+        {
+            Console.WriteLine("SCADA System - User Management (Logged In)");
+            Console.WriteLine($"Current Token: {currentToken}");
+            Console.WriteLine("1. Some Action"); // Example new option for logged-in users
+            Console.WriteLine("2. Another Action"); // Example new option for logged-in users
+            Console.WriteLine("3. Logout");
+            Console.Write("Select an option: ");
+
+            string choice = Console.ReadLine();
+
+            switch (choice)
+            {
+                case "1":
+                    PerformSomeAction();
+                    break;
+                case "2":
+                    PerformAnotherAction();
+                    break;
+                case "3":
+                    LogoutUser();
+                    break;
+                default:
+                    Console.WriteLine("Invalid option. Please try again.");
+                    break;
             }
         }
 
@@ -103,6 +140,18 @@ namespace DatabaseManagerApp
             {
                 Console.WriteLine("Logout failed.");
             }
+        }
+
+        private static void PerformSomeAction()
+        {
+            // Implement the action for logged-in users
+            Console.WriteLine("Performing some action...");
+        }
+
+        private static void PerformAnotherAction()
+        {
+            // Implement another action for logged-in users
+            Console.WriteLine("Performing another action...");
         }
     }
 }

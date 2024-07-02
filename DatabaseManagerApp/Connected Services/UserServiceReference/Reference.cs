@@ -8,11 +8,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DatabaseManagerApp.CoreServiceReference {
+namespace DatabaseManagerApp.UserServiceReference {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="CoreServiceReference.IUserService")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="UserServiceReference.IUserService")]
     public interface IUserService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/RegisterUser", ReplyAction="http://tempuri.org/IUserService/RegisterUserResponse")]
@@ -35,12 +35,12 @@ namespace DatabaseManagerApp.CoreServiceReference {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IUserServiceChannel : DatabaseManagerApp.CoreServiceReference.IUserService, System.ServiceModel.IClientChannel {
+    public interface IUserServiceChannel : DatabaseManagerApp.UserServiceReference.IUserService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class UserServiceClient : System.ServiceModel.ClientBase<DatabaseManagerApp.CoreServiceReference.IUserService>, DatabaseManagerApp.CoreServiceReference.IUserService {
+    public partial class UserServiceClient : System.ServiceModel.ClientBase<DatabaseManagerApp.UserServiceReference.IUserService>, DatabaseManagerApp.UserServiceReference.IUserService {
         
         public UserServiceClient() {
         }
