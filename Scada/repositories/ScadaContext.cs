@@ -13,6 +13,6 @@ namespace Scada.repositories
     public class ScadaContext : DbContext
     {
         public DbSet<User> Users { get; set; }
-
+        public DbSet<Tag> Tags { get; set; }
     }
 }
