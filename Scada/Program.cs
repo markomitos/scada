@@ -7,7 +7,7 @@ namespace Scada
     {
         static void Main(string[] args)
         {
-            ServiceHost svc = new ServiceHost(typeof(CoreService));
+            ServiceHost svc = new ServiceHost(typeof(UserService));
             svc.Open();
             Console.WriteLine("Listening");
             Console.ReadLine();
