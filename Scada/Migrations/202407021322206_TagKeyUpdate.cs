@@ -3,16 +3,19 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class TagsTable : DbMigration
+    public partial class TagKeyUpdate : DbMigration
     {
         public override void Up()
         {
+
+            DropTable("dbo.Tags");
+            DropTable("dbo.Users");
+
             CreateTable(
                 "dbo.Tags",
                 c => new
                     {
-                        Id = c.Int(nullable: false, identity: true),
-                        Name = c.String(nullable: false),
+                        Name = c.String(nullable: false, maxLength: 128),
                         Description = c.String(nullable: false),
                         IoAddress = c.String(nullable: false),
                         Driver = c.String(),
@@ -28,12 +31,22 @@
                         Units1 = c.String(),
                         Discriminator = c.String(nullable: false, maxLength: 128),
                     })
-                .PrimaryKey(t => t.Id);
+                .PrimaryKey(t => t.Name);
+            
+            CreateTable(
+                "dbo.Users",
+                c => new
+                    {
+                        Username = c.String(nullable: false, maxLength: 128),
+                        Password = c.String(nullable: false),
+                    })
+                .PrimaryKey(t => t.Username);
             
         }
         
         public override void Down()
         {
+            DropTable("dbo.Users");
             DropTable("dbo.Tags");
         }
     }
