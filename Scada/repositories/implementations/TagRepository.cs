@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Xml.Serialization;
+using Scada.models;
 
 namespace Scada.repositories.implementations
 {
@@ -183,6 +184,12 @@ namespace Scada.repositories.implementations
             return false;
         }
 
+
+        public bool IsTagNameUnique(string name)
+        {
+            Tag result = tags.FirstOrDefault(tag => tag.Name == name);
+            return result == null;
+        }
 
 
         private void LoadTags()

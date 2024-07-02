@@ -63,9 +63,8 @@ namespace DatabaseManagerApp
         {
             Console.WriteLine("SCADA System - User Management (Logged In)");
             Console.WriteLine($"Current Token: {currentToken}");
-            Console.WriteLine("1. Add tag"); // Example new option for logged-in users
-            Console.WriteLine("2. Another Action"); // Example new option for logged-in users
-            Console.WriteLine("3. Logout");
+            Console.WriteLine("1. Add tag");
+            Console.WriteLine("2. Logout");
             Console.Write("Select an option: ");
 
             string choice = Console.ReadLine();
@@ -76,9 +75,6 @@ namespace DatabaseManagerApp
                     AddTagMenu();
                     break;
                 case "2":
-                    PerformAnotherAction();
-                    break;
-                case "3":
                     LogoutUser();
                     break;
                 default:
@@ -164,7 +160,7 @@ namespace DatabaseManagerApp
                 Alarms = bool.Parse(tagAlarms)
             };
 
-               tagServiceClient.AddTag(tag);
+               tagServiceClient.AddAnalogInputTag(tag);
         }
 
         private static void AddDigitalInputTag()
@@ -186,7 +182,7 @@ namespace DatabaseManagerApp
             Console.Write("Enter tag on/off scan [true/false]: ");
             string tagOnOffScan = Console.ReadLine();
 
-            Tag tag = new DigitalInputTag
+            DigitalInputTag tag = new DigitalInputTag
             {
                 Name = tagName,
                 Description = tagDescription,
@@ -196,7 +192,7 @@ namespace DatabaseManagerApp
                 OnOffScan = bool.Parse(tagOnOffScan),
             };
 
-            tagServiceClient.AddTag(tag);
+            tagServiceClient.AddDigitalInputTag(tag);
         }
 
         private static void AddAnalogOutputTag()
@@ -221,7 +217,7 @@ namespace DatabaseManagerApp
             Console.Write("Enter tag units: ");
             string tagUnits = Console.ReadLine();
 
-            Tag tag = new AnalogOutputTag
+            AnalogOutputTag tag = new AnalogOutputTag
             {
                 Name = tagName,
                 Description = tagDescription,
@@ -232,7 +228,7 @@ namespace DatabaseManagerApp
                 InitialValue = double.Parse(tagInitialValue)
             };
 
-            tagServiceClient.AddTag(tag);
+            tagServiceClient.AddAnalogOutputTag(tag);
         }
 
         private static void AddDigitalOutputTag()
@@ -248,7 +244,7 @@ namespace DatabaseManagerApp
             Console.Write("Enter tag initial value: ");
             string tagInitialValue = Console.ReadLine();
 
-            Tag tag = new DigitalOutputTag
+            DigitalOutputTag tag = new DigitalOutputTag
             {
                 Name = tagName,
                 Description = tagDescription,
@@ -256,7 +252,7 @@ namespace DatabaseManagerApp
                 InitialValue = double.Parse(tagInitialValue)
             };
 
-            tagServiceClient.AddTag(tag);
+            tagServiceClient.AddDigitalOutputTag(tag);
         }
 
         private static string EnterTagName()
@@ -341,16 +337,5 @@ namespace DatabaseManagerApp
             }
         }
 
-        private static void PerformSomeAction()
-        {
-            // Implement the action for logged-in users
-            Console.WriteLine("Performing some action...");
-        }
-
-        private static void PerformAnotherAction()
-        {
-            // Implement another action for logged-in users
-            Console.WriteLine("Performing another action...");
-        }
     }
 }

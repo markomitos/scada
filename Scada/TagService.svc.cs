@@ -6,6 +6,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 using Scada.models;
+using Scada.repositories.implementations;
 
 namespace Scada
 {
@@ -14,63 +15,107 @@ namespace Scada
     public class TagService : ITagService
     {
         private readonly TagRepository _tagRepository;
+        private readonly TagValueRepository _tagValueRepository;
 
         public TagService()
         {
-            _tagRepository = new TagRepository(new ScadaContext());
+            _tagRepository = new TagRepository();
+            _tagValueRepository = new TagValueRepository(new ScadaContext());
         }
 
-        public bool AddTag(Tag tag)
+        // Methods for AnalogInputTag
+        public List<AnalogInputTag> GetAllAnalogInputTags()
         {
-            try
-            {
-                _tagRepository.AddTag(tag);
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
+            return _tagRepository.GetAllAnalogInputTags();
         }
 
-        public bool RemoveTag(string tagName)
+        public AnalogInputTag GetAnalogInputTag(string name)
         {
-            try
-            {
-                _tagRepository.RemoveTag(tagName);
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
+            return _tagRepository.GetAnalogInputTag(name);
         }
 
-        public bool UpdateTag(Tag tag)
+        public void AddAnalogInputTag(AnalogInputTag analogInputTag)
         {
-            try
-            {
-                _tagRepository.UpdateTag(tag);
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
+            _tagRepository.AddAnalogInputTag(analogInputTag);
         }
 
-        public Tag GetTag(string tagName)
+        public AnalogInputTag UpdateAnalogInputTag(AnalogInputTag analogInput)
         {
-            return _tagRepository.GetTag(tagName);
+            return _tagRepository.UpdateAnalogInputTag(analogInput);
         }
 
-        public List<Tag> GetAllTags()
+        // Methods for AnalogOutputTag
+        public List<AnalogOutputTag> GetAllAnalogOutputTags()
         {
-            return _tagRepository.GetAllTags();
+            return _tagRepository.GetAllAnalogOutputTags();
         }
-        public bool IsTagNameUnique(string tagName)
+
+        public AnalogOutputTag GetAnalogOutputTag(string name)
         {
-            return _tagRepository.GetTag(tagName) == null;
+            return _tagRepository.GetAnalogOutputTag(name);
+        }
+
+        public void AddAnalogOutputTag(AnalogOutputTag analogOutputTag)
+        {
+            _tagRepository.AddAnalogOutputTag(analogOutputTag);
+        }
+
+        public AnalogOutputTag UpdateAnalogOutputTag(AnalogOutputTag analogOutput)
+        {
+            return _tagRepository.UpdateAnalogOutputTag(analogOutput);
+        }
+
+        // Methods for DigitalInputTag
+        public List<DigitalInputTag> GetAllDigitalInputTags()
+        {
+            return _tagRepository.GetAllDigitalInputTags();
+        }
+
+        public DigitalInputTag GetDigitalInputTag(string name)
+        {
+            return _tagRepository.GetDigitalInputTag(name);
+        }
+
+        public void AddDigitalInputTag(DigitalInputTag digitalInputTag)
+        {
+            _tagRepository.AddDigitalInputTag(digitalInputTag);
+        }
+
+        public DigitalInputTag UpdateDigitalInputTag(DigitalInputTag digitalInput)
+        {
+            return _tagRepository.UpdateDigitalInputTag(digitalInput);
+        }
+
+        // Methods for DigitalOutputTag
+        public List<DigitalOutputTag> GetAllDigitalOutputTags()
+        {
+            return _tagRepository.GetAllDigitalOutputTags();
+        }
+
+        public DigitalOutputTag GetDigitalOutputTag(string name)
+        {
+            return _tagRepository.GetDigitalOutputTag(name);
+        }
+
+        public void AddDigitalOutputTag(DigitalOutputTag digitalOutputTag)
+        {
+            _tagRepository.AddDigitalOutputTag(digitalOutputTag);
+        }
+
+        public DigitalOutputTag UpdateDigitalOutputTag(DigitalOutputTag digitalOutput)
+        {
+            return _tagRepository.UpdateDigitalOutputTag(digitalOutput);
+        }
+
+        // Universal remove
+        public bool RemoveTag(string name)
+        {
+            return _tagRepository.RemoveTag(name);
+        }
+
+        public bool IsTagNameUnique(string name)
+        {
+            return _tagRepository.IsTagNameUnique(name);
         }
     }
 }

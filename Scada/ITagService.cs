@@ -12,22 +12,67 @@ namespace Scada
     [ServiceContract]
     public interface ITagService
     {
+        // Methods for AnalogInputTag
         [OperationContract]
-        bool AddTag(Tag tag);
+        List<AnalogInputTag> GetAllAnalogInputTags();
 
         [OperationContract]
-        bool RemoveTag(string tagName);
+        AnalogInputTag GetAnalogInputTag(string name);
 
         [OperationContract]
-        bool UpdateTag(Tag tag);
+        void AddAnalogInputTag(AnalogInputTag analogInputTag);
 
         [OperationContract]
-        Tag GetTag(string tagName);
+        AnalogInputTag UpdateAnalogInputTag(AnalogInputTag analogInput);
+
+
+        // Methods for AnalogOutputTag
+        [OperationContract]
+        List<AnalogOutputTag> GetAllAnalogOutputTags();
 
         [OperationContract]
-        List<Tag> GetAllTags();
+        AnalogOutputTag GetAnalogOutputTag(string name);
 
         [OperationContract]
-        bool IsTagNameUnique(string tagName);
+        void AddAnalogOutputTag(AnalogOutputTag analogOutputTag);
+
+        [OperationContract]
+        AnalogOutputTag UpdateAnalogOutputTag(AnalogOutputTag analogOutput);
+
+
+        // Methods for DigitalInputTag
+        [OperationContract]
+        List<DigitalInputTag> GetAllDigitalInputTags();
+
+        [OperationContract]
+        DigitalInputTag GetDigitalInputTag(string name);
+
+        [OperationContract]
+        void AddDigitalInputTag(DigitalInputTag digitalInputTag);
+
+        [OperationContract]
+        DigitalInputTag UpdateDigitalInputTag(DigitalInputTag digitalInput);
+
+
+        // Methods for DigitalOutputTag
+        [OperationContract]
+        List<DigitalOutputTag> GetAllDigitalOutputTags();
+
+        [OperationContract]
+        DigitalOutputTag GetDigitalOutputTag(string name);
+
+        [OperationContract]
+        void AddDigitalOutputTag(DigitalOutputTag digitalOutputTag);
+
+        [OperationContract]
+        DigitalOutputTag UpdateDigitalOutputTag(DigitalOutputTag digitalOutput);
+
+
+        // Universal remove
+        [OperationContract]
+        bool RemoveTag(string name);
+
+        [OperationContract]
+        bool IsTagNameUnique(string name);
     }
 }

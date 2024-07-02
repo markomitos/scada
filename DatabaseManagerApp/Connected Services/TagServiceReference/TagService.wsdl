@@ -7,35 +7,107 @@
       <xsd:import schemaLocation="http://localhost:60822/TagService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Scada.models" />
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="ITagService_AddTag_InputMessage">
-    <wsdl:part name="parameters" element="tns:AddTag" />
+  <wsdl:message name="ITagService_GetAllAnalogInputTags_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAnalogInputTags" />
   </wsdl:message>
-  <wsdl:message name="ITagService_AddTag_OutputMessage">
-    <wsdl:part name="parameters" element="tns:AddTagResponse" />
+  <wsdl:message name="ITagService_GetAllAnalogInputTags_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAnalogInputTagsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITagService_GetAnalogInputTag_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAnalogInputTag" />
+  </wsdl:message>
+  <wsdl:message name="ITagService_GetAnalogInputTag_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAnalogInputTagResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITagService_AddAnalogInputTag_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddAnalogInputTag" />
+  </wsdl:message>
+  <wsdl:message name="ITagService_AddAnalogInputTag_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddAnalogInputTagResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITagService_UpdateAnalogInputTag_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAnalogInputTag" />
+  </wsdl:message>
+  <wsdl:message name="ITagService_UpdateAnalogInputTag_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAnalogInputTagResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITagService_GetAllAnalogOutputTags_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAnalogOutputTags" />
+  </wsdl:message>
+  <wsdl:message name="ITagService_GetAllAnalogOutputTags_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAnalogOutputTagsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITagService_GetAnalogOutputTag_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAnalogOutputTag" />
+  </wsdl:message>
+  <wsdl:message name="ITagService_GetAnalogOutputTag_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAnalogOutputTagResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITagService_AddAnalogOutputTag_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddAnalogOutputTag" />
+  </wsdl:message>
+  <wsdl:message name="ITagService_AddAnalogOutputTag_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddAnalogOutputTagResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITagService_UpdateAnalogOutputTag_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAnalogOutputTag" />
+  </wsdl:message>
+  <wsdl:message name="ITagService_UpdateAnalogOutputTag_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAnalogOutputTagResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITagService_GetAllDigitalInputTags_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllDigitalInputTags" />
+  </wsdl:message>
+  <wsdl:message name="ITagService_GetAllDigitalInputTags_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllDigitalInputTagsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITagService_GetDigitalInputTag_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDigitalInputTag" />
+  </wsdl:message>
+  <wsdl:message name="ITagService_GetDigitalInputTag_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDigitalInputTagResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITagService_AddDigitalInputTag_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddDigitalInputTag" />
+  </wsdl:message>
+  <wsdl:message name="ITagService_AddDigitalInputTag_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddDigitalInputTagResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITagService_UpdateDigitalInputTag_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateDigitalInputTag" />
+  </wsdl:message>
+  <wsdl:message name="ITagService_UpdateDigitalInputTag_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateDigitalInputTagResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITagService_GetAllDigitalOutputTags_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllDigitalOutputTags" />
+  </wsdl:message>
+  <wsdl:message name="ITagService_GetAllDigitalOutputTags_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllDigitalOutputTagsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITagService_GetDigitalOutputTag_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDigitalOutputTag" />
+  </wsdl:message>
+  <wsdl:message name="ITagService_GetDigitalOutputTag_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDigitalOutputTagResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITagService_AddDigitalOutputTag_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddDigitalOutputTag" />
+  </wsdl:message>
+  <wsdl:message name="ITagService_AddDigitalOutputTag_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddDigitalOutputTagResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITagService_UpdateDigitalOutputTag_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateDigitalOutputTag" />
+  </wsdl:message>
+  <wsdl:message name="ITagService_UpdateDigitalOutputTag_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateDigitalOutputTagResponse" />
   </wsdl:message>
   <wsdl:message name="ITagService_RemoveTag_InputMessage">
     <wsdl:part name="parameters" element="tns:RemoveTag" />
   </wsdl:message>
   <wsdl:message name="ITagService_RemoveTag_OutputMessage">
     <wsdl:part name="parameters" element="tns:RemoveTagResponse" />
-  </wsdl:message>
-  <wsdl:message name="ITagService_UpdateTag_InputMessage">
-    <wsdl:part name="parameters" element="tns:UpdateTag" />
-  </wsdl:message>
-  <wsdl:message name="ITagService_UpdateTag_OutputMessage">
-    <wsdl:part name="parameters" element="tns:UpdateTagResponse" />
-  </wsdl:message>
-  <wsdl:message name="ITagService_GetTag_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetTag" />
-  </wsdl:message>
-  <wsdl:message name="ITagService_GetTag_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetTagResponse" />
-  </wsdl:message>
-  <wsdl:message name="ITagService_GetAllTags_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetAllTags" />
-  </wsdl:message>
-  <wsdl:message name="ITagService_GetAllTags_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetAllTagsResponse" />
   </wsdl:message>
   <wsdl:message name="ITagService_IsTagNameUnique_InputMessage">
     <wsdl:part name="parameters" element="tns:IsTagNameUnique" />
@@ -44,25 +116,73 @@
     <wsdl:part name="parameters" element="tns:IsTagNameUniqueResponse" />
   </wsdl:message>
   <wsdl:portType name="ITagService">
-    <wsdl:operation name="AddTag">
-      <wsdl:input wsaw:Action="http://tempuri.org/ITagService/AddTag" message="tns:ITagService_AddTag_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ITagService/AddTagResponse" message="tns:ITagService_AddTag_OutputMessage" />
+    <wsdl:operation name="GetAllAnalogInputTags">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITagService/GetAllAnalogInputTags" message="tns:ITagService_GetAllAnalogInputTags_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITagService/GetAllAnalogInputTagsResponse" message="tns:ITagService_GetAllAnalogInputTags_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAnalogInputTag">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITagService/GetAnalogInputTag" message="tns:ITagService_GetAnalogInputTag_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITagService/GetAnalogInputTagResponse" message="tns:ITagService_GetAnalogInputTag_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddAnalogInputTag">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITagService/AddAnalogInputTag" message="tns:ITagService_AddAnalogInputTag_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITagService/AddAnalogInputTagResponse" message="tns:ITagService_AddAnalogInputTag_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAnalogInputTag">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITagService/UpdateAnalogInputTag" message="tns:ITagService_UpdateAnalogInputTag_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITagService/UpdateAnalogInputTagResponse" message="tns:ITagService_UpdateAnalogInputTag_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAnalogOutputTags">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITagService/GetAllAnalogOutputTags" message="tns:ITagService_GetAllAnalogOutputTags_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITagService/GetAllAnalogOutputTagsResponse" message="tns:ITagService_GetAllAnalogOutputTags_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAnalogOutputTag">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITagService/GetAnalogOutputTag" message="tns:ITagService_GetAnalogOutputTag_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITagService/GetAnalogOutputTagResponse" message="tns:ITagService_GetAnalogOutputTag_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddAnalogOutputTag">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITagService/AddAnalogOutputTag" message="tns:ITagService_AddAnalogOutputTag_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITagService/AddAnalogOutputTagResponse" message="tns:ITagService_AddAnalogOutputTag_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAnalogOutputTag">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITagService/UpdateAnalogOutputTag" message="tns:ITagService_UpdateAnalogOutputTag_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITagService/UpdateAnalogOutputTagResponse" message="tns:ITagService_UpdateAnalogOutputTag_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllDigitalInputTags">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITagService/GetAllDigitalInputTags" message="tns:ITagService_GetAllDigitalInputTags_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITagService/GetAllDigitalInputTagsResponse" message="tns:ITagService_GetAllDigitalInputTags_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDigitalInputTag">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITagService/GetDigitalInputTag" message="tns:ITagService_GetDigitalInputTag_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITagService/GetDigitalInputTagResponse" message="tns:ITagService_GetDigitalInputTag_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddDigitalInputTag">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITagService/AddDigitalInputTag" message="tns:ITagService_AddDigitalInputTag_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITagService/AddDigitalInputTagResponse" message="tns:ITagService_AddDigitalInputTag_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDigitalInputTag">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITagService/UpdateDigitalInputTag" message="tns:ITagService_UpdateDigitalInputTag_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITagService/UpdateDigitalInputTagResponse" message="tns:ITagService_UpdateDigitalInputTag_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllDigitalOutputTags">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITagService/GetAllDigitalOutputTags" message="tns:ITagService_GetAllDigitalOutputTags_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITagService/GetAllDigitalOutputTagsResponse" message="tns:ITagService_GetAllDigitalOutputTags_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDigitalOutputTag">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITagService/GetDigitalOutputTag" message="tns:ITagService_GetDigitalOutputTag_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITagService/GetDigitalOutputTagResponse" message="tns:ITagService_GetDigitalOutputTag_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddDigitalOutputTag">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITagService/AddDigitalOutputTag" message="tns:ITagService_AddDigitalOutputTag_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITagService/AddDigitalOutputTagResponse" message="tns:ITagService_AddDigitalOutputTag_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDigitalOutputTag">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITagService/UpdateDigitalOutputTag" message="tns:ITagService_UpdateDigitalOutputTag_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITagService/UpdateDigitalOutputTagResponse" message="tns:ITagService_UpdateDigitalOutputTag_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="RemoveTag">
       <wsdl:input wsaw:Action="http://tempuri.org/ITagService/RemoveTag" message="tns:ITagService_RemoveTag_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ITagService/RemoveTagResponse" message="tns:ITagService_RemoveTag_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="UpdateTag">
-      <wsdl:input wsaw:Action="http://tempuri.org/ITagService/UpdateTag" message="tns:ITagService_UpdateTag_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ITagService/UpdateTagResponse" message="tns:ITagService_UpdateTag_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetTag">
-      <wsdl:input wsaw:Action="http://tempuri.org/ITagService/GetTag" message="tns:ITagService_GetTag_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ITagService/GetTagResponse" message="tns:ITagService_GetTag_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetAllTags">
-      <wsdl:input wsaw:Action="http://tempuri.org/ITagService/GetAllTags" message="tns:ITagService_GetAllTags_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ITagService/GetAllTagsResponse" message="tns:ITagService_GetAllTags_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="IsTagNameUnique">
       <wsdl:input wsaw:Action="http://tempuri.org/ITagService/IsTagNameUnique" message="tns:ITagService_IsTagNameUnique_InputMessage" />
@@ -71,8 +191,143 @@
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ITagService" type="tns:ITagService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="AddTag">
-      <soap:operation soapAction="http://tempuri.org/ITagService/AddTag" style="document" />
+    <wsdl:operation name="GetAllAnalogInputTags">
+      <soap:operation soapAction="http://tempuri.org/ITagService/GetAllAnalogInputTags" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAnalogInputTag">
+      <soap:operation soapAction="http://tempuri.org/ITagService/GetAnalogInputTag" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddAnalogInputTag">
+      <soap:operation soapAction="http://tempuri.org/ITagService/AddAnalogInputTag" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAnalogInputTag">
+      <soap:operation soapAction="http://tempuri.org/ITagService/UpdateAnalogInputTag" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAnalogOutputTags">
+      <soap:operation soapAction="http://tempuri.org/ITagService/GetAllAnalogOutputTags" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAnalogOutputTag">
+      <soap:operation soapAction="http://tempuri.org/ITagService/GetAnalogOutputTag" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddAnalogOutputTag">
+      <soap:operation soapAction="http://tempuri.org/ITagService/AddAnalogOutputTag" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAnalogOutputTag">
+      <soap:operation soapAction="http://tempuri.org/ITagService/UpdateAnalogOutputTag" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllDigitalInputTags">
+      <soap:operation soapAction="http://tempuri.org/ITagService/GetAllDigitalInputTags" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDigitalInputTag">
+      <soap:operation soapAction="http://tempuri.org/ITagService/GetDigitalInputTag" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddDigitalInputTag">
+      <soap:operation soapAction="http://tempuri.org/ITagService/AddDigitalInputTag" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDigitalInputTag">
+      <soap:operation soapAction="http://tempuri.org/ITagService/UpdateDigitalInputTag" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllDigitalOutputTags">
+      <soap:operation soapAction="http://tempuri.org/ITagService/GetAllDigitalOutputTags" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDigitalOutputTag">
+      <soap:operation soapAction="http://tempuri.org/ITagService/GetDigitalOutputTag" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddDigitalOutputTag">
+      <soap:operation soapAction="http://tempuri.org/ITagService/AddDigitalOutputTag" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDigitalOutputTag">
+      <soap:operation soapAction="http://tempuri.org/ITagService/UpdateDigitalOutputTag" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -82,33 +337,6 @@
     </wsdl:operation>
     <wsdl:operation name="RemoveTag">
       <soap:operation soapAction="http://tempuri.org/ITagService/RemoveTag" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="UpdateTag">
-      <soap:operation soapAction="http://tempuri.org/ITagService/UpdateTag" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetTag">
-      <soap:operation soapAction="http://tempuri.org/ITagService/GetTag" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetAllTags">
-      <soap:operation soapAction="http://tempuri.org/ITagService/GetAllTags" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

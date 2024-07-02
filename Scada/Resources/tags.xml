@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Tags xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Tag xsi:type="AnalogInputTag" Name="analogInputTag1" Description="description" IoAddress="AI1" Driver="SIM" ScanTime="3" OnOffScan="true" LowLimit="2" HighLimit="20" Units="degrees">
+    <Id>0</Id>
+    <Alarm>true</Alarm>
+  </Tag>
+  <Tag xsi:type="DigitalOutputTag" Name="digitalOutputTag1" Description="description" IoAddress="DO1" InitialValue="0">
+    <Id>0</Id>
+  </Tag>
+</Tags>

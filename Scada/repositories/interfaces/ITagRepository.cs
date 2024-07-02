@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Scada.models;
 
 namespace Scada.repositories.interfaces
 {

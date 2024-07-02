@@ -77,6 +77,12 @@
     <None Include="Connected Services\UserServiceReference\UserService1.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Properties\DataSources\Scada.models.AnalogInputTag.datasource" />
+    <None Include="Properties\DataSources\Scada.models.AnalogOutputTag.datasource" />
+    <None Include="Properties\DataSources\Scada.models.AnalogOutputTag1.datasource" />
+    <None Include="Properties\DataSources\Scada.models.AnalogOutputTag2.datasource" />
+    <None Include="Properties\DataSources\Scada.models.DigitalInputTag.datasource" />
+    <None Include="Properties\DataSources\Scada.models.DigitalOutputTag.datasource" />
     <None Include="Properties\DataSources\Scada.models.Tag.datasource" />
   </ItemGroup>
   <ItemGroup>
