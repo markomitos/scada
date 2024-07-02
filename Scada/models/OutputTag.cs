@@ -1,9 +1,12 @@
 using System.ComponentModel.DataAnnotations;
 using System.Xml.Serialization;
 
-public class OutputTag: Tag
+namespace Scada.models
 {
-    [XmlAttribute("InitialValue")]
-    [Required]
-    public double InitialValue { get; set; }
+    public class OutputTag : Tag
+    {
+        [XmlAttribute("InitialValue")]
+        [Required]
+        public double InitialValue { get; set; }
+    }
 }
