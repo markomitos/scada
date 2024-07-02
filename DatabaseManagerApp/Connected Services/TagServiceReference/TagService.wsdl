@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" name="TagService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:60822/TagService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:60822/TagService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:60822/TagService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Scada.models" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ITagService_AddTag_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddTag" />
+  </wsdl:message>
+  <wsdl:message name="ITagService_AddTag_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddTagResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITagService_RemoveTag_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveTag" />
+  </wsdl:message>
+  <wsdl:message name="ITagService_RemoveTag_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveTagResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITagService_UpdateTag_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTag" />
+  </wsdl:message>
+  <wsdl:message name="ITagService_UpdateTag_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTagResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITagService_GetTag_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTag" />
+  </wsdl:message>
+  <wsdl:message name="ITagService_GetTag_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTagResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITagService_GetAllTags_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllTags" />
+  </wsdl:message>
+  <wsdl:message name="ITagService_GetAllTags_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllTagsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITagService_IsTagNameUnique_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsTagNameUnique" />
+  </wsdl:message>
+  <wsdl:message name="ITagService_IsTagNameUnique_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsTagNameUniqueResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ITagService">
+    <wsdl:operation name="AddTag">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITagService/AddTag" message="tns:ITagService_AddTag_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITagService/AddTagResponse" message="tns:ITagService_AddTag_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveTag">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITagService/RemoveTag" message="tns:ITagService_RemoveTag_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITagService/RemoveTagResponse" message="tns:ITagService_RemoveTag_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTag">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITagService/UpdateTag" message="tns:ITagService_UpdateTag_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITagService/UpdateTagResponse" message="tns:ITagService_UpdateTag_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTag">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITagService/GetTag" message="tns:ITagService_GetTag_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITagService/GetTagResponse" message="tns:ITagService_GetTag_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTags">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITagService/GetAllTags" message="tns:ITagService_GetAllTags_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITagService/GetAllTagsResponse" message="tns:ITagService_GetAllTags_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsTagNameUnique">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITagService/IsTagNameUnique" message="tns:ITagService_IsTagNameUnique_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITagService/IsTagNameUniqueResponse" message="tns:ITagService_IsTagNameUnique_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ITagService" type="tns:ITagService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddTag">
+      <soap:operation soapAction="http://tempuri.org/ITagService/AddTag" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveTag">
+      <soap:operation soapAction="http://tempuri.org/ITagService/RemoveTag" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTag">
+      <soap:operation soapAction="http://tempuri.org/ITagService/UpdateTag" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTag">
+      <soap:operation soapAction="http://tempuri.org/ITagService/GetTag" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTags">
+      <soap:operation soapAction="http://tempuri.org/ITagService/GetAllTags" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsTagNameUnique">
+      <soap:operation soapAction="http://tempuri.org/ITagService/IsTagNameUnique" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TagService">
+    <wsdl:port name="BasicHttpBinding_ITagService" binding="tns:BasicHttpBinding_ITagService">
+      <soap:address location="http://localhost:60822/TagService.svc/tag" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

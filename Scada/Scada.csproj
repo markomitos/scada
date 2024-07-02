@@ -127,18 +127,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="TagService.svc" />
     <Content Include="UserService.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="interfaces\IUserService.cs" />
-    <Compile Include="Migrations\202407012258026_InitialCreate.cs" />
-    <Compile Include="Migrations\202407012258026_InitialCreate.Designer.cs">
-      <DependentUpon>202407012258026_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202407021153475_TagsTable.cs" />
-    <Compile Include="Migrations\202407021153475_TagsTable.Designer.cs">
-      <DependentUpon>202407021153475_TagsTable.cs</DependentUpon>
+    <Compile Include="ITagService.cs" />
+    <Compile Include="Migrations\202407021322206_TagKeyUpdate.cs" />
+    <Compile Include="Migrations\202407021322206_TagKeyUpdate.designer.cs">
+      <DependentUpon>202407021322206_TagKeyUpdate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="models\AnalogInputTag.cs" />
@@ -155,6 +153,9 @@
     <Compile Include="repositories\interfaces\ITagRepository.cs" />
     <Compile Include="repositories\ScadaContext.cs" />
     <Compile Include="repositories\UserRepository.cs" />
+    <Compile Include="TagService.svc.cs">
+      <DependentUpon>TagService.svc</DependentUpon>
+    </Compile>
     <Compile Include="UserService.svc.cs">
       <DependentUpon>UserService.svc</DependentUpon>
     </Compile>
@@ -174,11 +175,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202407012258026_InitialCreate.resx">
-      <DependentUpon>202407012258026_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202407021153475_TagsTable.resx">
-      <DependentUpon>202407021153475_TagsTable.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202407021322206_TagKeyUpdate.resx">
+      <DependentUpon>202407021322206_TagKeyUpdate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
