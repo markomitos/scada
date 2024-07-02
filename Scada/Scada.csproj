@@ -135,9 +135,18 @@
       <DependentUpon>CoreService.svc</DependentUpon>
     </Compile>
     <Compile Include="interfaces\IUserService.cs" />
+    <Compile Include="models\AnalogInputTag.cs" />
+    <Compile Include="models\AnalogOutputTag.cs" />
+    <Compile Include="models\DigitalInputTag.cs" />
+    <Compile Include="models\DigitalOutputTag.cs" />
+    <Compile Include="models\InputTag.cs" />
+    <Compile Include="models\OutputTag.cs" />
+    <Compile Include="models\Tag.cs" />
     <Compile Include="models\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="repositories\implementations\TagRepository.cs" />
+    <Compile Include="repositories\interfaces\ITagRepository.cs" />
     <Compile Include="repositories\ScadaContext.cs" />
     <Compile Include="repositories\UserRepository.cs" />
     <Compile Include="utilities\EncryptionUtility.cs" />
