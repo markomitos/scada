@@ -1,5 +1,9 @@
 
-public class DigitalInputTag: InputTag
-{
 
+namespace Scada.models
+{
+    public class DigitalInputTag : InputTag
+    {
+
+    }
 }

@@ -1,6 +1,9 @@
 using System.ComponentModel.DataAnnotations;
 
-public class DigitalOutputTag: OutputTag
+namespace Scada.models
 {
+    public class DigitalOutputTag : OutputTag
+    {
 
+    }
 }

@@ -1,7 +1,10 @@
 using System.ComponentModel.DataAnnotations;
 
-public class OutputTag: Tag
+namespace Scada.models
 {
-    [Required]
-    public double InitialValue { get; set; }
+    public class OutputTag : Tag
+    {
+        [Required]
+        public double InitialValue { get; set; }
+    }
 }

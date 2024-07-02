@@ -2,6 +2,7 @@ using Scada.repositories.interfaces;
 using Scada.repositories;
 using System.Collections.Generic;
 using System.Linq;
+using Scada.models;
 
 public class TagRepository : ITagRepository
 {
@@ -30,7 +31,7 @@ public class TagRepository : ITagRepository
 
     public void UpdateTag(Tag tag)
     {
-        var existingTag = context.Tags.Find(tag.Id);
+        var existingTag = context.Tags.Find(tag.Name);
         if (existingTag != null)
         {
             context.Entry(existingTag).CurrentValues.SetValues(tag);
