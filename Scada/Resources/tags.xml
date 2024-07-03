@@ -21,4 +21,8 @@
     <Id>0</Id>
     <Alarm>true</Alarm>
   </Tag>
+  <Tag xsi:type="AnalogInputTag" Name="analogInputTag4" Description="toggle tes" IoAddress="AI4" Driver="RT" ScanTime="10000" OnOffScan="false" LowLimit="20" HighLimit="100" Units="s">
+    <Id>0</Id>
+    <Alarm>true</Alarm>
+  </Tag>
 </Tags>

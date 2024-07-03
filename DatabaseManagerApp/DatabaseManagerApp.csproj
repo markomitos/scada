@@ -83,6 +83,7 @@
     <None Include="Properties\DataSources\Scada.models.AnalogOutputTag2.datasource" />
     <None Include="Properties\DataSources\Scada.models.DigitalInputTag.datasource" />
     <None Include="Properties\DataSources\Scada.models.DigitalOutputTag.datasource" />
+    <None Include="Properties\DataSources\Scada.models.InputTag.datasource" />
     <None Include="Properties\DataSources\Scada.models.Tag.datasource" />
     <None Include="Properties\DataSources\Scada.models.TagValue.datasource" />
   </ItemGroup>

@@ -66,6 +66,7 @@ namespace DatabaseManagerApp
             Console.WriteLine("1. Add tag");
             Console.WriteLine("2. Remove tag");
             Console.WriteLine("3. Logout");
+            Console.WriteLine("4. Toggle scan");
             Console.Write("Select an option: ");
 
             string choice = Console.ReadLine();
@@ -81,14 +82,65 @@ namespace DatabaseManagerApp
                 case "3":
                     LogoutUser();
                     break;
+                case "4":
+                    ToggleScan();
+                    break;
                 default:
                     Console.WriteLine("Invalid option. Please try again.");
                     break;
             }
         }
+        private static void ToggleScan()
+        {
+            Console.Write("Enter tag name: ");
+            string tagName = Console.ReadLine();
+            AnalogInputTag analogInputTag = tagServiceClient.GetAnalogInputTag(tagName);
+
+            if (analogInputTag != null)
+            {
+                toggleAnalogScan(analogInputTag);
+                return;
+            } 
+
+            DigitalInputTag digitalInputTag = tagServiceClient.GetDigitalInputTag(tagName);
+            if (digitalInputTag != null)
+            {
+                toggleDigitalScan(digitalInputTag);
+                return;
+            }
+
+            Console.WriteLine($"Tag {tagName} doesn't exist.");
+        }
+
+        private static void toggleDigitalScan(DigitalInputTag digitalInputTag)
+        {
+            Console.Write(digitalInputTag.OnOffScan ? $"Are you sure you want to toggle scan off for tag {digitalInputTag.Name} (y/n): " : $"Are you sure you want to toggle scan on for tag {digitalInputTag.Name} (y/n): ");
+            string confirmation = Console.ReadLine();
+
+            if (confirmation.ToLower().Equals("y"))
+            {
+                digitalInputTag.OnOffScan = !digitalInputTag.OnOffScan;
+                tagServiceClient.UpdateDigitalInputTag(digitalInputTag);
+                Console.WriteLine(digitalInputTag.OnOffScan ? $"Scan toggled on for tag {digitalInputTag.Name}" : $"Scan toggled off for tag {digitalInputTag.Name}");
+            }
+        }
+
+        private static void toggleAnalogScan(AnalogInputTag analogInputTag)
+        {
+            Console.Write(analogInputTag.OnOffScan ? $"Are you sure you want to toggle scan off for tag {analogInputTag.Name} (y/n): " : $"Are you sure you want to toggle scan on for tag {analogInputTag.Name} (y/n): ");
+            string confirmation = Console.ReadLine();
+
+            if (confirmation.ToLower().Equals("y"))
+            {
+                analogInputTag.OnOffScan = !analogInputTag.OnOffScan;
+                tagServiceClient.UpdateAnalogInputTag(analogInputTag);
+                Console.WriteLine(analogInputTag.OnOffScan ? $"Scan toggled on for tag {analogInputTag.Name}" : $"Scan toggled off for tag {analogInputTag.Name}");
+            }
+        }
 
         private static void RemoveTag()
         {
+
             Console.Write("Enter tag name you wish to delete: ");
             string tagName = Console.ReadLine();
             Console.Write("Are you sure you want to delete " + tagName + "? (y/n): ");
