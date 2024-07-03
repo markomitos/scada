@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using Scada.interfaces;
 using Scada.models;
 using Scada.repositories.implementations;
 using Scada.services;
@@ -18,11 +19,13 @@ namespace Scada
         private readonly TagRepository _tagRepository;
         private readonly TagValueRepository _tagValueRepository;
         private TagProcessing _tagProcessing;
+        private RealTimeDriver _realTimeDriver;
 
         public TagService()
         {
             _tagRepository = new TagRepository();
             _tagValueRepository = new TagValueRepository(new ScadaContext());
+            _realTimeDriver = new RealTimeDriver();
             _tagProcessing = new TagProcessing(this);
         }
 
@@ -148,5 +151,17 @@ namespace Scada
         {
             return _tagValueRepository.GetAllTagValues();
         }
+
+        //RTU
+        public double getRTUValue(string address)
+        {
+            return _realTimeDriver.getValue(address);
+        }
+
+        public void setRTUValue(string address, double value)
+        {
+            _realTimeDriver.setValue(address, value);
+        }
     }
+
 }

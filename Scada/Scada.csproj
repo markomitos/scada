@@ -134,7 +134,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="interfaces\IUserService.cs" />
-    <Compile Include="ITagService.cs" />
+    <Compile Include="interfaces\ITagService.cs" />
     <Compile Include="Migrations\202407021322206_TagKeyUpdate.cs" />
     <Compile Include="Migrations\202407021322206_TagKeyUpdate.designer.cs">
       <DependentUpon>202407021322206_TagKeyUpdate.cs</DependentUpon>
@@ -161,6 +161,7 @@
     <Compile Include="repositories\interfaces\ITagValueRepository.cs" />
     <Compile Include="repositories\ScadaContext.cs" />
     <Compile Include="repositories\UserRepository.cs" />
+    <Compile Include="services\RealTimeDriver.cs" />
     <Compile Include="services\TagProcessing.cs" />
     <Compile Include="TagService.svc.cs">
       <DependentUpon>TagService.svc</DependentUpon>

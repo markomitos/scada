@@ -152,6 +152,18 @@ namespace DatabaseManagerApp.TagServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetAllTagValues", ReplyAction="http://tempuri.org/ITagService/GetAllTagValuesResponse")]
         System.Threading.Tasks.Task<Scada.models.TagValue[]> GetAllTagValuesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/getRTUValue", ReplyAction="http://tempuri.org/ITagService/getRTUValueResponse")]
+        double getRTUValue(string address);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/getRTUValue", ReplyAction="http://tempuri.org/ITagService/getRTUValueResponse")]
+        System.Threading.Tasks.Task<double> getRTUValueAsync(string address);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/setRTUValue", ReplyAction="http://tempuri.org/ITagService/setRTUValueResponse")]
+        void setRTUValue(string address, double value);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/setRTUValue", ReplyAction="http://tempuri.org/ITagService/setRTUValueResponse")]
+        System.Threading.Tasks.Task setRTUValueAsync(string address, double value);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -363,6 +375,22 @@ namespace DatabaseManagerApp.TagServiceReference {
         
         public System.Threading.Tasks.Task<Scada.models.TagValue[]> GetAllTagValuesAsync() {
             return base.Channel.GetAllTagValuesAsync();
+        }
+        
+        public double getRTUValue(string address) {
+            return base.Channel.getRTUValue(address);
+        }
+        
+        public System.Threading.Tasks.Task<double> getRTUValueAsync(string address) {
+            return base.Channel.getRTUValueAsync(address);
+        }
+        
+        public void setRTUValue(string address, double value) {
+            base.Channel.setRTUValue(address, value);
+        }
+        
+        public System.Threading.Tasks.Task setRTUValueAsync(string address, double value) {
+            return base.Channel.setRTUValueAsync(address, value);
         }
     }
 }

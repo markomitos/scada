@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading;
 using System.Web.ApplicationServices;
+using Scada.interfaces;
 using Scada.models;
 using ValueType = Scada.models.ValueType;
 
@@ -14,7 +15,7 @@ namespace Scada.services
         private readonly ITagService _tagService;
         public TagProcessing(ITagService tagService)
         {
-            this._tagService = tagService;
+            _tagService = tagService;
             StartProcessing();
         }
 
@@ -35,15 +36,15 @@ namespace Scada.services
                 {
                     value = SimulationDriver.SimulationDriver.ReturnValue(tag.IoAddress);
                 }
-                //else if (tag.Driver.Equals("RTD"))
-                //{
-                //    value = coreService.GetRealTimeUnitValue(tag.IOAddress);
-                //    if (value == Double.NegativeInfinity)
-                //    {
-                //        Thread.Sleep((int)tag.ScanTime);
-                //        continue;
-                //    }
-                //}
+                else if (tag.Driver.Equals("RTD"))
+                {
+                    value = _tagService.getRTUValue(tag.IoAddress);
+                    if (value == Double.NegativeInfinity)
+                    {
+                        Thread.Sleep((int)tag.ScanTime);
+                        continue;
+                    }
+                }
                 else
                 {
                     break;
@@ -89,15 +90,15 @@ namespace Scada.services
                 {
                     value = SimulationDriver.SimulationDriver.ReturnValue(tag.IoAddress);
                 }
-                //else if (tag.Driver.Equals("RTD"))
-                //{
-                //    value = coreService.GetRealTimeUnitValue(tag.IOAddress);
-                //    if (value == Double.NegativeInfinity)
-                //    {
-                //        Thread.Sleep((int)tag.ScanTime);
-                //        continue;
-                //    }
-                //}
+                else if (tag.Driver.Equals("RTD"))
+                {
+                    value = _tagService.getRTUValue(tag.IoAddress);
+                    if (value == Double.NegativeInfinity)
+                    {
+                        Thread.Sleep((int)tag.ScanTime);
+                        continue;
+                    }
+                }
                 else
                 {
                     break;

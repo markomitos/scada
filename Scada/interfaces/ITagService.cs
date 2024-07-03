@@ -5,8 +5,9 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 using Scada.models;
+using Scada.services;
 
-namespace Scada
+namespace Scada.interfaces
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "ITagService" in both code and config file together.
     [ServiceContract]
@@ -86,6 +87,12 @@ namespace Scada
         TagValue GetTagValue(string tagValueId);
         [OperationContract]
         List<TagValue> GetAllTagValues();
+
+        //RTU
+        [OperationContract]
+        double getRTUValue(string address);
+        [OperationContract]
+        void setRTUValue(string address, double value);
     }
 
 }

@@ -17,4 +17,8 @@
     <Id>0</Id>
     <Alarm>false</Alarm>
   </Tag>
+  <Tag xsi:type="AnalogInputTag" Name="analogInputTag3" Description="rtd test" IoAddress="AI3" Driver="RTD" ScanTime="10000" OnOffScan="true" LowLimit="50" HighLimit="100" Units="s">
+    <Id>0</Id>
+    <Alarm>true</Alarm>
+  </Tag>
 </Tags>
