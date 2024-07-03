@@ -64,7 +64,8 @@ namespace DatabaseManagerApp
             Console.WriteLine("SCADA System - User Management (Logged In)");
             Console.WriteLine($"Current Token: {currentToken}");
             Console.WriteLine("1. Add tag");
-            Console.WriteLine("2. Logout");
+            Console.WriteLine("2. Remove tag");
+            Console.WriteLine("3. Logout");
             Console.Write("Select an option: ");
 
             string choice = Console.ReadLine();
@@ -75,11 +76,27 @@ namespace DatabaseManagerApp
                     AddTagMenu();
                     break;
                 case "2":
+                    RemoveTag();
+                    break;
+                case "3":
                     LogoutUser();
                     break;
                 default:
                     Console.WriteLine("Invalid option. Please try again.");
                     break;
+            }
+        }
+
+        private static void RemoveTag()
+        {
+            Console.Write("Enter tag name you wish to delete: ");
+            string tagName = Console.ReadLine();
+            Console.Write("Are you sure you want to delete " + tagName + "? (y/n): ");
+            string confirmation = Console.ReadLine();
+            if (confirmation == "y") {
+
+                bool successful = tagServiceClient.RemoveTag(tagName);
+                Console.WriteLine(successful ? "Delete successful" : "Error: tag " + tagName + " doesn't exist.");
             }
         }
 

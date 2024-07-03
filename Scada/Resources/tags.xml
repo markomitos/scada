@@ -4,7 +4,10 @@
     <Id>0</Id>
     <Alarm>true</Alarm>
   </Tag>
-  <Tag xsi:type="DigitalOutputTag" Name="digitalOutputTag1" Description="description" IoAddress="DO1" InitialValue="0">
+  <Tag xsi:type="DigitalOutputTag" Name="digitalOutputTag2" Description="desc" IoAddress="R" InitialValue="0">
+    <Id>0</Id>
+  </Tag>
+  <Tag xsi:type="DigitalOutputTag" Name="digitalOutputTag3" Description="delet" IoAddress="R" InitialValue="1">
     <Id>0</Id>
   </Tag>
 </Tags>
