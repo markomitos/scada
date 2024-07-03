@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Tags xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <Tag xsi:type="AnalogInputTag" Name="analogInputTag1" Description="description" IoAddress="AI1" Driver="SIM" ScanTime="3" OnOffScan="true" LowLimit="2" HighLimit="20" Units="degrees">
+  <Tag xsi:type="AnalogInputTag" Name="analogInputTag1" Description="description" IoAddress="S" Driver="SIM" ScanTime="10000" OnOffScan="true" LowLimit="2" HighLimit="20" Units="degrees">
     <Id>0</Id>
     <Alarm>true</Alarm>
   </Tag>
   <Tag xsi:type="DigitalOutputTag" Name="digitalOutputTag1" Description="description" IoAddress="DO1" InitialValue="0">
     <Id>0</Id>
+  </Tag>
+  <Tag xsi:type="DigitalInputTag" Name="DI2" Description="desc" IoAddress="R" Driver="SIM" ScanTime="10000" OnOffScan="true">
+    <Id>0</Id>
+  </Tag>
+  <Tag xsi:type="AnalogInputTag" Name="analogInputTag2" Description="desc" IoAddress="C" Driver="SIM" ScanTime="10000" OnOffScan="false" LowLimit="10" HighLimit="30" Units="m">
+    <Id>0</Id>
+    <Alarm>false</Alarm>
   </Tag>
 </Tags>

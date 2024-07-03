@@ -7,6 +7,7 @@ using System.ServiceModel;
 using System.Text;
 using Scada.models;
 using Scada.repositories.implementations;
+using Scada.services;
 
 namespace Scada
 {
@@ -16,11 +17,13 @@ namespace Scada
     {
         private readonly TagRepository _tagRepository;
         private readonly TagValueRepository _tagValueRepository;
+        private TagProcessing _tagProcessing;
 
         public TagService()
         {
             _tagRepository = new TagRepository();
             _tagValueRepository = new TagValueRepository(new ScadaContext());
+            _tagProcessing = new TagProcessing(this);
         }
 
         // Methods for AnalogInputTag
@@ -37,6 +40,7 @@ namespace Scada
         public void AddAnalogInputTag(AnalogInputTag analogInputTag)
         {
             _tagRepository.AddAnalogInputTag(analogInputTag);
+            _tagProcessing.processAnalogTag(analogInputTag);
         }
 
         public AnalogInputTag UpdateAnalogInputTag(AnalogInputTag analogInput)
@@ -79,6 +83,7 @@ namespace Scada
         public void AddDigitalInputTag(DigitalInputTag digitalInputTag)
         {
             _tagRepository.AddDigitalInputTag(digitalInputTag);
+            _tagProcessing.processDigitalTag(digitalInputTag);
         }
 
         public DigitalInputTag UpdateDigitalInputTag(DigitalInputTag digitalInput)
@@ -116,6 +121,32 @@ namespace Scada
         public bool IsTagNameUnique(string name)
         {
             return _tagRepository.IsTagNameUnique(name);
+        }
+
+        //VALUES
+        public void AddTagValue(TagValue tagValue)
+        {
+            _tagValueRepository.AddTagValue(tagValue);
+        }
+
+        public void RemoveTagValue(string tagValueId)
+        {
+            _tagValueRepository.RemoveTagValue(tagValueId);
+        }
+
+        public void UpdateTagValue(TagValue tagValue)
+        {
+            _tagValueRepository.UpdateTagValue(tagValue);
+        }
+
+        public TagValue GetTagValue(string tagValueId)
+        {
+            return _tagValueRepository.GetTagValue(tagValueId);
+        }
+
+        public List<TagValue> GetAllTagValues()
+        {
+            return _tagValueRepository.GetAllTagValues();
         }
     }
 }

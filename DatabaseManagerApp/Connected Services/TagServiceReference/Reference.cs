@@ -122,6 +122,36 @@ namespace DatabaseManagerApp.TagServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/IsTagNameUnique", ReplyAction="http://tempuri.org/ITagService/IsTagNameUniqueResponse")]
         System.Threading.Tasks.Task<bool> IsTagNameUniqueAsync(string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/AddTagValue", ReplyAction="http://tempuri.org/ITagService/AddTagValueResponse")]
+        void AddTagValue(Scada.models.TagValue tagValue);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/AddTagValue", ReplyAction="http://tempuri.org/ITagService/AddTagValueResponse")]
+        System.Threading.Tasks.Task AddTagValueAsync(Scada.models.TagValue tagValue);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/RemoveTagValue", ReplyAction="http://tempuri.org/ITagService/RemoveTagValueResponse")]
+        void RemoveTagValue(string tagValueId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/RemoveTagValue", ReplyAction="http://tempuri.org/ITagService/RemoveTagValueResponse")]
+        System.Threading.Tasks.Task RemoveTagValueAsync(string tagValueId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/UpdateTagValue", ReplyAction="http://tempuri.org/ITagService/UpdateTagValueResponse")]
+        void UpdateTagValue(Scada.models.TagValue tagValue);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/UpdateTagValue", ReplyAction="http://tempuri.org/ITagService/UpdateTagValueResponse")]
+        System.Threading.Tasks.Task UpdateTagValueAsync(Scada.models.TagValue tagValue);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetTagValue", ReplyAction="http://tempuri.org/ITagService/GetTagValueResponse")]
+        Scada.models.TagValue GetTagValue(string tagValueId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetTagValue", ReplyAction="http://tempuri.org/ITagService/GetTagValueResponse")]
+        System.Threading.Tasks.Task<Scada.models.TagValue> GetTagValueAsync(string tagValueId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetAllTagValues", ReplyAction="http://tempuri.org/ITagService/GetAllTagValuesResponse")]
+        Scada.models.TagValue[] GetAllTagValues();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetAllTagValues", ReplyAction="http://tempuri.org/ITagService/GetAllTagValuesResponse")]
+        System.Threading.Tasks.Task<Scada.models.TagValue[]> GetAllTagValuesAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -293,6 +323,46 @@ namespace DatabaseManagerApp.TagServiceReference {
         
         public System.Threading.Tasks.Task<bool> IsTagNameUniqueAsync(string name) {
             return base.Channel.IsTagNameUniqueAsync(name);
+        }
+        
+        public void AddTagValue(Scada.models.TagValue tagValue) {
+            base.Channel.AddTagValue(tagValue);
+        }
+        
+        public System.Threading.Tasks.Task AddTagValueAsync(Scada.models.TagValue tagValue) {
+            return base.Channel.AddTagValueAsync(tagValue);
+        }
+        
+        public void RemoveTagValue(string tagValueId) {
+            base.Channel.RemoveTagValue(tagValueId);
+        }
+        
+        public System.Threading.Tasks.Task RemoveTagValueAsync(string tagValueId) {
+            return base.Channel.RemoveTagValueAsync(tagValueId);
+        }
+        
+        public void UpdateTagValue(Scada.models.TagValue tagValue) {
+            base.Channel.UpdateTagValue(tagValue);
+        }
+        
+        public System.Threading.Tasks.Task UpdateTagValueAsync(Scada.models.TagValue tagValue) {
+            return base.Channel.UpdateTagValueAsync(tagValue);
+        }
+        
+        public Scada.models.TagValue GetTagValue(string tagValueId) {
+            return base.Channel.GetTagValue(tagValueId);
+        }
+        
+        public System.Threading.Tasks.Task<Scada.models.TagValue> GetTagValueAsync(string tagValueId) {
+            return base.Channel.GetTagValueAsync(tagValueId);
+        }
+        
+        public Scada.models.TagValue[] GetAllTagValues() {
+            return base.Channel.GetAllTagValues();
+        }
+        
+        public System.Threading.Tasks.Task<Scada.models.TagValue[]> GetAllTagValuesAsync() {
+            return base.Channel.GetAllTagValuesAsync();
         }
     }
 }

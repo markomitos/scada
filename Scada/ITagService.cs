@@ -74,5 +74,18 @@ namespace Scada
 
         [OperationContract]
         bool IsTagNameUnique(string name);
+
+        //Values
+        [OperationContract]
+        void AddTagValue(TagValue tagValue);
+        [OperationContract]
+        void RemoveTagValue(string tagValueId);
+        [OperationContract]
+        void UpdateTagValue(TagValue tagValue);
+        [OperationContract]
+        TagValue GetTagValue(string tagValueId);
+        [OperationContract]
+        List<TagValue> GetAllTagValues();
     }
+
 }

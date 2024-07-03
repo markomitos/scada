@@ -84,6 +84,7 @@
     <None Include="Properties\DataSources\Scada.models.DigitalInputTag.datasource" />
     <None Include="Properties\DataSources\Scada.models.DigitalOutputTag.datasource" />
     <None Include="Properties\DataSources\Scada.models.Tag.datasource" />
+    <None Include="Properties\DataSources\Scada.models.TagValue.datasource" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
