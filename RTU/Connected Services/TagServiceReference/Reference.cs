@@ -474,6 +474,12 @@ namespace RTU.TagServiceReference {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="TagServiceReference.ITagService")]
     public interface ITagService {
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/Hello", ReplyAction="http://tempuri.org/ITagService/HelloResponse")]
+        void Hello();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/Hello", ReplyAction="http://tempuri.org/ITagService/HelloResponse")]
+        System.Threading.Tasks.Task HelloAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetAllAnalogInputTags", ReplyAction="http://tempuri.org/ITagService/GetAllAnalogInputTagsResponse")]
         RTU.TagServiceReference.AnalogInputTag[] GetAllAnalogInputTags();
         
@@ -612,6 +618,12 @@ namespace RTU.TagServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetAllTagValues", ReplyAction="http://tempuri.org/ITagService/GetAllTagValuesResponse")]
         System.Threading.Tasks.Task<RTU.TagServiceReference.TagValue[]> GetAllTagValuesAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetLastTagValue", ReplyAction="http://tempuri.org/ITagService/GetLastTagValueResponse")]
+        RTU.TagServiceReference.TagValue GetLastTagValue(string tagName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetLastTagValue", ReplyAction="http://tempuri.org/ITagService/GetLastTagValueResponse")]
+        System.Threading.Tasks.Task<RTU.TagServiceReference.TagValue> GetLastTagValueAsync(string tagName);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/getRTUValue", ReplyAction="http://tempuri.org/ITagService/getRTUValueResponse")]
         double getRTUValue(string address);
         
@@ -650,6 +662,14 @@ namespace RTU.TagServiceReference {
         
         public TagServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
+        }
+        
+        public void Hello() {
+            base.Channel.Hello();
+        }
+        
+        public System.Threading.Tasks.Task HelloAsync() {
+            return base.Channel.HelloAsync();
         }
         
         public RTU.TagServiceReference.AnalogInputTag[] GetAllAnalogInputTags() {
@@ -834,6 +854,14 @@ namespace RTU.TagServiceReference {
         
         public System.Threading.Tasks.Task<RTU.TagServiceReference.TagValue[]> GetAllTagValuesAsync() {
             return base.Channel.GetAllTagValuesAsync();
+        }
+        
+        public RTU.TagServiceReference.TagValue GetLastTagValue(string tagName) {
+            return base.Channel.GetLastTagValue(tagName);
+        }
+        
+        public System.Threading.Tasks.Task<RTU.TagServiceReference.TagValue> GetLastTagValueAsync(string tagName) {
+            return base.Channel.GetLastTagValueAsync(tagName);
         }
         
         public double getRTUValue(string address) {

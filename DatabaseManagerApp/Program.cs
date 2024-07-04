@@ -15,6 +15,7 @@ namespace DatabaseManagerApp
 
         static void Main(string[] args)
         {
+            tagServiceClient.Hello();
             while (true)
             {
                 Console.Clear();
@@ -68,6 +69,7 @@ namespace DatabaseManagerApp
             Console.WriteLine("3. Logout");
             Console.WriteLine("4. Toggle scan");
             Console.WriteLine("5. Get output value");
+            Console.WriteLine("6. Change output value");
             Console.Write("Select an option: ");
 
             string choice = Console.ReadLine();
@@ -89,9 +91,74 @@ namespace DatabaseManagerApp
                 case "5":
                     GetOutputValue();
                     break;
+                case "6":
+                    ChangeOutputValue();
+                    break;
                 default:
                     Console.WriteLine("Invalid option. Please try again.");
                     break;
+            }
+        }
+
+        private static void ChangeOutputValue()
+        {
+            String IoAddress = null;
+            Scada.models.ValueType valueType = 0;
+
+            while (true)
+            {
+                Console.Write("Enter Tag Name or 'x' to go back: ");
+                string tagName = Console.ReadLine();
+
+                if (tagName.ToLower().Equals("x"))
+                {
+                    return;
+                }
+
+                AnalogInputTag aitag = tagServiceClient.GetAnalogInputTag(tagName);
+                if (aitag != null)
+                {
+                    IoAddress = aitag.IoAddress;
+                    valueType = Scada.models.ValueType.ANALOG;
+                }
+
+                DigitalInputTag ditag = tagServiceClient.GetDigitalInputTag(tagName);
+                if (ditag != null)
+                {
+                    IoAddress = ditag.IoAddress;
+                    valueType = Scada.models.ValueType.DIGITAL;
+                }
+
+                if (aitag == null && ditag == null)
+                {
+                    Console.WriteLine("Tag with given name doesn't exist, please try again.");
+                    continue;
+                }
+
+
+                Console.Write("Enter a value: ");
+                int value;
+
+                if (valueType == Scada.models.ValueType.DIGITAL)
+                {
+                    Console.Write("Enter a value (0|1): ");
+                    while (!int.TryParse(Console.ReadLine(), out value) || (value != 0 && value != 1))
+                    {
+                        Console.Write("Invalid input. Please enter valid int for a value: ");
+                    }
+                }
+                else
+                {
+                    Console.Write("Enter a value: ");
+                    while (!int.TryParse(Console.ReadLine(), out value))
+                    {
+                        Console.Write("Invalid input. Please enter valid int for a value: ");
+                    }
+                }
+
+                tagServiceClient.AddTagValue(new TagValue(IoAddress, tagName, value, valueType));
+
+                Console.Write("\nValue Changed");
             }
         }
 

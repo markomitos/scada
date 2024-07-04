@@ -19,6 +19,11 @@ namespace Scada.repositories.implementations
             LoadTags();
         }
 
+        public Tag GetTag(string name)
+        {
+            return tags.FirstOrDefault(tag => tag.Name == name);
+        }
+
         // Methods for AnalogInputTag
         public List<AnalogInputTag> GetAllAnalogInputTags()
         {

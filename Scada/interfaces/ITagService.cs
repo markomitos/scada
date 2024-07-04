@@ -13,6 +13,9 @@ namespace Scada.interfaces
     [ServiceContract]
     public interface ITagService
     {
+        [OperationContract]
+        void Hello();
+
         // Methods for AnalogInputTag
         [OperationContract]
         List<AnalogInputTag> GetAllAnalogInputTags();

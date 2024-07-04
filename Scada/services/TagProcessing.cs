@@ -12,6 +12,7 @@ namespace Scada.services
     {
         public static Dictionary<string, Thread> processingTags = new Dictionary<string, Thread>();
         private readonly object _lockObject = new object();
+        private readonly object _lockObjectDict = new object();
         private readonly ITagService _tagService;
         public TagProcessing(ITagService tagService)
         {
@@ -126,23 +127,27 @@ namespace Scada.services
 
             foreach (AnalogInputTag tag in analogInputTags)
             {
-                Thread thread = new Thread(new ParameterizedThreadStart(processAnalogInputs));
-                thread.Start(tag);
-
                 if (!processingTags.ContainsKey(tag.Name))
                 {
-                    processingTags.Add(tag.Name, thread);
+                    Thread thread = new Thread(new ParameterizedThreadStart(processAnalogInputs));
+                    lock (_lockObjectDict)
+                    {
+                        processingTags.Add(tag.Name, thread);
+                    }
+                    thread.Start(tag);
                 }
             }
 
             foreach (DigitalInputTag tag in digitalInputTags)
             {
-                Thread thread = new Thread(new ParameterizedThreadStart(processDigitalInputs));
-                thread.Start(tag);
-
                 if (!processingTags.ContainsKey(tag.Name))
                 {
-                    processingTags.Add(tag.Name, thread);
+                    Thread thread = new Thread(new ParameterizedThreadStart(processDigitalInputs));
+                    lock (_lockObjectDict)
+                    {
+                        processingTags.Add(tag.Name, thread);
+                    }
+                    thread.Start(tag);
                 }
             }
         }
@@ -152,12 +157,11 @@ namespace Scada.services
             if (!processingTags.ContainsKey(tag.Name))
             {
                 Thread thread = new Thread(new ParameterizedThreadStart(processAnalogInputs));
-                thread.Start(tag);
-
-                if (!processingTags.ContainsKey(tag.Name))
+                lock (_lockObjectDict)
                 {
                     processingTags.Add(tag.Name, thread);
                 }
+                thread.Start(tag);
             }
         }
 
@@ -166,11 +170,23 @@ namespace Scada.services
             if (!processingTags.ContainsKey(tag.Name))
             {
                 Thread thread = new Thread(new ParameterizedThreadStart(processDigitalInputs));
-                thread.Start(tag);
-
-                if (!processingTags.ContainsKey(tag.Name))
+                lock (_lockObjectDict)
                 {
                     processingTags.Add(tag.Name, thread);
+                }
+                thread.Start(tag);
+            }
+        }
+
+        public void removeTag(string tagName)
+        {
+            if (processingTags.ContainsKey(tagName))
+            {
+                Thread thread = processingTags[tagName];
+                thread.Abort();
+                lock (_lockObject)
+                {
+                    processingTags.Remove(tagName);
                 }
             }
         }

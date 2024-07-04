@@ -15,6 +15,12 @@ namespace DatabaseManagerApp.TagServiceReference {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="TagServiceReference.ITagService")]
     public interface ITagService {
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/Hello", ReplyAction="http://tempuri.org/ITagService/HelloResponse")]
+        void Hello();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/Hello", ReplyAction="http://tempuri.org/ITagService/HelloResponse")]
+        System.Threading.Tasks.Task HelloAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetAllAnalogInputTags", ReplyAction="http://tempuri.org/ITagService/GetAllAnalogInputTagsResponse")]
         Scada.models.AnalogInputTag[] GetAllAnalogInputTags();
         
@@ -197,6 +203,14 @@ namespace DatabaseManagerApp.TagServiceReference {
         
         public TagServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
+        }
+        
+        public void Hello() {
+            base.Channel.Hello();
+        }
+        
+        public System.Threading.Tasks.Task HelloAsync() {
+            return base.Channel.HelloAsync();
         }
         
         public Scada.models.AnalogInputTag[] GetAllAnalogInputTags() {

@@ -7,6 +7,12 @@
       <xsd:import schemaLocation="http://localhost:60822/TagService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Scada.models" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="ITagService_Hello_InputMessage">
+    <wsdl:part name="parameters" element="tns:Hello" />
+  </wsdl:message>
+  <wsdl:message name="ITagService_Hello_OutputMessage">
+    <wsdl:part name="parameters" element="tns:HelloResponse" />
+  </wsdl:message>
   <wsdl:message name="ITagService_GetAllAnalogInputTags_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAllAnalogInputTags" />
   </wsdl:message>
@@ -164,6 +170,10 @@
     <wsdl:part name="parameters" element="tns:setRTUValueResponse" />
   </wsdl:message>
   <wsdl:portType name="ITagService">
+    <wsdl:operation name="Hello">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITagService/Hello" message="tns:ITagService_Hello_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITagService/HelloResponse" message="tns:ITagService_Hello_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetAllAnalogInputTags">
       <wsdl:input wsaw:Action="http://tempuri.org/ITagService/GetAllAnalogInputTags" message="tns:ITagService_GetAllAnalogInputTags_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ITagService/GetAllAnalogInputTagsResponse" message="tns:ITagService_GetAllAnalogInputTags_OutputMessage" />
@@ -271,6 +281,15 @@
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ITagService" type="tns:ITagService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Hello">
+      <soap:operation soapAction="http://tempuri.org/ITagService/Hello" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetAllAnalogInputTags">
       <soap:operation soapAction="http://tempuri.org/ITagService/GetAllAnalogInputTags" style="document" />
       <wsdl:input>

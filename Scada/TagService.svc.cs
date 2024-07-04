@@ -24,10 +24,12 @@ namespace Scada
         public TagService()
         {
             _tagRepository = new TagRepository();
-            _tagValueRepository = new TagValueRepository(new ScadaContext());
+            _tagValueRepository = new TagValueRepository();
             _realTimeDriver = new RealTimeDriver();
             _tagProcessing = new TagProcessing(this);
         }
+        public void Hello()
+        { }
 
         // Methods for AnalogInputTag
         public List<AnalogInputTag> GetAllAnalogInputTags()
@@ -118,6 +120,7 @@ namespace Scada
         // Universal remove
         public bool RemoveTag(string name)
         {
+            _tagProcessing.removeTag(name);
             return _tagRepository.RemoveTag(name);
         }
 

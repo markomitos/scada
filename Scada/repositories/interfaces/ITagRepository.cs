@@ -5,6 +5,8 @@ namespace Scada.repositories.interfaces
 {
     public interface ITagRepository
     {
+        Tag GetTag(string name);
+
         // Methods for AnalogInputTag
         List<AnalogInputTag> GetAllAnalogInputTags();
         AnalogInputTag GetAnalogInputTag(string name);
