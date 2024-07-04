@@ -19,13 +19,13 @@ namespace Scada
         private readonly TagRepository _tagRepository;
         private readonly TagValueRepository _tagValueRepository;
         private TagProcessing _tagProcessing;
-        private RealTimeDriver _realTimeDriver;
+        //private RealTimeDriver _realTimeDriver;
 
         public TagService()
         {
             _tagRepository = new TagRepository();
             _tagValueRepository = new TagValueRepository();
-            _realTimeDriver = new RealTimeDriver();
+            //_realTimeDriver = new RealTimeDriver();
             _tagProcessing = new TagProcessing(this);
         }
         public void Hello()
@@ -163,12 +163,12 @@ namespace Scada
         //RTU
         public double getRTUValue(string address)
         {
-            return _realTimeDriver.getValue(address);
+            return RealTimeDriver.getValue(address);
         }
 
         public void setRTUValue(string address, double value)
         {
-            _realTimeDriver.setValue(address, value);
+            RealTimeDriver.setValue(address, value);
         }
 
         

@@ -5,9 +5,9 @@ namespace Scada.services
 {
     public class RealTimeDriver
     {
-        Dictionary<string, double> rtus = new Dictionary<string, double>();
+        static Dictionary<string, double>  rtus = new Dictionary<string, double>();
 
-        public double getValue(string address)
+        public static double getValue(string address)
         {
             if (rtus.TryGetValue(address, out double value))
             {
@@ -16,7 +16,7 @@ namespace Scada.services
             return Double.NegativeInfinity;
         }
 
-        public void setValue(string address, double value)
+        public static void setValue(string address, double value)
         {
             rtus[address] = value;
         }
