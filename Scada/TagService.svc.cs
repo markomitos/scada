@@ -50,7 +50,16 @@ namespace Scada
 
         public AnalogInputTag UpdateAnalogInputTag(AnalogInputTag analogInput)
         {
-            return _tagRepository.UpdateAnalogInputTag(analogInput);
+            var updatedTag = _tagRepository.UpdateAnalogInputTag(analogInput);
+            if (!updatedTag.OnOffScan)
+            {
+                _tagProcessing.removeTag(updatedTag.Name);
+            }
+            else
+            {
+                _tagProcessing.processAnalogTag(updatedTag);
+            }
+            return updatedTag;
         }
 
         // Methods for AnalogOutputTag
@@ -93,7 +102,16 @@ namespace Scada
 
         public DigitalInputTag UpdateDigitalInputTag(DigitalInputTag digitalInput)
         {
-            return _tagRepository.UpdateDigitalInputTag(digitalInput);
+            var updatedTag = _tagRepository.UpdateDigitalInputTag(digitalInput);
+            if (!updatedTag.OnOffScan)
+            {
+                _tagProcessing.removeTag(updatedTag.Name);
+            }
+            else
+            {
+                _tagProcessing.processDigitalTag(updatedTag);
+            }
+            return updatedTag;
         }
 
         // Methods for DigitalOutputTag
