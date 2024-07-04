@@ -9,6 +9,7 @@ namespace RTU
 {
     internal class Program
     {
+        
         private static TagServiceClient tagServiceClient = new TagServiceClient();
 
         static void Main(string[] args)
@@ -29,6 +30,9 @@ namespace RTU
                 double value = rtu.GenerateValue();
                 tagServiceClient.setRTUValue(driverAddress, value);
                 Console.WriteLine("Value: " + value);
+
+                tagServiceClient.getRTUValue(driverAddress);
+                Console.WriteLine("GETValue: " + value);
                 System.Threading.Thread.Sleep(10000);
             }
         }
