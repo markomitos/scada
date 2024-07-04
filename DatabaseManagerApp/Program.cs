@@ -67,6 +67,7 @@ namespace DatabaseManagerApp
             Console.WriteLine("2. Remove tag");
             Console.WriteLine("3. Logout");
             Console.WriteLine("4. Toggle scan");
+            Console.WriteLine("5. Get output value");
             Console.Write("Select an option: ");
 
             string choice = Console.ReadLine();
@@ -85,11 +86,39 @@ namespace DatabaseManagerApp
                 case "4":
                     ToggleScan();
                     break;
+                case "5":
+                    GetOutputValue();
+                    break;
                 default:
                     Console.WriteLine("Invalid option. Please try again.");
                     break;
             }
         }
+
+        private static void GetOutputValue()
+        {
+            while (true)
+            {
+                Console.Write("Enter Tag Name or 'x' to go back: ");
+                string tagName = Console.ReadLine();
+
+                if (tagName.ToLower().Equals("x"))
+                {
+                    return;
+                }
+
+                if (tagServiceClient.IsTagNameUnique(tagName))
+                {
+                    Console.WriteLine("Tag with given name doesn't exist, please try again.");
+                    continue;
+                }
+
+                TagValue tagValue = tagServiceClient.GetLastTagValue(tagName);
+
+                Console.WriteLine(@"Tag: {0}, Value: {1}, Type: {2}", tagValue.TagName, tagValue.Value, tagValue.ValueType);
+            }
+        }
+
         private static void ToggleScan()
         {
             Console.Write("Enter tag name: ");

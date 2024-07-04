@@ -152,6 +152,11 @@ namespace Scada
             return _tagValueRepository.GetAllTagValues();
         }
 
+        public TagValue GetLastTagValue(string tagName)
+        {
+            return _tagValueRepository.GetLastTagValue(tagName);
+        }
+
         //RTU
         public double getRTUValue(string address)
         {
@@ -162,6 +167,8 @@ namespace Scada
         {
             _realTimeDriver.setValue(address, value);
         }
+
+        
     }
 
 }

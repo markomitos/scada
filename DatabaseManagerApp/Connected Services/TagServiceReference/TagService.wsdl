@@ -145,6 +145,12 @@
   <wsdl:message name="ITagService_GetAllTagValues_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAllTagValuesResponse" />
   </wsdl:message>
+  <wsdl:message name="ITagService_GetLastTagValue_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLastTagValue" />
+  </wsdl:message>
+  <wsdl:message name="ITagService_GetLastTagValue_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLastTagValueResponse" />
+  </wsdl:message>
   <wsdl:message name="ITagService_getRTUValue_InputMessage">
     <wsdl:part name="parameters" element="tns:getRTUValue" />
   </wsdl:message>
@@ -249,6 +255,10 @@
     <wsdl:operation name="GetAllTagValues">
       <wsdl:input wsaw:Action="http://tempuri.org/ITagService/GetAllTagValues" message="tns:ITagService_GetAllTagValues_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ITagService/GetAllTagValuesResponse" message="tns:ITagService_GetAllTagValues_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLastTagValue">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITagService/GetLastTagValue" message="tns:ITagService_GetLastTagValue_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITagService/GetLastTagValueResponse" message="tns:ITagService_GetLastTagValue_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="getRTUValue">
       <wsdl:input wsaw:Action="http://tempuri.org/ITagService/getRTUValue" message="tns:ITagService_getRTUValue_InputMessage" />
@@ -461,6 +471,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetAllTagValues">
       <soap:operation soapAction="http://tempuri.org/ITagService/GetAllTagValues" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLastTagValue">
+      <soap:operation soapAction="http://tempuri.org/ITagService/GetLastTagValue" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -153,6 +153,12 @@ namespace DatabaseManagerApp.TagServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetAllTagValues", ReplyAction="http://tempuri.org/ITagService/GetAllTagValuesResponse")]
         System.Threading.Tasks.Task<Scada.models.TagValue[]> GetAllTagValuesAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetLastTagValue", ReplyAction="http://tempuri.org/ITagService/GetLastTagValueResponse")]
+        Scada.models.TagValue GetLastTagValue(string tagName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetLastTagValue", ReplyAction="http://tempuri.org/ITagService/GetLastTagValueResponse")]
+        System.Threading.Tasks.Task<Scada.models.TagValue> GetLastTagValueAsync(string tagName);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/getRTUValue", ReplyAction="http://tempuri.org/ITagService/getRTUValueResponse")]
         double getRTUValue(string address);
         
@@ -375,6 +381,14 @@ namespace DatabaseManagerApp.TagServiceReference {
         
         public System.Threading.Tasks.Task<Scada.models.TagValue[]> GetAllTagValuesAsync() {
             return base.Channel.GetAllTagValuesAsync();
+        }
+        
+        public Scada.models.TagValue GetLastTagValue(string tagName) {
+            return base.Channel.GetLastTagValue(tagName);
+        }
+        
+        public System.Threading.Tasks.Task<Scada.models.TagValue> GetLastTagValueAsync(string tagName) {
+            return base.Channel.GetLastTagValueAsync(tagName);
         }
         
         public double getRTUValue(string address) {

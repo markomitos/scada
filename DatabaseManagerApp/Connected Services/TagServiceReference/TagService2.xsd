@@ -299,6 +299,20 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetLastTagValue">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="tagName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLastTagValueResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/Scada.models" minOccurs="0" name="GetLastTagValueResult" nillable="true" type="q25:TagValue" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="getRTUValue">
     <xs:complexType>
       <xs:sequence>

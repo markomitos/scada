@@ -48,4 +48,12 @@ public class TagValueRepository : ITagValueRepository
     {
         return context.TagValues.ToList();
     }
+
+    public TagValue GetLastTagValue(string tagName)
+    {
+        return context.TagValues
+            .Where(tv => tv.TagName == tagName)
+            .OrderByDescending(tv => tv.TimeStamp)
+            .FirstOrDefault();
+    }
 }

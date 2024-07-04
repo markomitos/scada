@@ -87,6 +87,8 @@ namespace Scada.interfaces
         TagValue GetTagValue(string tagValueId);
         [OperationContract]
         List<TagValue> GetAllTagValues();
+        [OperationContract]
+        TagValue GetLastTagValue(string tagName);
 
         //RTU
         [OperationContract]

@@ -14,7 +14,7 @@ namespace Scada.repositories.interfaces
         void UpdateTagValue(TagValue tagValue);
         TagValue GetTagValue(string tagValueId);
         List<TagValue> GetAllTagValues();
-
+        TagValue GetLastTagValue(string tagName);
 
     }
 
