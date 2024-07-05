@@ -97,7 +97,8 @@ namespace Scada.interfaces
         [OperationContract]
         double getRTUValue(string address);
         [OperationContract]
-        void setRTUValue(string address, double value);
+        void setRTUValue(string address, double value, string signatureBase64, string hashValueBase64);
+
     }
 
 }

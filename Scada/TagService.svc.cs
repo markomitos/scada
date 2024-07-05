@@ -9,6 +9,7 @@ using Scada.interfaces;
 using Scada.models;
 using Scada.repositories.implementations;
 using Scada.services;
+using System.Security.Cryptography;
 
 namespace Scada
 {
@@ -184,12 +185,43 @@ namespace Scada
             return RealTimeDriver.getValue(address);
         }
 
-        public void setRTUValue(string address, double value)
+        public void setRTUValue(string address, double value, string signatureBase64, string hashValueBase64)
         {
-            RealTimeDriver.setValue(address, value);
+            byte[] signature = Convert.FromBase64String(signatureBase64);
+            byte[] hashValue = Convert.FromBase64String(hashValueBase64);
+            string message = value.ToString();
+
+            if (verifySignature(message, signature, hashValue))
+            {
+                RealTimeDriver.setValue(address, value);
+            }
+            else
+            {
+                throw new Exception("Invalid signature");
+            }
         }
 
-        
-    }
+        private bool verifySignature(string message, byte[] signature, byte[] hashValue)
+        {
+            using (SHA256 sha = SHA256.Create())
+            {
+                byte[] computedHash = sha.ComputeHash(Encoding.UTF8.GetBytes(message));
+                if (!computedHash.SequenceEqual(hashValue))
+                {
+                    return false;
+                }
 
+                CspParameters csp = new CspParameters
+                {
+                    KeyContainerName = "KeyContainer"
+                };
+                using (RSACryptoServiceProvider rsa = new RSACryptoServiceProvider(csp))
+                {
+                    var deformatter = new RSAPKCS1SignatureDeformatter(rsa);
+                    deformatter.SetHashAlgorithm("SHA256");
+                    return deformatter.VerifySignature(hashValue, signature);
+                }
+            }
+        }
+    }
 }

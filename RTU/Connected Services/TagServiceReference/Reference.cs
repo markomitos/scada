@@ -631,10 +631,10 @@ namespace RTU.TagServiceReference {
         System.Threading.Tasks.Task<double> getRTUValueAsync(string address);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/setRTUValue", ReplyAction="http://tempuri.org/ITagService/setRTUValueResponse")]
-        void setRTUValue(string address, double value);
+        void setRTUValue(string address, double value, string signatureBase64, string hashValueBase64);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/setRTUValue", ReplyAction="http://tempuri.org/ITagService/setRTUValueResponse")]
-        System.Threading.Tasks.Task setRTUValueAsync(string address, double value);
+        System.Threading.Tasks.Task setRTUValueAsync(string address, double value, string signatureBase64, string hashValueBase64);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -872,12 +872,12 @@ namespace RTU.TagServiceReference {
             return base.Channel.getRTUValueAsync(address);
         }
         
-        public void setRTUValue(string address, double value) {
-            base.Channel.setRTUValue(address, value);
+        public void setRTUValue(string address, double value, string signatureBase64, string hashValueBase64) {
+            base.Channel.setRTUValue(address, value, signatureBase64, hashValueBase64);
         }
         
-        public System.Threading.Tasks.Task setRTUValueAsync(string address, double value) {
-            return base.Channel.setRTUValueAsync(address, value);
+        public System.Threading.Tasks.Task setRTUValueAsync(string address, double value, string signatureBase64, string hashValueBase64) {
+            return base.Channel.setRTUValueAsync(address, value, signatureBase64, hashValueBase64);
         }
     }
 }

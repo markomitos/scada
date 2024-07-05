@@ -28,11 +28,18 @@ namespace RTU
             while (true)
             {
                 double value = rtu.GenerateValue();
-                tagServiceClient.setRTUValue(driverAddress, value);
+                string message = value.ToString();
+
+                byte[] hashValue;
+                byte[] signature = rtu.SignMessage(message, out hashValue);
+
+                string hashValueBase64 = Convert.ToBase64String(hashValue);
+                string signatureBase64 = Convert.ToBase64String(signature);
+
+                tagServiceClient.setRTUValue(driverAddress, value, signatureBase64, hashValueBase64);
                 Console.WriteLine("Value: " + value);
 
-                tagServiceClient.getRTUValue(driverAddress);
-                Console.WriteLine("GETValue: " + value);
+                double retrievedValue = tagServiceClient.getRTUValue(driverAddress);
                 System.Threading.Thread.Sleep(10000);
             }
         }

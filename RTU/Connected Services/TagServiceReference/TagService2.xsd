@@ -342,6 +342,8 @@
       <xs:sequence>
         <xs:element minOccurs="0" name="address" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="value" type="xs:double" />
+        <xs:element minOccurs="0" name="signatureBase64" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="hashValueBase64" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

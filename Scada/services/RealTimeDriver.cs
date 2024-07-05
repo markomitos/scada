@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace Scada.services
 {
@@ -20,5 +22,24 @@ namespace Scada.services
         {
             rtus[address] = value;
         }
+
+        public byte[] SignMessage(string message, out byte[] hashValue)
+        {
+            using (SHA256 sha = SHA256.Create())
+            {
+                hashValue = sha.ComputeHash(Encoding.UTF8.GetBytes(message));
+                CspParameters csp = new CspParameters
+                {
+                    KeyContainerName = "KeyContainer"
+                };
+                using (RSACryptoServiceProvider rsa = new RSACryptoServiceProvider(csp))
+                {
+                    var formatter = new RSAPKCS1SignatureFormatter(rsa);
+                    formatter.SetHashAlgorithm("SHA256");
+                    return formatter.CreateSignature(hashValue);
+                }
+            }
+        }
+
     }
 }
