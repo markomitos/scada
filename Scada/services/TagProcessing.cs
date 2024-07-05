@@ -1,54 +1,63 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading;
-using System.Web.ApplicationServices;
 using Scada.interfaces;
 using Scada.models;
-using ValueType = Scada.models.ValueType;
 
 namespace Scada.services
 {
     public class TagProcessing
     {
-        public static Dictionary<string, Thread> processingTags = new Dictionary<string, Thread>();
+        private static Dictionary<string, CancellationTokenSource> processingTags = new Dictionary<string, CancellationTokenSource>();
         private readonly object _lockObject = new object();
         private readonly object _lockObjectDict = new object();
         private readonly ITagService _tagService;
+
         public TagProcessing(ITagService tagService)
         {
             _tagService = tagService;
             StartProcessing();
         }
 
-        public void processAnalogInputs(Object t)
+        private void processAnalogInputs(object t)
         {
             AnalogInputTag tag = (AnalogInputTag)t;
-            while (true)
+            CancellationToken cancellationToken = processingTags[tag.Name].Token;
+
+            while (!cancellationToken.IsCancellationRequested)
             {
                 double value = 0;
+                tag = _tagService.GetAnalogInputTag(tag.Name);
 
                 if (!tag.OnOffScan)
                 {
-                    processingTags.Remove(tag.Name);
+                    lock (_lockObjectDict)
+                    {
+                        if (processingTags.ContainsKey(tag.Name))
+                        {
+                            processingTags[tag.Name].Cancel();
+                            processingTags.Remove(tag.Name);
+                        }
+                    }
                     break;
                 }
 
-                if (tag.Driver.Equals("SIM"))
+                switch (tag.Driver)
                 {
-                    value = SimulationDriver.SimulationDriver.ReturnValue(tag.IoAddress);
+                    case "SIM":
+                        value = SimulationDriver.SimulationDriver.ReturnValue(tag.IoAddress);
+                        break;
+                    case "RTD":
+                        value = _tagService.getRTUValue(tag.IoAddress);
+                        break;
+                    default:
+                        break;
                 }
-                else if (tag.Driver.Equals("RTD"))
+
+                if (value == double.NegativeInfinity)
                 {
-                    value = _tagService.getRTUValue(tag.IoAddress);
-                    if (value == Double.NegativeInfinity)
-                    {
-                        Thread.Sleep((int)tag.ScanTime);
-                        continue;
-                    }
-                }
-                else
-                {
-                    break;
+                    Thread.Sleep((int)tag.ScanTime);
+                    continue;
                 }
 
                 if (value > tag.HighLimit)
@@ -60,80 +69,86 @@ namespace Scada.services
                     value = tag.LowLimit;
                 }
 
-                TagValue tagValue = new TagValue(tag.IoAddress, tag.Name, value, ValueType.ANALOG);
+                TagValue tagValue = new TagValue(tag.IoAddress, tag.Name, value, Scada.models.ValueType.ANALOG);
                 lock (_lockObject)
                 {
                     _tagService.AddTagValue(tagValue);
-                    //processAlarms(value, tag.Alarms, tag.TagName);
-
-                    //Ovo sluzi da se posalje poruka na callback kanal kako bi se u trending aplikaciji printovala izmerena vrednost
-                    //_trendingService.addTagValue(tagValue);
                 }
 
                 Thread.Sleep((int)tag.ScanTime);
             }
         }
 
-        public void processDigitalInputs(Object t)
+        private void processDigitalInputs(object t)
         {
             DigitalInputTag tag = (DigitalInputTag)t;
-            while (true)
+            CancellationToken cancellationToken = processingTags[tag.Name].Token;
+
+            while (!cancellationToken.IsCancellationRequested)
             {
                 double value = 0;
+                tag = _tagService.GetDigitalInputTag(tag.Name);
 
                 if (!tag.OnOffScan)
                 {
-                    processingTags.Remove(tag.Name);
+                    lock (_lockObjectDict)
+                    {
+                        if (processingTags.ContainsKey(tag.Name))
+                        {
+                            processingTags[tag.Name].Cancel();
+                            processingTags.Remove(tag.Name);
+                        }
+                    }
                     break;
                 }
 
-                if (tag.Driver.Equals("SIM"))
+                switch (tag.Driver)
                 {
-                    value = SimulationDriver.SimulationDriver.ReturnValue(tag.IoAddress);
+                    case "SIM":
+                        value = SimulationDriver.SimulationDriver.ReturnValue(tag.IoAddress);
+                        break;
+                    case "RTD":
+                        value = _tagService.getRTUValue(tag.IoAddress);
+                        break;
+                    default:
+                        break;
                 }
-                else if (tag.Driver.Equals("RTD"))
+
+                if (value == double.NegativeInfinity)
                 {
-                    value = _tagService.getRTUValue(tag.IoAddress);
-                    if (value == Double.NegativeInfinity)
-                    {
-                        Thread.Sleep((int)tag.ScanTime);
-                        continue;
-                    }
-                }
-                else
-                {
-                    break;
+                    Thread.Sleep((int)tag.ScanTime);
+                    continue;
                 }
 
                 value = value <= 0 ? 0 : 1;
 
-                TagValue tagValue = new TagValue(tag.IoAddress, tag.Name, value, ValueType.DIGITAL);
+                TagValue tagValue = new TagValue(tag.IoAddress, tag.Name, value, Scada.models.ValueType.DIGITAL);
                 lock (_lockObject)
                 {
                     _tagService.AddTagValue(tagValue);
-
-                    //Ovo sluzi da se posalje poruka na callback kanal kako bi se u trending aplikaciji printovala izmerena vrednost
-                    //_trendingService.addTagValue(tagValue);
                 }
 
                 Thread.Sleep((int)tag.ScanTime);
             }
         }
 
+
         public void StartProcessing()
         {
-            List<AnalogInputTag> analogInputTags = _tagService.GetAllAnalogInputTags();
-            List<DigitalInputTag> digitalInputTags = _tagService.GetAllDigitalInputTags();
+            var analogInputTags = _tagService.GetAllAnalogInputTags();
+            var digitalInputTags = _tagService.GetAllDigitalInputTags();
 
             foreach (AnalogInputTag tag in analogInputTags)
             {
                 if (!processingTags.ContainsKey(tag.Name))
                 {
-                    Thread thread = new Thread(new ParameterizedThreadStart(processAnalogInputs));
+                    CancellationTokenSource cts = new CancellationTokenSource();
                     lock (_lockObjectDict)
                     {
-                        processingTags.Add(tag.Name, thread);
+                        processingTags.Add(tag.Name, cts);
                     }
+
+                    Thread thread = new Thread(processAnalogInputs);
                     thread.Start(tag);
                 }
             }
@@ -142,11 +157,13 @@ namespace Scada.services
             {
                 if (!processingTags.ContainsKey(tag.Name))
                 {
-                    Thread thread = new Thread(new ParameterizedThreadStart(processDigitalInputs));
+                    CancellationTokenSource cts = new CancellationTokenSource();
                     lock (_lockObjectDict)
                     {
-                        processingTags.Add(tag.Name, thread);
+                        processingTags.Add(tag.Name, cts);
                     }
+
+                    Thread thread = new Thread(processDigitalInputs);
                     thread.Start(tag);
                 }
             }
@@ -156,11 +173,13 @@ namespace Scada.services
         {
             if (!processingTags.ContainsKey(tag.Name))
             {
-                Thread thread = new Thread(new ParameterizedThreadStart(processAnalogInputs));
+                CancellationTokenSource cts = new CancellationTokenSource();
                 lock (_lockObjectDict)
                 {
-                    processingTags.Add(tag.Name, thread);
+                    processingTags.Add(tag.Name, cts);
                 }
+
+                Thread thread = new Thread(processAnalogInputs);
                 thread.Start(tag);
             }
         }
@@ -169,11 +188,13 @@ namespace Scada.services
         {
             if (!processingTags.ContainsKey(tag.Name))
             {
-                Thread thread = new Thread(new ParameterizedThreadStart(processDigitalInputs));
+                CancellationTokenSource cts = new CancellationTokenSource();
                 lock (_lockObjectDict)
                 {
-                    processingTags.Add(tag.Name, thread);
+                    processingTags.Add(tag.Name, cts);
                 }
+
+                Thread thread = new Thread(processDigitalInputs);
                 thread.Start(tag);
             }
         }
@@ -182,10 +203,9 @@ namespace Scada.services
         {
             if (processingTags.ContainsKey(tagName))
             {
-                Thread thread = processingTags[tagName];
-                thread.Abort();
-                lock (_lockObject)
+                lock (_lockObjectDict)
                 {
+                    processingTags[tagName].Cancel();
                     processingTags.Remove(tagName);
                 }
             }

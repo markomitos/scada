@@ -52,7 +52,16 @@ namespace Scada
         public AnalogInputTag UpdateAnalogInputTag(string token, AnalogInputTag analogInput)
         {
             if (!Authenticate(token)) throw new UnauthorizedAccessException("Invalid token");
-            return _tagRepository.UpdateAnalogInputTag(analogInput);
+            var updatedTag = _tagRepository.UpdateAnalogInputTag(analogInput);
+            if (!updatedTag.OnOffScan)
+            {
+                _tagProcessing.removeTag(updatedTag.Name);
+            }
+            else
+            {
+                _tagProcessing.processAnalogTag(updatedTag);
+            }
+            return updatedTag;
         }
 
         // Methods for AnalogOutputTag
@@ -102,7 +111,17 @@ namespace Scada
         public DigitalInputTag UpdateDigitalInputTag(string token, DigitalInputTag digitalInput)
         {
             if (!Authenticate(token)) throw new UnauthorizedAccessException("Invalid token");
-            return _tagRepository.UpdateDigitalInputTag(digitalInput);
+            var updatedTag = _tagRepository.UpdateDigitalInputTag(digitalInput);
+            if (!updatedTag.OnOffScan)
+            {
+                _tagProcessing.removeTag(updatedTag.Name);
+            }
+            else
+            {
+                _tagProcessing.processDigitalTag(updatedTag);
+            }
+            return updatedTag;
+            
         }
 
         // Methods for DigitalOutputTag
