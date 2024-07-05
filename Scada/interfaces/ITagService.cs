@@ -24,24 +24,24 @@ namespace Scada.interfaces
         AnalogInputTag GetAnalogInputTag(string name);
 
         [OperationContract]
-        void AddAnalogInputTag(AnalogInputTag analogInputTag);
+        void AddAnalogInputTag(string token, AnalogInputTag analogInputTag);
 
         [OperationContract]
-        AnalogInputTag UpdateAnalogInputTag(AnalogInputTag analogInput);
+        AnalogInputTag UpdateAnalogInputTag(string token, AnalogInputTag analogInput);
 
 
         // Methods for AnalogOutputTag
         [OperationContract]
-        List<AnalogOutputTag> GetAllAnalogOutputTags();
+        List<AnalogOutputTag> GetAllAnalogOutputTags(string token);
 
         [OperationContract]
-        AnalogOutputTag GetAnalogOutputTag(string name);
+        AnalogOutputTag GetAnalogOutputTag(string token, string name);
 
         [OperationContract]
-        void AddAnalogOutputTag(AnalogOutputTag analogOutputTag);
+        void AddAnalogOutputTag(string token, AnalogOutputTag analogOutputTag);
 
         [OperationContract]
-        AnalogOutputTag UpdateAnalogOutputTag(AnalogOutputTag analogOutput);
+        AnalogOutputTag UpdateAnalogOutputTag(string token, AnalogOutputTag analogOutput);
 
 
         // Methods for DigitalInputTag
@@ -52,53 +52,58 @@ namespace Scada.interfaces
         DigitalInputTag GetDigitalInputTag(string name);
 
         [OperationContract]
-        void AddDigitalInputTag(DigitalInputTag digitalInputTag);
+        void AddDigitalInputTag(string token, DigitalInputTag digitalInputTag);
 
         [OperationContract]
-        DigitalInputTag UpdateDigitalInputTag(DigitalInputTag digitalInput);
+        DigitalInputTag UpdateDigitalInputTag(string token, DigitalInputTag digitalInput);
 
 
         // Methods for DigitalOutputTag
         [OperationContract]
-        List<DigitalOutputTag> GetAllDigitalOutputTags();
+        List<DigitalOutputTag> GetAllDigitalOutputTags(string token);
 
         [OperationContract]
-        DigitalOutputTag GetDigitalOutputTag(string name);
+        DigitalOutputTag GetDigitalOutputTag(string token, string name);
 
         [OperationContract]
-        void AddDigitalOutputTag(DigitalOutputTag digitalOutputTag);
+        void AddDigitalOutputTag(string token, DigitalOutputTag digitalOutputTag);
 
         [OperationContract]
-        DigitalOutputTag UpdateDigitalOutputTag(DigitalOutputTag digitalOutput);
+        DigitalOutputTag UpdateDigitalOutputTag(string token, DigitalOutputTag digitalOutput);
 
 
         // Universal remove
         [OperationContract]
-        bool RemoveTag(string name);
+        bool RemoveTag(string token, string name);
 
         [OperationContract]
-        bool IsTagNameUnique(string name);
+        bool IsTagNameUnique(string token, string name);
 
-        //Values
+        // Values
         [OperationContract]
         void AddTagValue(TagValue tagValue);
-        [OperationContract]
-        void RemoveTagValue(string tagValueId);
-        [OperationContract]
-        void UpdateTagValue(TagValue tagValue);
-        [OperationContract]
-        TagValue GetTagValue(string tagValueId);
-        [OperationContract]
-        List<TagValue> GetAllTagValues();
-        [OperationContract]
-        TagValue GetLastTagValue(string tagName);
 
-        //RTU
+        [OperationContract]
+        void RemoveTagValue(string token, string tagValueId);
+
+        [OperationContract]
+        void UpdateTagValue(string token, TagValue tagValue);
+
+        [OperationContract]
+        TagValue GetTagValue(string token, string tagValueId);
+
+        [OperationContract]
+        List<TagValue> GetAllTagValues(string token);
+
+        [OperationContract]
+        TagValue GetLastTagValue(string token, string tagName);
+
+        // RTU
         [OperationContract]
         double getRTUValue(string address);
+
         [OperationContract]
         void setRTUValue(string address, double value, string signatureBase64, string hashValueBase64);
 
     }
-
 }

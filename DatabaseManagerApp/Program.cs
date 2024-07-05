@@ -174,13 +174,13 @@ namespace DatabaseManagerApp
                     return;
                 }
 
-                if (tagServiceClient.IsTagNameUnique(tagName))
+                if (tagServiceClient.IsTagNameUnique(currentToken, tagName))
                 {
                     Console.WriteLine("Tag with given name doesn't exist, please try again.");
                     continue;
                 }
 
-                TagValue tagValue = tagServiceClient.GetLastTagValue(tagName);
+                TagValue tagValue = tagServiceClient.GetLastTagValue(currentToken, tagName);
 
                 Console.WriteLine(@"Tag: {0}, Value: {1}, Type: {2}", tagValue.TagName, tagValue.Value, tagValue.ValueType);
             }
@@ -216,7 +216,7 @@ namespace DatabaseManagerApp
             if (confirmation.ToLower().Equals("y"))
             {
                 digitalInputTag.OnOffScan = !digitalInputTag.OnOffScan;
-                tagServiceClient.UpdateDigitalInputTag(digitalInputTag);
+                tagServiceClient.UpdateDigitalInputTag(currentToken, digitalInputTag);
                 Console.WriteLine(digitalInputTag.OnOffScan ? $"Scan toggled on for tag {digitalInputTag.Name}" : $"Scan toggled off for tag {digitalInputTag.Name}");
             }
         }
@@ -229,7 +229,7 @@ namespace DatabaseManagerApp
             if (confirmation.ToLower().Equals("y"))
             {
                 analogInputTag.OnOffScan = !analogInputTag.OnOffScan;
-                tagServiceClient.UpdateAnalogInputTag(analogInputTag);
+                tagServiceClient.UpdateAnalogInputTag(currentToken, analogInputTag);
                 Console.WriteLine(analogInputTag.OnOffScan ? $"Scan toggled on for tag {analogInputTag.Name}" : $"Scan toggled off for tag {analogInputTag.Name}");
             }
         }
@@ -243,7 +243,7 @@ namespace DatabaseManagerApp
             string confirmation = Console.ReadLine();
             if (confirmation == "y") {
 
-                bool successful = tagServiceClient.RemoveTag(tagName);
+                bool successful = tagServiceClient.RemoveTag(currentToken, tagName);
                 Console.WriteLine(successful ? "Delete successful" : "Error: tag " + tagName + " doesn't exist.");
             }
         }
@@ -325,7 +325,7 @@ namespace DatabaseManagerApp
                 Alarms = bool.Parse(tagAlarms)
             };
 
-               tagServiceClient.AddAnalogInputTag(tag);
+               tagServiceClient.AddAnalogInputTag(currentToken, tag);
         }
 
         private static void AddDigitalInputTag()
@@ -357,7 +357,7 @@ namespace DatabaseManagerApp
                 OnOffScan = bool.Parse(tagOnOffScan),
             };
 
-            tagServiceClient.AddDigitalInputTag(tag);
+            tagServiceClient.AddDigitalInputTag(currentToken, tag);
         }
 
         private static void AddAnalogOutputTag()
@@ -393,7 +393,7 @@ namespace DatabaseManagerApp
                 InitialValue = double.Parse(tagInitialValue)
             };
 
-            tagServiceClient.AddAnalogOutputTag(tag);
+            tagServiceClient.AddAnalogOutputTag(currentToken, tag);
         }
 
         private static void AddDigitalOutputTag()
@@ -417,7 +417,7 @@ namespace DatabaseManagerApp
                 InitialValue = double.Parse(tagInitialValue)
             };
 
-            tagServiceClient.AddDigitalOutputTag(tag);
+            tagServiceClient.AddDigitalOutputTag(currentToken, tag);
         }
 
         private static string EnterTagName()
@@ -430,7 +430,7 @@ namespace DatabaseManagerApp
                 Console.Write("Enter tag name: ");
                 tagName = Console.ReadLine();
 
-                isUnique = tagServiceClient.IsTagNameUnique(tagName);
+                isUnique = tagServiceClient.IsTagNameUnique(currentToken,tagName);
 
                 if (!isUnique)
                 {

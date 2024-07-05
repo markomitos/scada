@@ -34,40 +34,40 @@ namespace DatabaseManagerApp.TagServiceReference {
         System.Threading.Tasks.Task<Scada.models.AnalogInputTag> GetAnalogInputTagAsync(string name);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/AddAnalogInputTag", ReplyAction="http://tempuri.org/ITagService/AddAnalogInputTagResponse")]
-        void AddAnalogInputTag(Scada.models.AnalogInputTag analogInputTag);
+        void AddAnalogInputTag(string token, Scada.models.AnalogInputTag analogInputTag);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/AddAnalogInputTag", ReplyAction="http://tempuri.org/ITagService/AddAnalogInputTagResponse")]
-        System.Threading.Tasks.Task AddAnalogInputTagAsync(Scada.models.AnalogInputTag analogInputTag);
+        System.Threading.Tasks.Task AddAnalogInputTagAsync(string token, Scada.models.AnalogInputTag analogInputTag);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/UpdateAnalogInputTag", ReplyAction="http://tempuri.org/ITagService/UpdateAnalogInputTagResponse")]
-        Scada.models.AnalogInputTag UpdateAnalogInputTag(Scada.models.AnalogInputTag analogInput);
+        Scada.models.AnalogInputTag UpdateAnalogInputTag(string token, Scada.models.AnalogInputTag analogInput);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/UpdateAnalogInputTag", ReplyAction="http://tempuri.org/ITagService/UpdateAnalogInputTagResponse")]
-        System.Threading.Tasks.Task<Scada.models.AnalogInputTag> UpdateAnalogInputTagAsync(Scada.models.AnalogInputTag analogInput);
+        System.Threading.Tasks.Task<Scada.models.AnalogInputTag> UpdateAnalogInputTagAsync(string token, Scada.models.AnalogInputTag analogInput);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetAllAnalogOutputTags", ReplyAction="http://tempuri.org/ITagService/GetAllAnalogOutputTagsResponse")]
-        Scada.models.AnalogOutputTag[] GetAllAnalogOutputTags();
+        Scada.models.AnalogOutputTag[] GetAllAnalogOutputTags(string token);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetAllAnalogOutputTags", ReplyAction="http://tempuri.org/ITagService/GetAllAnalogOutputTagsResponse")]
-        System.Threading.Tasks.Task<Scada.models.AnalogOutputTag[]> GetAllAnalogOutputTagsAsync();
+        System.Threading.Tasks.Task<Scada.models.AnalogOutputTag[]> GetAllAnalogOutputTagsAsync(string token);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetAnalogOutputTag", ReplyAction="http://tempuri.org/ITagService/GetAnalogOutputTagResponse")]
-        Scada.models.AnalogOutputTag GetAnalogOutputTag(string name);
+        Scada.models.AnalogOutputTag GetAnalogOutputTag(string token, string name);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetAnalogOutputTag", ReplyAction="http://tempuri.org/ITagService/GetAnalogOutputTagResponse")]
-        System.Threading.Tasks.Task<Scada.models.AnalogOutputTag> GetAnalogOutputTagAsync(string name);
+        System.Threading.Tasks.Task<Scada.models.AnalogOutputTag> GetAnalogOutputTagAsync(string token, string name);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/AddAnalogOutputTag", ReplyAction="http://tempuri.org/ITagService/AddAnalogOutputTagResponse")]
-        void AddAnalogOutputTag(Scada.models.AnalogOutputTag analogOutputTag);
+        void AddAnalogOutputTag(string token, Scada.models.AnalogOutputTag analogOutputTag);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/AddAnalogOutputTag", ReplyAction="http://tempuri.org/ITagService/AddAnalogOutputTagResponse")]
-        System.Threading.Tasks.Task AddAnalogOutputTagAsync(Scada.models.AnalogOutputTag analogOutputTag);
+        System.Threading.Tasks.Task AddAnalogOutputTagAsync(string token, Scada.models.AnalogOutputTag analogOutputTag);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/UpdateAnalogOutputTag", ReplyAction="http://tempuri.org/ITagService/UpdateAnalogOutputTagResponse")]
-        Scada.models.AnalogOutputTag UpdateAnalogOutputTag(Scada.models.AnalogOutputTag analogOutput);
+        Scada.models.AnalogOutputTag UpdateAnalogOutputTag(string token, Scada.models.AnalogOutputTag analogOutput);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/UpdateAnalogOutputTag", ReplyAction="http://tempuri.org/ITagService/UpdateAnalogOutputTagResponse")]
-        System.Threading.Tasks.Task<Scada.models.AnalogOutputTag> UpdateAnalogOutputTagAsync(Scada.models.AnalogOutputTag analogOutput);
+        System.Threading.Tasks.Task<Scada.models.AnalogOutputTag> UpdateAnalogOutputTagAsync(string token, Scada.models.AnalogOutputTag analogOutput);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetAllDigitalInputTags", ReplyAction="http://tempuri.org/ITagService/GetAllDigitalInputTagsResponse")]
         Scada.models.DigitalInputTag[] GetAllDigitalInputTags();
@@ -82,52 +82,52 @@ namespace DatabaseManagerApp.TagServiceReference {
         System.Threading.Tasks.Task<Scada.models.DigitalInputTag> GetDigitalInputTagAsync(string name);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/AddDigitalInputTag", ReplyAction="http://tempuri.org/ITagService/AddDigitalInputTagResponse")]
-        void AddDigitalInputTag(Scada.models.DigitalInputTag digitalInputTag);
+        void AddDigitalInputTag(string token, Scada.models.DigitalInputTag digitalInputTag);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/AddDigitalInputTag", ReplyAction="http://tempuri.org/ITagService/AddDigitalInputTagResponse")]
-        System.Threading.Tasks.Task AddDigitalInputTagAsync(Scada.models.DigitalInputTag digitalInputTag);
+        System.Threading.Tasks.Task AddDigitalInputTagAsync(string token, Scada.models.DigitalInputTag digitalInputTag);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/UpdateDigitalInputTag", ReplyAction="http://tempuri.org/ITagService/UpdateDigitalInputTagResponse")]
-        Scada.models.DigitalInputTag UpdateDigitalInputTag(Scada.models.DigitalInputTag digitalInput);
+        Scada.models.DigitalInputTag UpdateDigitalInputTag(string token, Scada.models.DigitalInputTag digitalInput);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/UpdateDigitalInputTag", ReplyAction="http://tempuri.org/ITagService/UpdateDigitalInputTagResponse")]
-        System.Threading.Tasks.Task<Scada.models.DigitalInputTag> UpdateDigitalInputTagAsync(Scada.models.DigitalInputTag digitalInput);
+        System.Threading.Tasks.Task<Scada.models.DigitalInputTag> UpdateDigitalInputTagAsync(string token, Scada.models.DigitalInputTag digitalInput);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetAllDigitalOutputTags", ReplyAction="http://tempuri.org/ITagService/GetAllDigitalOutputTagsResponse")]
-        Scada.models.DigitalOutputTag[] GetAllDigitalOutputTags();
+        Scada.models.DigitalOutputTag[] GetAllDigitalOutputTags(string token);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetAllDigitalOutputTags", ReplyAction="http://tempuri.org/ITagService/GetAllDigitalOutputTagsResponse")]
-        System.Threading.Tasks.Task<Scada.models.DigitalOutputTag[]> GetAllDigitalOutputTagsAsync();
+        System.Threading.Tasks.Task<Scada.models.DigitalOutputTag[]> GetAllDigitalOutputTagsAsync(string token);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetDigitalOutputTag", ReplyAction="http://tempuri.org/ITagService/GetDigitalOutputTagResponse")]
-        Scada.models.DigitalOutputTag GetDigitalOutputTag(string name);
+        Scada.models.DigitalOutputTag GetDigitalOutputTag(string token, string name);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetDigitalOutputTag", ReplyAction="http://tempuri.org/ITagService/GetDigitalOutputTagResponse")]
-        System.Threading.Tasks.Task<Scada.models.DigitalOutputTag> GetDigitalOutputTagAsync(string name);
+        System.Threading.Tasks.Task<Scada.models.DigitalOutputTag> GetDigitalOutputTagAsync(string token, string name);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/AddDigitalOutputTag", ReplyAction="http://tempuri.org/ITagService/AddDigitalOutputTagResponse")]
-        void AddDigitalOutputTag(Scada.models.DigitalOutputTag digitalOutputTag);
+        void AddDigitalOutputTag(string token, Scada.models.DigitalOutputTag digitalOutputTag);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/AddDigitalOutputTag", ReplyAction="http://tempuri.org/ITagService/AddDigitalOutputTagResponse")]
-        System.Threading.Tasks.Task AddDigitalOutputTagAsync(Scada.models.DigitalOutputTag digitalOutputTag);
+        System.Threading.Tasks.Task AddDigitalOutputTagAsync(string token, Scada.models.DigitalOutputTag digitalOutputTag);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/UpdateDigitalOutputTag", ReplyAction="http://tempuri.org/ITagService/UpdateDigitalOutputTagResponse")]
-        Scada.models.DigitalOutputTag UpdateDigitalOutputTag(Scada.models.DigitalOutputTag digitalOutput);
+        Scada.models.DigitalOutputTag UpdateDigitalOutputTag(string token, Scada.models.DigitalOutputTag digitalOutput);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/UpdateDigitalOutputTag", ReplyAction="http://tempuri.org/ITagService/UpdateDigitalOutputTagResponse")]
-        System.Threading.Tasks.Task<Scada.models.DigitalOutputTag> UpdateDigitalOutputTagAsync(Scada.models.DigitalOutputTag digitalOutput);
+        System.Threading.Tasks.Task<Scada.models.DigitalOutputTag> UpdateDigitalOutputTagAsync(string token, Scada.models.DigitalOutputTag digitalOutput);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/RemoveTag", ReplyAction="http://tempuri.org/ITagService/RemoveTagResponse")]
-        bool RemoveTag(string name);
+        bool RemoveTag(string token, string name);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/RemoveTag", ReplyAction="http://tempuri.org/ITagService/RemoveTagResponse")]
-        System.Threading.Tasks.Task<bool> RemoveTagAsync(string name);
+        System.Threading.Tasks.Task<bool> RemoveTagAsync(string token, string name);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/IsTagNameUnique", ReplyAction="http://tempuri.org/ITagService/IsTagNameUniqueResponse")]
-        bool IsTagNameUnique(string name);
+        bool IsTagNameUnique(string token, string name);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/IsTagNameUnique", ReplyAction="http://tempuri.org/ITagService/IsTagNameUniqueResponse")]
-        System.Threading.Tasks.Task<bool> IsTagNameUniqueAsync(string name);
+        System.Threading.Tasks.Task<bool> IsTagNameUniqueAsync(string token, string name);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/AddTagValue", ReplyAction="http://tempuri.org/ITagService/AddTagValueResponse")]
         void AddTagValue(Scada.models.TagValue tagValue);
@@ -136,34 +136,34 @@ namespace DatabaseManagerApp.TagServiceReference {
         System.Threading.Tasks.Task AddTagValueAsync(Scada.models.TagValue tagValue);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/RemoveTagValue", ReplyAction="http://tempuri.org/ITagService/RemoveTagValueResponse")]
-        void RemoveTagValue(string tagValueId);
+        void RemoveTagValue(string token, string tagValueId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/RemoveTagValue", ReplyAction="http://tempuri.org/ITagService/RemoveTagValueResponse")]
-        System.Threading.Tasks.Task RemoveTagValueAsync(string tagValueId);
+        System.Threading.Tasks.Task RemoveTagValueAsync(string token, string tagValueId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/UpdateTagValue", ReplyAction="http://tempuri.org/ITagService/UpdateTagValueResponse")]
-        void UpdateTagValue(Scada.models.TagValue tagValue);
+        void UpdateTagValue(string token, Scada.models.TagValue tagValue);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/UpdateTagValue", ReplyAction="http://tempuri.org/ITagService/UpdateTagValueResponse")]
-        System.Threading.Tasks.Task UpdateTagValueAsync(Scada.models.TagValue tagValue);
+        System.Threading.Tasks.Task UpdateTagValueAsync(string token, Scada.models.TagValue tagValue);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetTagValue", ReplyAction="http://tempuri.org/ITagService/GetTagValueResponse")]
-        Scada.models.TagValue GetTagValue(string tagValueId);
+        Scada.models.TagValue GetTagValue(string token, string tagValueId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetTagValue", ReplyAction="http://tempuri.org/ITagService/GetTagValueResponse")]
-        System.Threading.Tasks.Task<Scada.models.TagValue> GetTagValueAsync(string tagValueId);
+        System.Threading.Tasks.Task<Scada.models.TagValue> GetTagValueAsync(string token, string tagValueId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetAllTagValues", ReplyAction="http://tempuri.org/ITagService/GetAllTagValuesResponse")]
-        Scada.models.TagValue[] GetAllTagValues();
+        Scada.models.TagValue[] GetAllTagValues(string token);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetAllTagValues", ReplyAction="http://tempuri.org/ITagService/GetAllTagValuesResponse")]
-        System.Threading.Tasks.Task<Scada.models.TagValue[]> GetAllTagValuesAsync();
+        System.Threading.Tasks.Task<Scada.models.TagValue[]> GetAllTagValuesAsync(string token);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetLastTagValue", ReplyAction="http://tempuri.org/ITagService/GetLastTagValueResponse")]
-        Scada.models.TagValue GetLastTagValue(string tagName);
+        Scada.models.TagValue GetLastTagValue(string token, string tagName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetLastTagValue", ReplyAction="http://tempuri.org/ITagService/GetLastTagValueResponse")]
-        System.Threading.Tasks.Task<Scada.models.TagValue> GetLastTagValueAsync(string tagName);
+        System.Threading.Tasks.Task<Scada.models.TagValue> GetLastTagValueAsync(string token, string tagName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/getRTUValue", ReplyAction="http://tempuri.org/ITagService/getRTUValueResponse")]
         double getRTUValue(string address);
@@ -229,52 +229,52 @@ namespace DatabaseManagerApp.TagServiceReference {
             return base.Channel.GetAnalogInputTagAsync(name);
         }
         
-        public void AddAnalogInputTag(Scada.models.AnalogInputTag analogInputTag) {
-            base.Channel.AddAnalogInputTag(analogInputTag);
+        public void AddAnalogInputTag(string token, Scada.models.AnalogInputTag analogInputTag) {
+            base.Channel.AddAnalogInputTag(token, analogInputTag);
         }
         
-        public System.Threading.Tasks.Task AddAnalogInputTagAsync(Scada.models.AnalogInputTag analogInputTag) {
-            return base.Channel.AddAnalogInputTagAsync(analogInputTag);
+        public System.Threading.Tasks.Task AddAnalogInputTagAsync(string token, Scada.models.AnalogInputTag analogInputTag) {
+            return base.Channel.AddAnalogInputTagAsync(token, analogInputTag);
         }
         
-        public Scada.models.AnalogInputTag UpdateAnalogInputTag(Scada.models.AnalogInputTag analogInput) {
-            return base.Channel.UpdateAnalogInputTag(analogInput);
+        public Scada.models.AnalogInputTag UpdateAnalogInputTag(string token, Scada.models.AnalogInputTag analogInput) {
+            return base.Channel.UpdateAnalogInputTag(token, analogInput);
         }
         
-        public System.Threading.Tasks.Task<Scada.models.AnalogInputTag> UpdateAnalogInputTagAsync(Scada.models.AnalogInputTag analogInput) {
-            return base.Channel.UpdateAnalogInputTagAsync(analogInput);
+        public System.Threading.Tasks.Task<Scada.models.AnalogInputTag> UpdateAnalogInputTagAsync(string token, Scada.models.AnalogInputTag analogInput) {
+            return base.Channel.UpdateAnalogInputTagAsync(token, analogInput);
         }
         
-        public Scada.models.AnalogOutputTag[] GetAllAnalogOutputTags() {
-            return base.Channel.GetAllAnalogOutputTags();
+        public Scada.models.AnalogOutputTag[] GetAllAnalogOutputTags(string token) {
+            return base.Channel.GetAllAnalogOutputTags(token);
         }
         
-        public System.Threading.Tasks.Task<Scada.models.AnalogOutputTag[]> GetAllAnalogOutputTagsAsync() {
-            return base.Channel.GetAllAnalogOutputTagsAsync();
+        public System.Threading.Tasks.Task<Scada.models.AnalogOutputTag[]> GetAllAnalogOutputTagsAsync(string token) {
+            return base.Channel.GetAllAnalogOutputTagsAsync(token);
         }
         
-        public Scada.models.AnalogOutputTag GetAnalogOutputTag(string name) {
-            return base.Channel.GetAnalogOutputTag(name);
+        public Scada.models.AnalogOutputTag GetAnalogOutputTag(string token, string name) {
+            return base.Channel.GetAnalogOutputTag(token, name);
         }
         
-        public System.Threading.Tasks.Task<Scada.models.AnalogOutputTag> GetAnalogOutputTagAsync(string name) {
-            return base.Channel.GetAnalogOutputTagAsync(name);
+        public System.Threading.Tasks.Task<Scada.models.AnalogOutputTag> GetAnalogOutputTagAsync(string token, string name) {
+            return base.Channel.GetAnalogOutputTagAsync(token, name);
         }
         
-        public void AddAnalogOutputTag(Scada.models.AnalogOutputTag analogOutputTag) {
-            base.Channel.AddAnalogOutputTag(analogOutputTag);
+        public void AddAnalogOutputTag(string token, Scada.models.AnalogOutputTag analogOutputTag) {
+            base.Channel.AddAnalogOutputTag(token, analogOutputTag);
         }
         
-        public System.Threading.Tasks.Task AddAnalogOutputTagAsync(Scada.models.AnalogOutputTag analogOutputTag) {
-            return base.Channel.AddAnalogOutputTagAsync(analogOutputTag);
+        public System.Threading.Tasks.Task AddAnalogOutputTagAsync(string token, Scada.models.AnalogOutputTag analogOutputTag) {
+            return base.Channel.AddAnalogOutputTagAsync(token, analogOutputTag);
         }
         
-        public Scada.models.AnalogOutputTag UpdateAnalogOutputTag(Scada.models.AnalogOutputTag analogOutput) {
-            return base.Channel.UpdateAnalogOutputTag(analogOutput);
+        public Scada.models.AnalogOutputTag UpdateAnalogOutputTag(string token, Scada.models.AnalogOutputTag analogOutput) {
+            return base.Channel.UpdateAnalogOutputTag(token, analogOutput);
         }
         
-        public System.Threading.Tasks.Task<Scada.models.AnalogOutputTag> UpdateAnalogOutputTagAsync(Scada.models.AnalogOutputTag analogOutput) {
-            return base.Channel.UpdateAnalogOutputTagAsync(analogOutput);
+        public System.Threading.Tasks.Task<Scada.models.AnalogOutputTag> UpdateAnalogOutputTagAsync(string token, Scada.models.AnalogOutputTag analogOutput) {
+            return base.Channel.UpdateAnalogOutputTagAsync(token, analogOutput);
         }
         
         public Scada.models.DigitalInputTag[] GetAllDigitalInputTags() {
@@ -293,68 +293,68 @@ namespace DatabaseManagerApp.TagServiceReference {
             return base.Channel.GetDigitalInputTagAsync(name);
         }
         
-        public void AddDigitalInputTag(Scada.models.DigitalInputTag digitalInputTag) {
-            base.Channel.AddDigitalInputTag(digitalInputTag);
+        public void AddDigitalInputTag(string token, Scada.models.DigitalInputTag digitalInputTag) {
+            base.Channel.AddDigitalInputTag(token, digitalInputTag);
         }
         
-        public System.Threading.Tasks.Task AddDigitalInputTagAsync(Scada.models.DigitalInputTag digitalInputTag) {
-            return base.Channel.AddDigitalInputTagAsync(digitalInputTag);
+        public System.Threading.Tasks.Task AddDigitalInputTagAsync(string token, Scada.models.DigitalInputTag digitalInputTag) {
+            return base.Channel.AddDigitalInputTagAsync(token, digitalInputTag);
         }
         
-        public Scada.models.DigitalInputTag UpdateDigitalInputTag(Scada.models.DigitalInputTag digitalInput) {
-            return base.Channel.UpdateDigitalInputTag(digitalInput);
+        public Scada.models.DigitalInputTag UpdateDigitalInputTag(string token, Scada.models.DigitalInputTag digitalInput) {
+            return base.Channel.UpdateDigitalInputTag(token, digitalInput);
         }
         
-        public System.Threading.Tasks.Task<Scada.models.DigitalInputTag> UpdateDigitalInputTagAsync(Scada.models.DigitalInputTag digitalInput) {
-            return base.Channel.UpdateDigitalInputTagAsync(digitalInput);
+        public System.Threading.Tasks.Task<Scada.models.DigitalInputTag> UpdateDigitalInputTagAsync(string token, Scada.models.DigitalInputTag digitalInput) {
+            return base.Channel.UpdateDigitalInputTagAsync(token, digitalInput);
         }
         
-        public Scada.models.DigitalOutputTag[] GetAllDigitalOutputTags() {
-            return base.Channel.GetAllDigitalOutputTags();
+        public Scada.models.DigitalOutputTag[] GetAllDigitalOutputTags(string token) {
+            return base.Channel.GetAllDigitalOutputTags(token);
         }
         
-        public System.Threading.Tasks.Task<Scada.models.DigitalOutputTag[]> GetAllDigitalOutputTagsAsync() {
-            return base.Channel.GetAllDigitalOutputTagsAsync();
+        public System.Threading.Tasks.Task<Scada.models.DigitalOutputTag[]> GetAllDigitalOutputTagsAsync(string token) {
+            return base.Channel.GetAllDigitalOutputTagsAsync(token);
         }
         
-        public Scada.models.DigitalOutputTag GetDigitalOutputTag(string name) {
-            return base.Channel.GetDigitalOutputTag(name);
+        public Scada.models.DigitalOutputTag GetDigitalOutputTag(string token, string name) {
+            return base.Channel.GetDigitalOutputTag(token, name);
         }
         
-        public System.Threading.Tasks.Task<Scada.models.DigitalOutputTag> GetDigitalOutputTagAsync(string name) {
-            return base.Channel.GetDigitalOutputTagAsync(name);
+        public System.Threading.Tasks.Task<Scada.models.DigitalOutputTag> GetDigitalOutputTagAsync(string token, string name) {
+            return base.Channel.GetDigitalOutputTagAsync(token, name);
         }
         
-        public void AddDigitalOutputTag(Scada.models.DigitalOutputTag digitalOutputTag) {
-            base.Channel.AddDigitalOutputTag(digitalOutputTag);
+        public void AddDigitalOutputTag(string token, Scada.models.DigitalOutputTag digitalOutputTag) {
+            base.Channel.AddDigitalOutputTag(token, digitalOutputTag);
         }
         
-        public System.Threading.Tasks.Task AddDigitalOutputTagAsync(Scada.models.DigitalOutputTag digitalOutputTag) {
-            return base.Channel.AddDigitalOutputTagAsync(digitalOutputTag);
+        public System.Threading.Tasks.Task AddDigitalOutputTagAsync(string token, Scada.models.DigitalOutputTag digitalOutputTag) {
+            return base.Channel.AddDigitalOutputTagAsync(token, digitalOutputTag);
         }
         
-        public Scada.models.DigitalOutputTag UpdateDigitalOutputTag(Scada.models.DigitalOutputTag digitalOutput) {
-            return base.Channel.UpdateDigitalOutputTag(digitalOutput);
+        public Scada.models.DigitalOutputTag UpdateDigitalOutputTag(string token, Scada.models.DigitalOutputTag digitalOutput) {
+            return base.Channel.UpdateDigitalOutputTag(token, digitalOutput);
         }
         
-        public System.Threading.Tasks.Task<Scada.models.DigitalOutputTag> UpdateDigitalOutputTagAsync(Scada.models.DigitalOutputTag digitalOutput) {
-            return base.Channel.UpdateDigitalOutputTagAsync(digitalOutput);
+        public System.Threading.Tasks.Task<Scada.models.DigitalOutputTag> UpdateDigitalOutputTagAsync(string token, Scada.models.DigitalOutputTag digitalOutput) {
+            return base.Channel.UpdateDigitalOutputTagAsync(token, digitalOutput);
         }
         
-        public bool RemoveTag(string name) {
-            return base.Channel.RemoveTag(name);
+        public bool RemoveTag(string token, string name) {
+            return base.Channel.RemoveTag(token, name);
         }
         
-        public System.Threading.Tasks.Task<bool> RemoveTagAsync(string name) {
-            return base.Channel.RemoveTagAsync(name);
+        public System.Threading.Tasks.Task<bool> RemoveTagAsync(string token, string name) {
+            return base.Channel.RemoveTagAsync(token, name);
         }
         
-        public bool IsTagNameUnique(string name) {
-            return base.Channel.IsTagNameUnique(name);
+        public bool IsTagNameUnique(string token, string name) {
+            return base.Channel.IsTagNameUnique(token, name);
         }
         
-        public System.Threading.Tasks.Task<bool> IsTagNameUniqueAsync(string name) {
-            return base.Channel.IsTagNameUniqueAsync(name);
+        public System.Threading.Tasks.Task<bool> IsTagNameUniqueAsync(string token, string name) {
+            return base.Channel.IsTagNameUniqueAsync(token, name);
         }
         
         public void AddTagValue(Scada.models.TagValue tagValue) {
@@ -365,44 +365,44 @@ namespace DatabaseManagerApp.TagServiceReference {
             return base.Channel.AddTagValueAsync(tagValue);
         }
         
-        public void RemoveTagValue(string tagValueId) {
-            base.Channel.RemoveTagValue(tagValueId);
+        public void RemoveTagValue(string token, string tagValueId) {
+            base.Channel.RemoveTagValue(token, tagValueId);
         }
         
-        public System.Threading.Tasks.Task RemoveTagValueAsync(string tagValueId) {
-            return base.Channel.RemoveTagValueAsync(tagValueId);
+        public System.Threading.Tasks.Task RemoveTagValueAsync(string token, string tagValueId) {
+            return base.Channel.RemoveTagValueAsync(token, tagValueId);
         }
         
-        public void UpdateTagValue(Scada.models.TagValue tagValue) {
-            base.Channel.UpdateTagValue(tagValue);
+        public void UpdateTagValue(string token, Scada.models.TagValue tagValue) {
+            base.Channel.UpdateTagValue(token, tagValue);
         }
         
-        public System.Threading.Tasks.Task UpdateTagValueAsync(Scada.models.TagValue tagValue) {
-            return base.Channel.UpdateTagValueAsync(tagValue);
+        public System.Threading.Tasks.Task UpdateTagValueAsync(string token, Scada.models.TagValue tagValue) {
+            return base.Channel.UpdateTagValueAsync(token, tagValue);
         }
         
-        public Scada.models.TagValue GetTagValue(string tagValueId) {
-            return base.Channel.GetTagValue(tagValueId);
+        public Scada.models.TagValue GetTagValue(string token, string tagValueId) {
+            return base.Channel.GetTagValue(token, tagValueId);
         }
         
-        public System.Threading.Tasks.Task<Scada.models.TagValue> GetTagValueAsync(string tagValueId) {
-            return base.Channel.GetTagValueAsync(tagValueId);
+        public System.Threading.Tasks.Task<Scada.models.TagValue> GetTagValueAsync(string token, string tagValueId) {
+            return base.Channel.GetTagValueAsync(token, tagValueId);
         }
         
-        public Scada.models.TagValue[] GetAllTagValues() {
-            return base.Channel.GetAllTagValues();
+        public Scada.models.TagValue[] GetAllTagValues(string token) {
+            return base.Channel.GetAllTagValues(token);
         }
         
-        public System.Threading.Tasks.Task<Scada.models.TagValue[]> GetAllTagValuesAsync() {
-            return base.Channel.GetAllTagValuesAsync();
+        public System.Threading.Tasks.Task<Scada.models.TagValue[]> GetAllTagValuesAsync(string token) {
+            return base.Channel.GetAllTagValuesAsync(token);
         }
         
-        public Scada.models.TagValue GetLastTagValue(string tagName) {
-            return base.Channel.GetLastTagValue(tagName);
+        public Scada.models.TagValue GetLastTagValue(string token, string tagName) {
+            return base.Channel.GetLastTagValue(token, tagName);
         }
         
-        public System.Threading.Tasks.Task<Scada.models.TagValue> GetLastTagValueAsync(string tagName) {
-            return base.Channel.GetLastTagValueAsync(tagName);
+        public System.Threading.Tasks.Task<Scada.models.TagValue> GetLastTagValueAsync(string token, string tagName) {
+            return base.Channel.GetLastTagValueAsync(token, tagName);
         }
         
         public double getRTUValue(string address) {
