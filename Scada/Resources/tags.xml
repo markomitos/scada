@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Tags xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Tag xsi:type="DigitalInputTag" Name="di1" Description="di1" IoAddress="R" Driver="SIM" ScanTime="10000" OnOffScan="true">
+    <Id>0</Id>
+  </Tag>
+  <Tag xsi:type="AnalogInputTag" Name="ai1" Description="ai1" IoAddress="ai1" Driver="RTD" ScanTime="10000" OnOffScan="true" LowLimit="0" HighLimit="100" Units="s">
+    <Id>0</Id>
+    <Alarm>true</Alarm>
+  </Tag>
+  <Tag xsi:type="AnalogInputTag" Name="AI2" Description="AI2" IoAddress="AI2" Driver="RTD" ScanTime="10000" OnOffScan="true" LowLimit="0" HighLimit="100" Units="s">
+    <Id>0</Id>
+    <Alarm>true</Alarm>
+  </Tag>
+  <Tag xsi:type="AnalogInputTag" Name="AI3" Description="AI3" IoAddress="S" Driver="SIM" ScanTime="10000" OnOffScan="true" LowLimit="0" HighLimit="100" Units="s">
+    <Id>0</Id>
+    <Alarm>true</Alarm>
+  </Tag>
+</Tags>

@@ -127,19 +127,50 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="CoreService.svc" />
+    <Content Include="Resources\tags.xml" />
+    <Content Include="TagService.svc" />
+    <Content Include="UserService.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CoreService.svc.cs">
-      <DependentUpon>CoreService.svc</DependentUpon>
-    </Compile>
     <Compile Include="interfaces\IUserService.cs" />
+    <Compile Include="interfaces\ITagService.cs" />
+    <Compile Include="Migrations\202407021322206_TagKeyUpdate.cs" />
+    <Compile Include="Migrations\202407021322206_TagKeyUpdate.designer.cs">
+      <DependentUpon>202407021322206_TagKeyUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202407021917237_TagValuesTable.cs" />
+    <Compile Include="Migrations\202407021917237_TagValuesTable.Designer.cs">
+      <DependentUpon>202407021917237_TagValuesTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="models\AnalogInputTag.cs" />
+    <Compile Include="models\AnalogOutputTag.cs" />
+    <Compile Include="models\DigitalInputTag.cs" />
+    <Compile Include="models\DigitalOutputTag.cs" />
+    <Compile Include="models\InputTag.cs" />
+    <Compile Include="models\OutputTag.cs" />
+    <Compile Include="models\Tag.cs" />
+    <Compile Include="models\TagValue.cs" />
     <Compile Include="models\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="repositories\implementations\TagRepository.cs" />
+    <Compile Include="repositories\implementations\TagValueRepository.cs" />
+    <Compile Include="repositories\interfaces\ITagRepository.cs" />
+    <Compile Include="repositories\interfaces\ITagValueRepository.cs" />
+    <Compile Include="repositories\interfaces\IUserRepository.cs" />
     <Compile Include="repositories\ScadaContext.cs" />
-    <Compile Include="repositories\UserRepository.cs" />
+    <Compile Include="repositories\implementations\UserRepository.cs" />
+    <Compile Include="services\AuthenticationService.cs" />
+    <Compile Include="services\RealTimeDriver.cs" />
+    <Compile Include="services\TagProcessing.cs" />
+    <Compile Include="TagService.svc.cs">
+      <DependentUpon>TagService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="UserService.svc.cs">
+      <DependentUpon>UserService.svc</DependentUpon>
+    </Compile>
     <Compile Include="utilities\EncryptionUtility.cs" />
     <Compile Include="utilities\TokenGenerator.cs" />
   </ItemGroup>
@@ -154,6 +185,20 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202407021322206_TagKeyUpdate.resx">
+      <DependentUpon>202407021322206_TagKeyUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202407021917237_TagValuesTable.resx">
+      <DependentUpon>202407021917237_TagValuesTable.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SimulationDriver\SimulationDriver.csproj">
+      <Project>{c5353258-bbac-4de5-862a-7764f366398a}</Project>
+      <Name>SimulationDriver</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

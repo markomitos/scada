@@ -5,13 +5,16 @@ namespace Scada
 {
     public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            ServiceHost svc = new ServiceHost(typeof(CoreService));
-            svc.Open();
+            ServiceHost userService = new ServiceHost(typeof(UserService));
+            ServiceHost tagService = new ServiceHost(typeof(TagService));
+            userService.Open();
+            tagService.Open();
             Console.WriteLine("Listening");
             Console.ReadLine();
-            svc.Close();
+            userService.Close();
+            tagService.Close();
         }
 
     }

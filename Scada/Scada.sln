@@ -5,8 +5,6 @@ VisualStudioVersion = 17.9.34622.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scada", "Scada.csproj", "{45C9A3AB-AFD1-4D35-BC81-78AE72C9BFB5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimulationDriver", "..\SimulationDriver\SimulationDriver.csproj", "{D383FBDA-0BFF-4800-A993-421E73735622}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrendingApp", "..\TrendingApp\TrendingApp.csproj", "{E2792E0F-0877-4DC5-84E3-DF86302899B0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlarmDisplayApp", "..\AlarmDisplayApp\AlarmDisplayApp.csproj", "{06BA01B4-E7BD-4B37-82AC-B238F920EA48}"
@@ -19,6 +17,11 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReportManagerApp", "..\ReportManagerApp\ReportManagerApp.csproj", "{57E8F2BA-AE2E-45D9-A647-FD69CC635F7A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RTU", "..\RTU\RTU.csproj", "{DDDC8E91-1995-4AE2-B556-5768A3A4BA81}"
+	ProjectSection(ProjectDependencies) = postProject
+		{45C9A3AB-AFD1-4D35-BC81-78AE72C9BFB5} = {45C9A3AB-AFD1-4D35-BC81-78AE72C9BFB5}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimulationDriver", "..\SimulationDriver\SimulationDriver.csproj", "{C5353258-BBAC-4DE5-862A-7764F366398A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,10 +33,6 @@ Global
 		{45C9A3AB-AFD1-4D35-BC81-78AE72C9BFB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{45C9A3AB-AFD1-4D35-BC81-78AE72C9BFB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{45C9A3AB-AFD1-4D35-BC81-78AE72C9BFB5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D383FBDA-0BFF-4800-A993-421E73735622}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D383FBDA-0BFF-4800-A993-421E73735622}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D383FBDA-0BFF-4800-A993-421E73735622}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D383FBDA-0BFF-4800-A993-421E73735622}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E2792E0F-0877-4DC5-84E3-DF86302899B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E2792E0F-0877-4DC5-84E3-DF86302899B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E2792E0F-0877-4DC5-84E3-DF86302899B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -54,6 +53,10 @@ Global
 		{DDDC8E91-1995-4AE2-B556-5768A3A4BA81}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DDDC8E91-1995-4AE2-B556-5768A3A4BA81}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DDDC8E91-1995-4AE2-B556-5768A3A4BA81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5353258-BBAC-4DE5-862A-7764F366398A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5353258-BBAC-4DE5-862A-7764F366398A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5353258-BBAC-4DE5-862A-7764F366398A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5353258-BBAC-4DE5-862A-7764F366398A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
