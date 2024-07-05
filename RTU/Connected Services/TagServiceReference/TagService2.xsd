@@ -26,7 +26,6 @@
   <xs:element name="GetAnalogInputTag">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -138,7 +137,6 @@
   <xs:element name="GetDigitalInputTag">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>

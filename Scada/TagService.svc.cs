@@ -36,9 +36,8 @@ namespace Scada
             return _tagRepository.GetAllAnalogInputTags();
         }
 
-        public AnalogInputTag GetAnalogInputTag(string token, string name)
+        public AnalogInputTag GetAnalogInputTag(string name)
         {
-            if (!Authenticate(token)) throw new UnauthorizedAccessException("Invalid token");
             return _tagRepository.GetAnalogInputTag(name);
         }
 
@@ -95,9 +94,8 @@ namespace Scada
             return _tagRepository.GetAllDigitalInputTags();
         }
 
-        public DigitalInputTag GetDigitalInputTag(string token, string name)
+        public DigitalInputTag GetDigitalInputTag(string name)
         {
-            if (!Authenticate(token)) throw new UnauthorizedAccessException("Invalid token");
             return _tagRepository.GetDigitalInputTag(name);
         }
 

@@ -21,7 +21,7 @@ namespace Scada.interfaces
         List<AnalogInputTag> GetAllAnalogInputTags();
 
         [OperationContract]
-        AnalogInputTag GetAnalogInputTag(string token, string name);
+        AnalogInputTag GetAnalogInputTag(string name);
 
         [OperationContract]
         void AddAnalogInputTag(string token, AnalogInputTag analogInputTag);
@@ -49,7 +49,7 @@ namespace Scada.interfaces
         List<DigitalInputTag> GetAllDigitalInputTags();
 
         [OperationContract]
-        DigitalInputTag GetDigitalInputTag(string token, string name);
+        DigitalInputTag GetDigitalInputTag(string name);
 
         [OperationContract]
         void AddDigitalInputTag(string token, DigitalInputTag digitalInputTag);

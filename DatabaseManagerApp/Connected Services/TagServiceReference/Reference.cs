@@ -28,10 +28,10 @@ namespace DatabaseManagerApp.TagServiceReference {
         System.Threading.Tasks.Task<Scada.models.AnalogInputTag[]> GetAllAnalogInputTagsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetAnalogInputTag", ReplyAction="http://tempuri.org/ITagService/GetAnalogInputTagResponse")]
-        Scada.models.AnalogInputTag GetAnalogInputTag(string token, string name);
+        Scada.models.AnalogInputTag GetAnalogInputTag(string name);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetAnalogInputTag", ReplyAction="http://tempuri.org/ITagService/GetAnalogInputTagResponse")]
-        System.Threading.Tasks.Task<Scada.models.AnalogInputTag> GetAnalogInputTagAsync(string token, string name);
+        System.Threading.Tasks.Task<Scada.models.AnalogInputTag> GetAnalogInputTagAsync(string name);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/AddAnalogInputTag", ReplyAction="http://tempuri.org/ITagService/AddAnalogInputTagResponse")]
         void AddAnalogInputTag(string token, Scada.models.AnalogInputTag analogInputTag);
@@ -76,10 +76,10 @@ namespace DatabaseManagerApp.TagServiceReference {
         System.Threading.Tasks.Task<Scada.models.DigitalInputTag[]> GetAllDigitalInputTagsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetDigitalInputTag", ReplyAction="http://tempuri.org/ITagService/GetDigitalInputTagResponse")]
-        Scada.models.DigitalInputTag GetDigitalInputTag(string token, string name);
+        Scada.models.DigitalInputTag GetDigitalInputTag(string name);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetDigitalInputTag", ReplyAction="http://tempuri.org/ITagService/GetDigitalInputTagResponse")]
-        System.Threading.Tasks.Task<Scada.models.DigitalInputTag> GetDigitalInputTagAsync(string token, string name);
+        System.Threading.Tasks.Task<Scada.models.DigitalInputTag> GetDigitalInputTagAsync(string name);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/AddDigitalInputTag", ReplyAction="http://tempuri.org/ITagService/AddDigitalInputTagResponse")]
         void AddDigitalInputTag(string token, Scada.models.DigitalInputTag digitalInputTag);
@@ -221,12 +221,12 @@ namespace DatabaseManagerApp.TagServiceReference {
             return base.Channel.GetAllAnalogInputTagsAsync();
         }
         
-        public Scada.models.AnalogInputTag GetAnalogInputTag(string token, string name) {
-            return base.Channel.GetAnalogInputTag(token, name);
+        public Scada.models.AnalogInputTag GetAnalogInputTag(string name) {
+            return base.Channel.GetAnalogInputTag(name);
         }
         
-        public System.Threading.Tasks.Task<Scada.models.AnalogInputTag> GetAnalogInputTagAsync(string token, string name) {
-            return base.Channel.GetAnalogInputTagAsync(token, name);
+        public System.Threading.Tasks.Task<Scada.models.AnalogInputTag> GetAnalogInputTagAsync(string name) {
+            return base.Channel.GetAnalogInputTagAsync(name);
         }
         
         public void AddAnalogInputTag(string token, Scada.models.AnalogInputTag analogInputTag) {
@@ -285,12 +285,12 @@ namespace DatabaseManagerApp.TagServiceReference {
             return base.Channel.GetAllDigitalInputTagsAsync();
         }
         
-        public Scada.models.DigitalInputTag GetDigitalInputTag(string token, string name) {
-            return base.Channel.GetDigitalInputTag(token, name);
+        public Scada.models.DigitalInputTag GetDigitalInputTag(string name) {
+            return base.Channel.GetDigitalInputTag(name);
         }
         
-        public System.Threading.Tasks.Task<Scada.models.DigitalInputTag> GetDigitalInputTagAsync(string token, string name) {
-            return base.Channel.GetDigitalInputTagAsync(token, name);
+        public System.Threading.Tasks.Task<Scada.models.DigitalInputTag> GetDigitalInputTagAsync(string name) {
+            return base.Channel.GetDigitalInputTagAsync(name);
         }
         
         public void AddDigitalInputTag(string token, Scada.models.DigitalInputTag digitalInputTag) {

@@ -487,10 +487,10 @@ namespace RTU.TagServiceReference {
         System.Threading.Tasks.Task<RTU.TagServiceReference.AnalogInputTag[]> GetAllAnalogInputTagsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetAnalogInputTag", ReplyAction="http://tempuri.org/ITagService/GetAnalogInputTagResponse")]
-        RTU.TagServiceReference.AnalogInputTag GetAnalogInputTag(string token, string name);
+        RTU.TagServiceReference.AnalogInputTag GetAnalogInputTag(string name);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetAnalogInputTag", ReplyAction="http://tempuri.org/ITagService/GetAnalogInputTagResponse")]
-        System.Threading.Tasks.Task<RTU.TagServiceReference.AnalogInputTag> GetAnalogInputTagAsync(string token, string name);
+        System.Threading.Tasks.Task<RTU.TagServiceReference.AnalogInputTag> GetAnalogInputTagAsync(string name);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/AddAnalogInputTag", ReplyAction="http://tempuri.org/ITagService/AddAnalogInputTagResponse")]
         void AddAnalogInputTag(string token, RTU.TagServiceReference.AnalogInputTag analogInputTag);
@@ -535,10 +535,10 @@ namespace RTU.TagServiceReference {
         System.Threading.Tasks.Task<RTU.TagServiceReference.DigitalInputTag[]> GetAllDigitalInputTagsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetDigitalInputTag", ReplyAction="http://tempuri.org/ITagService/GetDigitalInputTagResponse")]
-        RTU.TagServiceReference.DigitalInputTag GetDigitalInputTag(string token, string name);
+        RTU.TagServiceReference.DigitalInputTag GetDigitalInputTag(string name);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetDigitalInputTag", ReplyAction="http://tempuri.org/ITagService/GetDigitalInputTagResponse")]
-        System.Threading.Tasks.Task<RTU.TagServiceReference.DigitalInputTag> GetDigitalInputTagAsync(string token, string name);
+        System.Threading.Tasks.Task<RTU.TagServiceReference.DigitalInputTag> GetDigitalInputTagAsync(string name);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/AddDigitalInputTag", ReplyAction="http://tempuri.org/ITagService/AddDigitalInputTagResponse")]
         void AddDigitalInputTag(string token, RTU.TagServiceReference.DigitalInputTag digitalInputTag);
@@ -680,12 +680,12 @@ namespace RTU.TagServiceReference {
             return base.Channel.GetAllAnalogInputTagsAsync();
         }
         
-        public RTU.TagServiceReference.AnalogInputTag GetAnalogInputTag(string token, string name) {
-            return base.Channel.GetAnalogInputTag(token, name);
+        public RTU.TagServiceReference.AnalogInputTag GetAnalogInputTag(string name) {
+            return base.Channel.GetAnalogInputTag(name);
         }
         
-        public System.Threading.Tasks.Task<RTU.TagServiceReference.AnalogInputTag> GetAnalogInputTagAsync(string token, string name) {
-            return base.Channel.GetAnalogInputTagAsync(token, name);
+        public System.Threading.Tasks.Task<RTU.TagServiceReference.AnalogInputTag> GetAnalogInputTagAsync(string name) {
+            return base.Channel.GetAnalogInputTagAsync(name);
         }
         
         public void AddAnalogInputTag(string token, RTU.TagServiceReference.AnalogInputTag analogInputTag) {
@@ -744,12 +744,12 @@ namespace RTU.TagServiceReference {
             return base.Channel.GetAllDigitalInputTagsAsync();
         }
         
-        public RTU.TagServiceReference.DigitalInputTag GetDigitalInputTag(string token, string name) {
-            return base.Channel.GetDigitalInputTag(token, name);
+        public RTU.TagServiceReference.DigitalInputTag GetDigitalInputTag(string name) {
+            return base.Channel.GetDigitalInputTag(name);
         }
         
-        public System.Threading.Tasks.Task<RTU.TagServiceReference.DigitalInputTag> GetDigitalInputTagAsync(string token, string name) {
-            return base.Channel.GetDigitalInputTagAsync(token, name);
+        public System.Threading.Tasks.Task<RTU.TagServiceReference.DigitalInputTag> GetDigitalInputTagAsync(string name) {
+            return base.Channel.GetDigitalInputTagAsync(name);
         }
         
         public void AddDigitalInputTag(string token, RTU.TagServiceReference.DigitalInputTag digitalInputTag) {

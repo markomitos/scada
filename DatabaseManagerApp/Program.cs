@@ -115,14 +115,14 @@ namespace DatabaseManagerApp
                     return;
                 }
 
-                AnalogInputTag aitag = tagServiceClient.GetAnalogInputTag(currentToken, tagName);
+                AnalogInputTag aitag = tagServiceClient.GetAnalogInputTag(tagName);
                 if (aitag != null)
                 {
                     IoAddress = aitag.IoAddress;
                     valueType = Scada.models.ValueType.ANALOG;
                 }
 
-                DigitalInputTag ditag = tagServiceClient.GetDigitalInputTag(currentToken,tagName);
+                DigitalInputTag ditag = tagServiceClient.GetDigitalInputTag(tagName);
                 if (ditag != null)
                 {
                     IoAddress = ditag.IoAddress;
@@ -190,7 +190,7 @@ namespace DatabaseManagerApp
         {
             Console.Write("Enter tag name: ");
             string tagName = Console.ReadLine();
-            AnalogInputTag analogInputTag = tagServiceClient.GetAnalogInputTag(currentToken, tagName);
+            AnalogInputTag analogInputTag = tagServiceClient.GetAnalogInputTag(tagName);
 
             if (analogInputTag != null)
             {
@@ -198,7 +198,7 @@ namespace DatabaseManagerApp
                 return;
             } 
 
-            DigitalInputTag digitalInputTag = tagServiceClient.GetDigitalInputTag(currentToken, tagName);
+            DigitalInputTag digitalInputTag = tagServiceClient.GetDigitalInputTag(tagName);
             if (digitalInputTag != null)
             {
                 toggleDigitalScan(digitalInputTag);
