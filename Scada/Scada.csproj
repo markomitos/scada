@@ -159,8 +159,10 @@
     <Compile Include="repositories\implementations\TagValueRepository.cs" />
     <Compile Include="repositories\interfaces\ITagRepository.cs" />
     <Compile Include="repositories\interfaces\ITagValueRepository.cs" />
+    <Compile Include="repositories\interfaces\IUserRepository.cs" />
     <Compile Include="repositories\ScadaContext.cs" />
-    <Compile Include="repositories\UserRepository.cs" />
+    <Compile Include="repositories\implementations\UserRepository.cs" />
+    <Compile Include="services\AuthenticationService.cs" />
     <Compile Include="services\RealTimeDriver.cs" />
     <Compile Include="services\TagProcessing.cs" />
     <Compile Include="TagService.svc.cs">

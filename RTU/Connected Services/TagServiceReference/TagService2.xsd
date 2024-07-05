@@ -26,6 +26,7 @@
   <xs:element name="GetAnalogInputTag">
     <xs:complexType>
       <xs:sequence>
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -40,6 +41,7 @@
   <xs:element name="AddAnalogInputTag">
     <xs:complexType>
       <xs:sequence>
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
         <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Scada.models" minOccurs="0" name="analogInputTag" nillable="true" type="q3:AnalogInputTag" />
       </xs:sequence>
     </xs:complexType>
@@ -52,6 +54,7 @@
   <xs:element name="UpdateAnalogInputTag">
     <xs:complexType>
       <xs:sequence>
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
         <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Scada.models" minOccurs="0" name="analogInput" nillable="true" type="q4:AnalogInputTag" />
       </xs:sequence>
     </xs:complexType>
@@ -65,7 +68,9 @@
   </xs:element>
   <xs:element name="GetAllAnalogOutputTags">
     <xs:complexType>
-      <xs:sequence />
+      <xs:sequence>
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetAllAnalogOutputTagsResponse">
@@ -78,6 +83,7 @@
   <xs:element name="GetAnalogOutputTag">
     <xs:complexType>
       <xs:sequence>
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -92,6 +98,7 @@
   <xs:element name="AddAnalogOutputTag">
     <xs:complexType>
       <xs:sequence>
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
         <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Scada.models" minOccurs="0" name="analogOutputTag" nillable="true" type="q8:AnalogOutputTag" />
       </xs:sequence>
     </xs:complexType>
@@ -104,6 +111,7 @@
   <xs:element name="UpdateAnalogOutputTag">
     <xs:complexType>
       <xs:sequence>
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
         <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Scada.models" minOccurs="0" name="analogOutput" nillable="true" type="q9:AnalogOutputTag" />
       </xs:sequence>
     </xs:complexType>
@@ -130,6 +138,7 @@
   <xs:element name="GetDigitalInputTag">
     <xs:complexType>
       <xs:sequence>
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -144,6 +153,7 @@
   <xs:element name="AddDigitalInputTag">
     <xs:complexType>
       <xs:sequence>
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
         <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Scada.models" minOccurs="0" name="digitalInputTag" nillable="true" type="q13:DigitalInputTag" />
       </xs:sequence>
     </xs:complexType>
@@ -156,6 +166,7 @@
   <xs:element name="UpdateDigitalInputTag">
     <xs:complexType>
       <xs:sequence>
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
         <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Scada.models" minOccurs="0" name="digitalInput" nillable="true" type="q14:DigitalInputTag" />
       </xs:sequence>
     </xs:complexType>
@@ -169,7 +180,9 @@
   </xs:element>
   <xs:element name="GetAllDigitalOutputTags">
     <xs:complexType>
-      <xs:sequence />
+      <xs:sequence>
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetAllDigitalOutputTagsResponse">
@@ -182,6 +195,7 @@
   <xs:element name="GetDigitalOutputTag">
     <xs:complexType>
       <xs:sequence>
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -196,6 +210,7 @@
   <xs:element name="AddDigitalOutputTag">
     <xs:complexType>
       <xs:sequence>
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
         <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/Scada.models" minOccurs="0" name="digitalOutputTag" nillable="true" type="q18:DigitalOutputTag" />
       </xs:sequence>
     </xs:complexType>
@@ -208,6 +223,7 @@
   <xs:element name="UpdateDigitalOutputTag">
     <xs:complexType>
       <xs:sequence>
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
         <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/Scada.models" minOccurs="0" name="digitalOutput" nillable="true" type="q19:DigitalOutputTag" />
       </xs:sequence>
     </xs:complexType>
@@ -222,6 +238,7 @@
   <xs:element name="RemoveTag">
     <xs:complexType>
       <xs:sequence>
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -236,6 +253,7 @@
   <xs:element name="IsTagNameUnique">
     <xs:complexType>
       <xs:sequence>
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -262,6 +280,7 @@
   <xs:element name="RemoveTagValue">
     <xs:complexType>
       <xs:sequence>
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="tagValueId" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -274,6 +293,7 @@
   <xs:element name="UpdateTagValue">
     <xs:complexType>
       <xs:sequence>
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
         <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/Scada.models" minOccurs="0" name="tagValue" nillable="true" type="q22:TagValue" />
       </xs:sequence>
     </xs:complexType>
@@ -286,6 +306,7 @@
   <xs:element name="GetTagValue">
     <xs:complexType>
       <xs:sequence>
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="tagValueId" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -299,7 +320,9 @@
   </xs:element>
   <xs:element name="GetAllTagValues">
     <xs:complexType>
-      <xs:sequence />
+      <xs:sequence>
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetAllTagValuesResponse">
@@ -312,6 +335,7 @@
   <xs:element name="GetLastTagValue">
     <xs:complexType>
       <xs:sequence>
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="tagName" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>

@@ -487,46 +487,46 @@ namespace RTU.TagServiceReference {
         System.Threading.Tasks.Task<RTU.TagServiceReference.AnalogInputTag[]> GetAllAnalogInputTagsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetAnalogInputTag", ReplyAction="http://tempuri.org/ITagService/GetAnalogInputTagResponse")]
-        RTU.TagServiceReference.AnalogInputTag GetAnalogInputTag(string name);
+        RTU.TagServiceReference.AnalogInputTag GetAnalogInputTag(string token, string name);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetAnalogInputTag", ReplyAction="http://tempuri.org/ITagService/GetAnalogInputTagResponse")]
-        System.Threading.Tasks.Task<RTU.TagServiceReference.AnalogInputTag> GetAnalogInputTagAsync(string name);
+        System.Threading.Tasks.Task<RTU.TagServiceReference.AnalogInputTag> GetAnalogInputTagAsync(string token, string name);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/AddAnalogInputTag", ReplyAction="http://tempuri.org/ITagService/AddAnalogInputTagResponse")]
-        void AddAnalogInputTag(RTU.TagServiceReference.AnalogInputTag analogInputTag);
+        void AddAnalogInputTag(string token, RTU.TagServiceReference.AnalogInputTag analogInputTag);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/AddAnalogInputTag", ReplyAction="http://tempuri.org/ITagService/AddAnalogInputTagResponse")]
-        System.Threading.Tasks.Task AddAnalogInputTagAsync(RTU.TagServiceReference.AnalogInputTag analogInputTag);
+        System.Threading.Tasks.Task AddAnalogInputTagAsync(string token, RTU.TagServiceReference.AnalogInputTag analogInputTag);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/UpdateAnalogInputTag", ReplyAction="http://tempuri.org/ITagService/UpdateAnalogInputTagResponse")]
-        RTU.TagServiceReference.AnalogInputTag UpdateAnalogInputTag(RTU.TagServiceReference.AnalogInputTag analogInput);
+        RTU.TagServiceReference.AnalogInputTag UpdateAnalogInputTag(string token, RTU.TagServiceReference.AnalogInputTag analogInput);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/UpdateAnalogInputTag", ReplyAction="http://tempuri.org/ITagService/UpdateAnalogInputTagResponse")]
-        System.Threading.Tasks.Task<RTU.TagServiceReference.AnalogInputTag> UpdateAnalogInputTagAsync(RTU.TagServiceReference.AnalogInputTag analogInput);
+        System.Threading.Tasks.Task<RTU.TagServiceReference.AnalogInputTag> UpdateAnalogInputTagAsync(string token, RTU.TagServiceReference.AnalogInputTag analogInput);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetAllAnalogOutputTags", ReplyAction="http://tempuri.org/ITagService/GetAllAnalogOutputTagsResponse")]
-        RTU.TagServiceReference.AnalogOutputTag[] GetAllAnalogOutputTags();
+        RTU.TagServiceReference.AnalogOutputTag[] GetAllAnalogOutputTags(string token);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetAllAnalogOutputTags", ReplyAction="http://tempuri.org/ITagService/GetAllAnalogOutputTagsResponse")]
-        System.Threading.Tasks.Task<RTU.TagServiceReference.AnalogOutputTag[]> GetAllAnalogOutputTagsAsync();
+        System.Threading.Tasks.Task<RTU.TagServiceReference.AnalogOutputTag[]> GetAllAnalogOutputTagsAsync(string token);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetAnalogOutputTag", ReplyAction="http://tempuri.org/ITagService/GetAnalogOutputTagResponse")]
-        RTU.TagServiceReference.AnalogOutputTag GetAnalogOutputTag(string name);
+        RTU.TagServiceReference.AnalogOutputTag GetAnalogOutputTag(string token, string name);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetAnalogOutputTag", ReplyAction="http://tempuri.org/ITagService/GetAnalogOutputTagResponse")]
-        System.Threading.Tasks.Task<RTU.TagServiceReference.AnalogOutputTag> GetAnalogOutputTagAsync(string name);
+        System.Threading.Tasks.Task<RTU.TagServiceReference.AnalogOutputTag> GetAnalogOutputTagAsync(string token, string name);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/AddAnalogOutputTag", ReplyAction="http://tempuri.org/ITagService/AddAnalogOutputTagResponse")]
-        void AddAnalogOutputTag(RTU.TagServiceReference.AnalogOutputTag analogOutputTag);
+        void AddAnalogOutputTag(string token, RTU.TagServiceReference.AnalogOutputTag analogOutputTag);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/AddAnalogOutputTag", ReplyAction="http://tempuri.org/ITagService/AddAnalogOutputTagResponse")]
-        System.Threading.Tasks.Task AddAnalogOutputTagAsync(RTU.TagServiceReference.AnalogOutputTag analogOutputTag);
+        System.Threading.Tasks.Task AddAnalogOutputTagAsync(string token, RTU.TagServiceReference.AnalogOutputTag analogOutputTag);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/UpdateAnalogOutputTag", ReplyAction="http://tempuri.org/ITagService/UpdateAnalogOutputTagResponse")]
-        RTU.TagServiceReference.AnalogOutputTag UpdateAnalogOutputTag(RTU.TagServiceReference.AnalogOutputTag analogOutput);
+        RTU.TagServiceReference.AnalogOutputTag UpdateAnalogOutputTag(string token, RTU.TagServiceReference.AnalogOutputTag analogOutput);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/UpdateAnalogOutputTag", ReplyAction="http://tempuri.org/ITagService/UpdateAnalogOutputTagResponse")]
-        System.Threading.Tasks.Task<RTU.TagServiceReference.AnalogOutputTag> UpdateAnalogOutputTagAsync(RTU.TagServiceReference.AnalogOutputTag analogOutput);
+        System.Threading.Tasks.Task<RTU.TagServiceReference.AnalogOutputTag> UpdateAnalogOutputTagAsync(string token, RTU.TagServiceReference.AnalogOutputTag analogOutput);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetAllDigitalInputTags", ReplyAction="http://tempuri.org/ITagService/GetAllDigitalInputTagsResponse")]
         RTU.TagServiceReference.DigitalInputTag[] GetAllDigitalInputTags();
@@ -535,58 +535,58 @@ namespace RTU.TagServiceReference {
         System.Threading.Tasks.Task<RTU.TagServiceReference.DigitalInputTag[]> GetAllDigitalInputTagsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetDigitalInputTag", ReplyAction="http://tempuri.org/ITagService/GetDigitalInputTagResponse")]
-        RTU.TagServiceReference.DigitalInputTag GetDigitalInputTag(string name);
+        RTU.TagServiceReference.DigitalInputTag GetDigitalInputTag(string token, string name);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetDigitalInputTag", ReplyAction="http://tempuri.org/ITagService/GetDigitalInputTagResponse")]
-        System.Threading.Tasks.Task<RTU.TagServiceReference.DigitalInputTag> GetDigitalInputTagAsync(string name);
+        System.Threading.Tasks.Task<RTU.TagServiceReference.DigitalInputTag> GetDigitalInputTagAsync(string token, string name);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/AddDigitalInputTag", ReplyAction="http://tempuri.org/ITagService/AddDigitalInputTagResponse")]
-        void AddDigitalInputTag(RTU.TagServiceReference.DigitalInputTag digitalInputTag);
+        void AddDigitalInputTag(string token, RTU.TagServiceReference.DigitalInputTag digitalInputTag);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/AddDigitalInputTag", ReplyAction="http://tempuri.org/ITagService/AddDigitalInputTagResponse")]
-        System.Threading.Tasks.Task AddDigitalInputTagAsync(RTU.TagServiceReference.DigitalInputTag digitalInputTag);
+        System.Threading.Tasks.Task AddDigitalInputTagAsync(string token, RTU.TagServiceReference.DigitalInputTag digitalInputTag);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/UpdateDigitalInputTag", ReplyAction="http://tempuri.org/ITagService/UpdateDigitalInputTagResponse")]
-        RTU.TagServiceReference.DigitalInputTag UpdateDigitalInputTag(RTU.TagServiceReference.DigitalInputTag digitalInput);
+        RTU.TagServiceReference.DigitalInputTag UpdateDigitalInputTag(string token, RTU.TagServiceReference.DigitalInputTag digitalInput);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/UpdateDigitalInputTag", ReplyAction="http://tempuri.org/ITagService/UpdateDigitalInputTagResponse")]
-        System.Threading.Tasks.Task<RTU.TagServiceReference.DigitalInputTag> UpdateDigitalInputTagAsync(RTU.TagServiceReference.DigitalInputTag digitalInput);
+        System.Threading.Tasks.Task<RTU.TagServiceReference.DigitalInputTag> UpdateDigitalInputTagAsync(string token, RTU.TagServiceReference.DigitalInputTag digitalInput);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetAllDigitalOutputTags", ReplyAction="http://tempuri.org/ITagService/GetAllDigitalOutputTagsResponse")]
-        RTU.TagServiceReference.DigitalOutputTag[] GetAllDigitalOutputTags();
+        RTU.TagServiceReference.DigitalOutputTag[] GetAllDigitalOutputTags(string token);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetAllDigitalOutputTags", ReplyAction="http://tempuri.org/ITagService/GetAllDigitalOutputTagsResponse")]
-        System.Threading.Tasks.Task<RTU.TagServiceReference.DigitalOutputTag[]> GetAllDigitalOutputTagsAsync();
+        System.Threading.Tasks.Task<RTU.TagServiceReference.DigitalOutputTag[]> GetAllDigitalOutputTagsAsync(string token);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetDigitalOutputTag", ReplyAction="http://tempuri.org/ITagService/GetDigitalOutputTagResponse")]
-        RTU.TagServiceReference.DigitalOutputTag GetDigitalOutputTag(string name);
+        RTU.TagServiceReference.DigitalOutputTag GetDigitalOutputTag(string token, string name);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetDigitalOutputTag", ReplyAction="http://tempuri.org/ITagService/GetDigitalOutputTagResponse")]
-        System.Threading.Tasks.Task<RTU.TagServiceReference.DigitalOutputTag> GetDigitalOutputTagAsync(string name);
+        System.Threading.Tasks.Task<RTU.TagServiceReference.DigitalOutputTag> GetDigitalOutputTagAsync(string token, string name);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/AddDigitalOutputTag", ReplyAction="http://tempuri.org/ITagService/AddDigitalOutputTagResponse")]
-        void AddDigitalOutputTag(RTU.TagServiceReference.DigitalOutputTag digitalOutputTag);
+        void AddDigitalOutputTag(string token, RTU.TagServiceReference.DigitalOutputTag digitalOutputTag);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/AddDigitalOutputTag", ReplyAction="http://tempuri.org/ITagService/AddDigitalOutputTagResponse")]
-        System.Threading.Tasks.Task AddDigitalOutputTagAsync(RTU.TagServiceReference.DigitalOutputTag digitalOutputTag);
+        System.Threading.Tasks.Task AddDigitalOutputTagAsync(string token, RTU.TagServiceReference.DigitalOutputTag digitalOutputTag);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/UpdateDigitalOutputTag", ReplyAction="http://tempuri.org/ITagService/UpdateDigitalOutputTagResponse")]
-        RTU.TagServiceReference.DigitalOutputTag UpdateDigitalOutputTag(RTU.TagServiceReference.DigitalOutputTag digitalOutput);
+        RTU.TagServiceReference.DigitalOutputTag UpdateDigitalOutputTag(string token, RTU.TagServiceReference.DigitalOutputTag digitalOutput);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/UpdateDigitalOutputTag", ReplyAction="http://tempuri.org/ITagService/UpdateDigitalOutputTagResponse")]
-        System.Threading.Tasks.Task<RTU.TagServiceReference.DigitalOutputTag> UpdateDigitalOutputTagAsync(RTU.TagServiceReference.DigitalOutputTag digitalOutput);
+        System.Threading.Tasks.Task<RTU.TagServiceReference.DigitalOutputTag> UpdateDigitalOutputTagAsync(string token, RTU.TagServiceReference.DigitalOutputTag digitalOutput);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/RemoveTag", ReplyAction="http://tempuri.org/ITagService/RemoveTagResponse")]
-        bool RemoveTag(string name);
+        bool RemoveTag(string token, string name);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/RemoveTag", ReplyAction="http://tempuri.org/ITagService/RemoveTagResponse")]
-        System.Threading.Tasks.Task<bool> RemoveTagAsync(string name);
+        System.Threading.Tasks.Task<bool> RemoveTagAsync(string token, string name);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/IsTagNameUnique", ReplyAction="http://tempuri.org/ITagService/IsTagNameUniqueResponse")]
-        bool IsTagNameUnique(string name);
+        bool IsTagNameUnique(string token, string name);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/IsTagNameUnique", ReplyAction="http://tempuri.org/ITagService/IsTagNameUniqueResponse")]
-        System.Threading.Tasks.Task<bool> IsTagNameUniqueAsync(string name);
+        System.Threading.Tasks.Task<bool> IsTagNameUniqueAsync(string token, string name);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/AddTagValue", ReplyAction="http://tempuri.org/ITagService/AddTagValueResponse")]
         void AddTagValue(RTU.TagServiceReference.TagValue tagValue);
@@ -595,34 +595,34 @@ namespace RTU.TagServiceReference {
         System.Threading.Tasks.Task AddTagValueAsync(RTU.TagServiceReference.TagValue tagValue);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/RemoveTagValue", ReplyAction="http://tempuri.org/ITagService/RemoveTagValueResponse")]
-        void RemoveTagValue(string tagValueId);
+        void RemoveTagValue(string token, string tagValueId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/RemoveTagValue", ReplyAction="http://tempuri.org/ITagService/RemoveTagValueResponse")]
-        System.Threading.Tasks.Task RemoveTagValueAsync(string tagValueId);
+        System.Threading.Tasks.Task RemoveTagValueAsync(string token, string tagValueId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/UpdateTagValue", ReplyAction="http://tempuri.org/ITagService/UpdateTagValueResponse")]
-        void UpdateTagValue(RTU.TagServiceReference.TagValue tagValue);
+        void UpdateTagValue(string token, RTU.TagServiceReference.TagValue tagValue);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/UpdateTagValue", ReplyAction="http://tempuri.org/ITagService/UpdateTagValueResponse")]
-        System.Threading.Tasks.Task UpdateTagValueAsync(RTU.TagServiceReference.TagValue tagValue);
+        System.Threading.Tasks.Task UpdateTagValueAsync(string token, RTU.TagServiceReference.TagValue tagValue);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetTagValue", ReplyAction="http://tempuri.org/ITagService/GetTagValueResponse")]
-        RTU.TagServiceReference.TagValue GetTagValue(string tagValueId);
+        RTU.TagServiceReference.TagValue GetTagValue(string token, string tagValueId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetTagValue", ReplyAction="http://tempuri.org/ITagService/GetTagValueResponse")]
-        System.Threading.Tasks.Task<RTU.TagServiceReference.TagValue> GetTagValueAsync(string tagValueId);
+        System.Threading.Tasks.Task<RTU.TagServiceReference.TagValue> GetTagValueAsync(string token, string tagValueId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetAllTagValues", ReplyAction="http://tempuri.org/ITagService/GetAllTagValuesResponse")]
-        RTU.TagServiceReference.TagValue[] GetAllTagValues();
+        RTU.TagServiceReference.TagValue[] GetAllTagValues(string token);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetAllTagValues", ReplyAction="http://tempuri.org/ITagService/GetAllTagValuesResponse")]
-        System.Threading.Tasks.Task<RTU.TagServiceReference.TagValue[]> GetAllTagValuesAsync();
+        System.Threading.Tasks.Task<RTU.TagServiceReference.TagValue[]> GetAllTagValuesAsync(string token);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetLastTagValue", ReplyAction="http://tempuri.org/ITagService/GetLastTagValueResponse")]
-        RTU.TagServiceReference.TagValue GetLastTagValue(string tagName);
+        RTU.TagServiceReference.TagValue GetLastTagValue(string token, string tagName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetLastTagValue", ReplyAction="http://tempuri.org/ITagService/GetLastTagValueResponse")]
-        System.Threading.Tasks.Task<RTU.TagServiceReference.TagValue> GetLastTagValueAsync(string tagName);
+        System.Threading.Tasks.Task<RTU.TagServiceReference.TagValue> GetLastTagValueAsync(string token, string tagName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/getRTUValue", ReplyAction="http://tempuri.org/ITagService/getRTUValueResponse")]
         double getRTUValue(string address);
@@ -680,60 +680,60 @@ namespace RTU.TagServiceReference {
             return base.Channel.GetAllAnalogInputTagsAsync();
         }
         
-        public RTU.TagServiceReference.AnalogInputTag GetAnalogInputTag(string name) {
-            return base.Channel.GetAnalogInputTag(name);
+        public RTU.TagServiceReference.AnalogInputTag GetAnalogInputTag(string token, string name) {
+            return base.Channel.GetAnalogInputTag(token, name);
         }
         
-        public System.Threading.Tasks.Task<RTU.TagServiceReference.AnalogInputTag> GetAnalogInputTagAsync(string name) {
-            return base.Channel.GetAnalogInputTagAsync(name);
+        public System.Threading.Tasks.Task<RTU.TagServiceReference.AnalogInputTag> GetAnalogInputTagAsync(string token, string name) {
+            return base.Channel.GetAnalogInputTagAsync(token, name);
         }
         
-        public void AddAnalogInputTag(RTU.TagServiceReference.AnalogInputTag analogInputTag) {
-            base.Channel.AddAnalogInputTag(analogInputTag);
+        public void AddAnalogInputTag(string token, RTU.TagServiceReference.AnalogInputTag analogInputTag) {
+            base.Channel.AddAnalogInputTag(token, analogInputTag);
         }
         
-        public System.Threading.Tasks.Task AddAnalogInputTagAsync(RTU.TagServiceReference.AnalogInputTag analogInputTag) {
-            return base.Channel.AddAnalogInputTagAsync(analogInputTag);
+        public System.Threading.Tasks.Task AddAnalogInputTagAsync(string token, RTU.TagServiceReference.AnalogInputTag analogInputTag) {
+            return base.Channel.AddAnalogInputTagAsync(token, analogInputTag);
         }
         
-        public RTU.TagServiceReference.AnalogInputTag UpdateAnalogInputTag(RTU.TagServiceReference.AnalogInputTag analogInput) {
-            return base.Channel.UpdateAnalogInputTag(analogInput);
+        public RTU.TagServiceReference.AnalogInputTag UpdateAnalogInputTag(string token, RTU.TagServiceReference.AnalogInputTag analogInput) {
+            return base.Channel.UpdateAnalogInputTag(token, analogInput);
         }
         
-        public System.Threading.Tasks.Task<RTU.TagServiceReference.AnalogInputTag> UpdateAnalogInputTagAsync(RTU.TagServiceReference.AnalogInputTag analogInput) {
-            return base.Channel.UpdateAnalogInputTagAsync(analogInput);
+        public System.Threading.Tasks.Task<RTU.TagServiceReference.AnalogInputTag> UpdateAnalogInputTagAsync(string token, RTU.TagServiceReference.AnalogInputTag analogInput) {
+            return base.Channel.UpdateAnalogInputTagAsync(token, analogInput);
         }
         
-        public RTU.TagServiceReference.AnalogOutputTag[] GetAllAnalogOutputTags() {
-            return base.Channel.GetAllAnalogOutputTags();
+        public RTU.TagServiceReference.AnalogOutputTag[] GetAllAnalogOutputTags(string token) {
+            return base.Channel.GetAllAnalogOutputTags(token);
         }
         
-        public System.Threading.Tasks.Task<RTU.TagServiceReference.AnalogOutputTag[]> GetAllAnalogOutputTagsAsync() {
-            return base.Channel.GetAllAnalogOutputTagsAsync();
+        public System.Threading.Tasks.Task<RTU.TagServiceReference.AnalogOutputTag[]> GetAllAnalogOutputTagsAsync(string token) {
+            return base.Channel.GetAllAnalogOutputTagsAsync(token);
         }
         
-        public RTU.TagServiceReference.AnalogOutputTag GetAnalogOutputTag(string name) {
-            return base.Channel.GetAnalogOutputTag(name);
+        public RTU.TagServiceReference.AnalogOutputTag GetAnalogOutputTag(string token, string name) {
+            return base.Channel.GetAnalogOutputTag(token, name);
         }
         
-        public System.Threading.Tasks.Task<RTU.TagServiceReference.AnalogOutputTag> GetAnalogOutputTagAsync(string name) {
-            return base.Channel.GetAnalogOutputTagAsync(name);
+        public System.Threading.Tasks.Task<RTU.TagServiceReference.AnalogOutputTag> GetAnalogOutputTagAsync(string token, string name) {
+            return base.Channel.GetAnalogOutputTagAsync(token, name);
         }
         
-        public void AddAnalogOutputTag(RTU.TagServiceReference.AnalogOutputTag analogOutputTag) {
-            base.Channel.AddAnalogOutputTag(analogOutputTag);
+        public void AddAnalogOutputTag(string token, RTU.TagServiceReference.AnalogOutputTag analogOutputTag) {
+            base.Channel.AddAnalogOutputTag(token, analogOutputTag);
         }
         
-        public System.Threading.Tasks.Task AddAnalogOutputTagAsync(RTU.TagServiceReference.AnalogOutputTag analogOutputTag) {
-            return base.Channel.AddAnalogOutputTagAsync(analogOutputTag);
+        public System.Threading.Tasks.Task AddAnalogOutputTagAsync(string token, RTU.TagServiceReference.AnalogOutputTag analogOutputTag) {
+            return base.Channel.AddAnalogOutputTagAsync(token, analogOutputTag);
         }
         
-        public RTU.TagServiceReference.AnalogOutputTag UpdateAnalogOutputTag(RTU.TagServiceReference.AnalogOutputTag analogOutput) {
-            return base.Channel.UpdateAnalogOutputTag(analogOutput);
+        public RTU.TagServiceReference.AnalogOutputTag UpdateAnalogOutputTag(string token, RTU.TagServiceReference.AnalogOutputTag analogOutput) {
+            return base.Channel.UpdateAnalogOutputTag(token, analogOutput);
         }
         
-        public System.Threading.Tasks.Task<RTU.TagServiceReference.AnalogOutputTag> UpdateAnalogOutputTagAsync(RTU.TagServiceReference.AnalogOutputTag analogOutput) {
-            return base.Channel.UpdateAnalogOutputTagAsync(analogOutput);
+        public System.Threading.Tasks.Task<RTU.TagServiceReference.AnalogOutputTag> UpdateAnalogOutputTagAsync(string token, RTU.TagServiceReference.AnalogOutputTag analogOutput) {
+            return base.Channel.UpdateAnalogOutputTagAsync(token, analogOutput);
         }
         
         public RTU.TagServiceReference.DigitalInputTag[] GetAllDigitalInputTags() {
@@ -744,76 +744,76 @@ namespace RTU.TagServiceReference {
             return base.Channel.GetAllDigitalInputTagsAsync();
         }
         
-        public RTU.TagServiceReference.DigitalInputTag GetDigitalInputTag(string name) {
-            return base.Channel.GetDigitalInputTag(name);
+        public RTU.TagServiceReference.DigitalInputTag GetDigitalInputTag(string token, string name) {
+            return base.Channel.GetDigitalInputTag(token, name);
         }
         
-        public System.Threading.Tasks.Task<RTU.TagServiceReference.DigitalInputTag> GetDigitalInputTagAsync(string name) {
-            return base.Channel.GetDigitalInputTagAsync(name);
+        public System.Threading.Tasks.Task<RTU.TagServiceReference.DigitalInputTag> GetDigitalInputTagAsync(string token, string name) {
+            return base.Channel.GetDigitalInputTagAsync(token, name);
         }
         
-        public void AddDigitalInputTag(RTU.TagServiceReference.DigitalInputTag digitalInputTag) {
-            base.Channel.AddDigitalInputTag(digitalInputTag);
+        public void AddDigitalInputTag(string token, RTU.TagServiceReference.DigitalInputTag digitalInputTag) {
+            base.Channel.AddDigitalInputTag(token, digitalInputTag);
         }
         
-        public System.Threading.Tasks.Task AddDigitalInputTagAsync(RTU.TagServiceReference.DigitalInputTag digitalInputTag) {
-            return base.Channel.AddDigitalInputTagAsync(digitalInputTag);
+        public System.Threading.Tasks.Task AddDigitalInputTagAsync(string token, RTU.TagServiceReference.DigitalInputTag digitalInputTag) {
+            return base.Channel.AddDigitalInputTagAsync(token, digitalInputTag);
         }
         
-        public RTU.TagServiceReference.DigitalInputTag UpdateDigitalInputTag(RTU.TagServiceReference.DigitalInputTag digitalInput) {
-            return base.Channel.UpdateDigitalInputTag(digitalInput);
+        public RTU.TagServiceReference.DigitalInputTag UpdateDigitalInputTag(string token, RTU.TagServiceReference.DigitalInputTag digitalInput) {
+            return base.Channel.UpdateDigitalInputTag(token, digitalInput);
         }
         
-        public System.Threading.Tasks.Task<RTU.TagServiceReference.DigitalInputTag> UpdateDigitalInputTagAsync(RTU.TagServiceReference.DigitalInputTag digitalInput) {
-            return base.Channel.UpdateDigitalInputTagAsync(digitalInput);
+        public System.Threading.Tasks.Task<RTU.TagServiceReference.DigitalInputTag> UpdateDigitalInputTagAsync(string token, RTU.TagServiceReference.DigitalInputTag digitalInput) {
+            return base.Channel.UpdateDigitalInputTagAsync(token, digitalInput);
         }
         
-        public RTU.TagServiceReference.DigitalOutputTag[] GetAllDigitalOutputTags() {
-            return base.Channel.GetAllDigitalOutputTags();
+        public RTU.TagServiceReference.DigitalOutputTag[] GetAllDigitalOutputTags(string token) {
+            return base.Channel.GetAllDigitalOutputTags(token);
         }
         
-        public System.Threading.Tasks.Task<RTU.TagServiceReference.DigitalOutputTag[]> GetAllDigitalOutputTagsAsync() {
-            return base.Channel.GetAllDigitalOutputTagsAsync();
+        public System.Threading.Tasks.Task<RTU.TagServiceReference.DigitalOutputTag[]> GetAllDigitalOutputTagsAsync(string token) {
+            return base.Channel.GetAllDigitalOutputTagsAsync(token);
         }
         
-        public RTU.TagServiceReference.DigitalOutputTag GetDigitalOutputTag(string name) {
-            return base.Channel.GetDigitalOutputTag(name);
+        public RTU.TagServiceReference.DigitalOutputTag GetDigitalOutputTag(string token, string name) {
+            return base.Channel.GetDigitalOutputTag(token, name);
         }
         
-        public System.Threading.Tasks.Task<RTU.TagServiceReference.DigitalOutputTag> GetDigitalOutputTagAsync(string name) {
-            return base.Channel.GetDigitalOutputTagAsync(name);
+        public System.Threading.Tasks.Task<RTU.TagServiceReference.DigitalOutputTag> GetDigitalOutputTagAsync(string token, string name) {
+            return base.Channel.GetDigitalOutputTagAsync(token, name);
         }
         
-        public void AddDigitalOutputTag(RTU.TagServiceReference.DigitalOutputTag digitalOutputTag) {
-            base.Channel.AddDigitalOutputTag(digitalOutputTag);
+        public void AddDigitalOutputTag(string token, RTU.TagServiceReference.DigitalOutputTag digitalOutputTag) {
+            base.Channel.AddDigitalOutputTag(token, digitalOutputTag);
         }
         
-        public System.Threading.Tasks.Task AddDigitalOutputTagAsync(RTU.TagServiceReference.DigitalOutputTag digitalOutputTag) {
-            return base.Channel.AddDigitalOutputTagAsync(digitalOutputTag);
+        public System.Threading.Tasks.Task AddDigitalOutputTagAsync(string token, RTU.TagServiceReference.DigitalOutputTag digitalOutputTag) {
+            return base.Channel.AddDigitalOutputTagAsync(token, digitalOutputTag);
         }
         
-        public RTU.TagServiceReference.DigitalOutputTag UpdateDigitalOutputTag(RTU.TagServiceReference.DigitalOutputTag digitalOutput) {
-            return base.Channel.UpdateDigitalOutputTag(digitalOutput);
+        public RTU.TagServiceReference.DigitalOutputTag UpdateDigitalOutputTag(string token, RTU.TagServiceReference.DigitalOutputTag digitalOutput) {
+            return base.Channel.UpdateDigitalOutputTag(token, digitalOutput);
         }
         
-        public System.Threading.Tasks.Task<RTU.TagServiceReference.DigitalOutputTag> UpdateDigitalOutputTagAsync(RTU.TagServiceReference.DigitalOutputTag digitalOutput) {
-            return base.Channel.UpdateDigitalOutputTagAsync(digitalOutput);
+        public System.Threading.Tasks.Task<RTU.TagServiceReference.DigitalOutputTag> UpdateDigitalOutputTagAsync(string token, RTU.TagServiceReference.DigitalOutputTag digitalOutput) {
+            return base.Channel.UpdateDigitalOutputTagAsync(token, digitalOutput);
         }
         
-        public bool RemoveTag(string name) {
-            return base.Channel.RemoveTag(name);
+        public bool RemoveTag(string token, string name) {
+            return base.Channel.RemoveTag(token, name);
         }
         
-        public System.Threading.Tasks.Task<bool> RemoveTagAsync(string name) {
-            return base.Channel.RemoveTagAsync(name);
+        public System.Threading.Tasks.Task<bool> RemoveTagAsync(string token, string name) {
+            return base.Channel.RemoveTagAsync(token, name);
         }
         
-        public bool IsTagNameUnique(string name) {
-            return base.Channel.IsTagNameUnique(name);
+        public bool IsTagNameUnique(string token, string name) {
+            return base.Channel.IsTagNameUnique(token, name);
         }
         
-        public System.Threading.Tasks.Task<bool> IsTagNameUniqueAsync(string name) {
-            return base.Channel.IsTagNameUniqueAsync(name);
+        public System.Threading.Tasks.Task<bool> IsTagNameUniqueAsync(string token, string name) {
+            return base.Channel.IsTagNameUniqueAsync(token, name);
         }
         
         public void AddTagValue(RTU.TagServiceReference.TagValue tagValue) {
@@ -824,44 +824,44 @@ namespace RTU.TagServiceReference {
             return base.Channel.AddTagValueAsync(tagValue);
         }
         
-        public void RemoveTagValue(string tagValueId) {
-            base.Channel.RemoveTagValue(tagValueId);
+        public void RemoveTagValue(string token, string tagValueId) {
+            base.Channel.RemoveTagValue(token, tagValueId);
         }
         
-        public System.Threading.Tasks.Task RemoveTagValueAsync(string tagValueId) {
-            return base.Channel.RemoveTagValueAsync(tagValueId);
+        public System.Threading.Tasks.Task RemoveTagValueAsync(string token, string tagValueId) {
+            return base.Channel.RemoveTagValueAsync(token, tagValueId);
         }
         
-        public void UpdateTagValue(RTU.TagServiceReference.TagValue tagValue) {
-            base.Channel.UpdateTagValue(tagValue);
+        public void UpdateTagValue(string token, RTU.TagServiceReference.TagValue tagValue) {
+            base.Channel.UpdateTagValue(token, tagValue);
         }
         
-        public System.Threading.Tasks.Task UpdateTagValueAsync(RTU.TagServiceReference.TagValue tagValue) {
-            return base.Channel.UpdateTagValueAsync(tagValue);
+        public System.Threading.Tasks.Task UpdateTagValueAsync(string token, RTU.TagServiceReference.TagValue tagValue) {
+            return base.Channel.UpdateTagValueAsync(token, tagValue);
         }
         
-        public RTU.TagServiceReference.TagValue GetTagValue(string tagValueId) {
-            return base.Channel.GetTagValue(tagValueId);
+        public RTU.TagServiceReference.TagValue GetTagValue(string token, string tagValueId) {
+            return base.Channel.GetTagValue(token, tagValueId);
         }
         
-        public System.Threading.Tasks.Task<RTU.TagServiceReference.TagValue> GetTagValueAsync(string tagValueId) {
-            return base.Channel.GetTagValueAsync(tagValueId);
+        public System.Threading.Tasks.Task<RTU.TagServiceReference.TagValue> GetTagValueAsync(string token, string tagValueId) {
+            return base.Channel.GetTagValueAsync(token, tagValueId);
         }
         
-        public RTU.TagServiceReference.TagValue[] GetAllTagValues() {
-            return base.Channel.GetAllTagValues();
+        public RTU.TagServiceReference.TagValue[] GetAllTagValues(string token) {
+            return base.Channel.GetAllTagValues(token);
         }
         
-        public System.Threading.Tasks.Task<RTU.TagServiceReference.TagValue[]> GetAllTagValuesAsync() {
-            return base.Channel.GetAllTagValuesAsync();
+        public System.Threading.Tasks.Task<RTU.TagServiceReference.TagValue[]> GetAllTagValuesAsync(string token) {
+            return base.Channel.GetAllTagValuesAsync(token);
         }
         
-        public RTU.TagServiceReference.TagValue GetLastTagValue(string tagName) {
-            return base.Channel.GetLastTagValue(tagName);
+        public RTU.TagServiceReference.TagValue GetLastTagValue(string token, string tagName) {
+            return base.Channel.GetLastTagValue(token, tagName);
         }
         
-        public System.Threading.Tasks.Task<RTU.TagServiceReference.TagValue> GetLastTagValueAsync(string tagName) {
-            return base.Channel.GetLastTagValueAsync(tagName);
+        public System.Threading.Tasks.Task<RTU.TagServiceReference.TagValue> GetLastTagValueAsync(string token, string tagName) {
+            return base.Channel.GetLastTagValueAsync(token, tagName);
         }
         
         public double getRTUValue(string address) {

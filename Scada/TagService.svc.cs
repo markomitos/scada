@@ -2,9 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Serialization;
-using System.ServiceModel;
-using System.Text;
 using Scada.interfaces;
 using Scada.models;
 using Scada.repositories.implementations;
@@ -12,22 +9,24 @@ using Scada.services;
 
 namespace Scada
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "TagService" in code, svc and config file together.
-    // NOTE: In order to launch WCF Test Client for testing this service, please select TagService.svc or TagService.svc.cs at the Solution Explorer and start debugging.
     public class TagService : ITagService
     {
         private readonly TagRepository _tagRepository;
         private readonly TagValueRepository _tagValueRepository;
-        private TagProcessing _tagProcessing;
-        //private RealTimeDriver _realTimeDriver;
+        private readonly TagProcessing _tagProcessing;
 
         public TagService()
         {
             _tagRepository = new TagRepository();
             _tagValueRepository = new TagValueRepository();
-            //_realTimeDriver = new RealTimeDriver();
             _tagProcessing = new TagProcessing(this);
         }
+
+        private bool Authenticate(string token)
+        {
+            return AuthenticationService.AuthenticateToken(token);
+        }
+
         public void Hello()
         { }
 
@@ -37,40 +36,47 @@ namespace Scada
             return _tagRepository.GetAllAnalogInputTags();
         }
 
-        public AnalogInputTag GetAnalogInputTag(string name)
+        public AnalogInputTag GetAnalogInputTag(string token, string name)
         {
+            if (!Authenticate(token)) throw new UnauthorizedAccessException("Invalid token");
             return _tagRepository.GetAnalogInputTag(name);
         }
 
-        public void AddAnalogInputTag(AnalogInputTag analogInputTag)
+        public void AddAnalogInputTag(string token, AnalogInputTag analogInputTag)
         {
+            if (!Authenticate(token)) throw new UnauthorizedAccessException("Invalid token");
             _tagRepository.AddAnalogInputTag(analogInputTag);
             _tagProcessing.processAnalogTag(analogInputTag);
         }
 
-        public AnalogInputTag UpdateAnalogInputTag(AnalogInputTag analogInput)
+        public AnalogInputTag UpdateAnalogInputTag(string token, AnalogInputTag analogInput)
         {
+            if (!Authenticate(token)) throw new UnauthorizedAccessException("Invalid token");
             return _tagRepository.UpdateAnalogInputTag(analogInput);
         }
 
         // Methods for AnalogOutputTag
-        public List<AnalogOutputTag> GetAllAnalogOutputTags()
+        public List<AnalogOutputTag> GetAllAnalogOutputTags(string token)
         {
+            if (!Authenticate(token)) throw new UnauthorizedAccessException("Invalid token");
             return _tagRepository.GetAllAnalogOutputTags();
         }
 
-        public AnalogOutputTag GetAnalogOutputTag(string name)
+        public AnalogOutputTag GetAnalogOutputTag(string token, string name)
         {
+            if (!Authenticate(token)) throw new UnauthorizedAccessException("Invalid token");
             return _tagRepository.GetAnalogOutputTag(name);
         }
 
-        public void AddAnalogOutputTag(AnalogOutputTag analogOutputTag)
+        public void AddAnalogOutputTag(string token, AnalogOutputTag analogOutputTag)
         {
+            if (!Authenticate(token)) throw new UnauthorizedAccessException("Invalid token");
             _tagRepository.AddAnalogOutputTag(analogOutputTag);
         }
 
-        public AnalogOutputTag UpdateAnalogOutputTag(AnalogOutputTag analogOutput)
+        public AnalogOutputTag UpdateAnalogOutputTag(string token, AnalogOutputTag analogOutput)
         {
+            if (!Authenticate(token)) throw new UnauthorizedAccessException("Invalid token");
             return _tagRepository.UpdateAnalogOutputTag(analogOutput);
         }
 
@@ -80,87 +86,101 @@ namespace Scada
             return _tagRepository.GetAllDigitalInputTags();
         }
 
-        public DigitalInputTag GetDigitalInputTag(string name)
+        public DigitalInputTag GetDigitalInputTag(string token, string name)
         {
+            if (!Authenticate(token)) throw new UnauthorizedAccessException("Invalid token");
             return _tagRepository.GetDigitalInputTag(name);
         }
 
-        public void AddDigitalInputTag(DigitalInputTag digitalInputTag)
+        public void AddDigitalInputTag(string token, DigitalInputTag digitalInputTag)
         {
+            if (!Authenticate(token)) throw new UnauthorizedAccessException("Invalid token");
             _tagRepository.AddDigitalInputTag(digitalInputTag);
             _tagProcessing.processDigitalTag(digitalInputTag);
         }
 
-        public DigitalInputTag UpdateDigitalInputTag(DigitalInputTag digitalInput)
+        public DigitalInputTag UpdateDigitalInputTag(string token, DigitalInputTag digitalInput)
         {
+            if (!Authenticate(token)) throw new UnauthorizedAccessException("Invalid token");
             return _tagRepository.UpdateDigitalInputTag(digitalInput);
         }
 
         // Methods for DigitalOutputTag
-        public List<DigitalOutputTag> GetAllDigitalOutputTags()
+        public List<DigitalOutputTag> GetAllDigitalOutputTags(string token)
         {
+            if (!Authenticate(token)) throw new UnauthorizedAccessException("Invalid token");
             return _tagRepository.GetAllDigitalOutputTags();
         }
 
-        public DigitalOutputTag GetDigitalOutputTag(string name)
+        public DigitalOutputTag GetDigitalOutputTag(string token, string name)
         {
+            if (!Authenticate(token)) throw new UnauthorizedAccessException("Invalid token");
             return _tagRepository.GetDigitalOutputTag(name);
         }
 
-        public void AddDigitalOutputTag(DigitalOutputTag digitalOutputTag)
+        public void AddDigitalOutputTag(string token, DigitalOutputTag digitalOutputTag)
         {
+            if (!Authenticate(token)) throw new UnauthorizedAccessException("Invalid token");
             _tagRepository.AddDigitalOutputTag(digitalOutputTag);
         }
 
-        public DigitalOutputTag UpdateDigitalOutputTag(DigitalOutputTag digitalOutput)
+        public DigitalOutputTag UpdateDigitalOutputTag(string token, DigitalOutputTag digitalOutput)
         {
+            if (!Authenticate(token)) throw new UnauthorizedAccessException("Invalid token");
             return _tagRepository.UpdateDigitalOutputTag(digitalOutput);
         }
 
         // Universal remove
-        public bool RemoveTag(string name)
+        public bool RemoveTag(string token, string name)
         {
+            if (!Authenticate(token)) throw new UnauthorizedAccessException("Invalid token");
             _tagProcessing.removeTag(name);
             return _tagRepository.RemoveTag(name);
         }
 
-        public bool IsTagNameUnique(string name)
+        public bool IsTagNameUnique(string token, string name)
         {
+            if (!Authenticate(token)) throw new UnauthorizedAccessException("Invalid token");
             return _tagRepository.IsTagNameUnique(name);
         }
 
-        //VALUES
+        // VALUES
         public void AddTagValue(TagValue tagValue)
         {
             _tagValueRepository.AddTagValue(tagValue);
         }
 
-        public void RemoveTagValue(string tagValueId)
+        public void RemoveTagValue(string token, string tagValueId)
         {
+            if (!Authenticate(token)) throw new UnauthorizedAccessException("Invalid token");
             _tagValueRepository.RemoveTagValue(tagValueId);
         }
 
-        public void UpdateTagValue(TagValue tagValue)
+        public void UpdateTagValue(string token, TagValue tagValue)
         {
+            if (!Authenticate(token)) throw new UnauthorizedAccessException("Invalid token");
             _tagValueRepository.UpdateTagValue(tagValue);
         }
 
-        public TagValue GetTagValue(string tagValueId)
+        public TagValue GetTagValue(string token, string tagValueId)
         {
+            if (!Authenticate(token)) throw new UnauthorizedAccessException("Invalid token");
             return _tagValueRepository.GetTagValue(tagValueId);
         }
 
-        public List<TagValue> GetAllTagValues()
+        public List<TagValue> GetAllTagValues(string token)
         {
+            if (!Authenticate(token)) throw new UnauthorizedAccessException("Invalid token");
             return _tagValueRepository.GetAllTagValues();
         }
 
-        public TagValue GetLastTagValue(string tagName)
+        public TagValue GetLastTagValue(string token, string tagName)
         {
+            if (!Authenticate(token)) throw new UnauthorizedAccessException("Invalid token");
             return _tagValueRepository.GetLastTagValue(tagName);
         }
 
-        //RTU
+        // RTU
         public double getRTUValue(string address)
         {
             return RealTimeDriver.getValue(address);
@@ -170,8 +190,5 @@ namespace Scada
         {
             RealTimeDriver.setValue(address, value);
         }
-
-        
     }
-
 }
