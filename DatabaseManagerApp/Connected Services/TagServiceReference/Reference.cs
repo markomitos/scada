@@ -12,7 +12,7 @@ namespace DatabaseManagerApp.TagServiceReference {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="TagServiceReference.ITagService")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="TagServiceReference.ITagService", CallbackContract=typeof(DatabaseManagerApp.TagServiceReference.ITagServiceCallback))]
     public interface ITagService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/Hello", ReplyAction="http://tempuri.org/ITagService/HelloResponse")]
@@ -179,30 +179,41 @@ namespace DatabaseManagerApp.TagServiceReference {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface ITagServiceCallback {
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ITagService/NotifyAnalogInputChanged")]
+        void NotifyAnalogInputChanged(Scada.models.AnalogInputTag inputTag);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ITagService/NotifyDigitalInputChanged")]
+        void NotifyDigitalInputChanged(Scada.models.DigitalInputTag inputTag);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface ITagServiceChannel : DatabaseManagerApp.TagServiceReference.ITagService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class TagServiceClient : System.ServiceModel.ClientBase<DatabaseManagerApp.TagServiceReference.ITagService>, DatabaseManagerApp.TagServiceReference.ITagService {
+    public partial class TagServiceClient : System.ServiceModel.DuplexClientBase<DatabaseManagerApp.TagServiceReference.ITagService>, DatabaseManagerApp.TagServiceReference.ITagService {
         
-        public TagServiceClient() {
+        public TagServiceClient(System.ServiceModel.InstanceContext callbackInstance) : 
+                base(callbackInstance) {
         }
         
-        public TagServiceClient(string endpointConfigurationName) : 
-                base(endpointConfigurationName) {
+        public TagServiceClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName) : 
+                base(callbackInstance, endpointConfigurationName) {
         }
         
-        public TagServiceClient(string endpointConfigurationName, string remoteAddress) : 
-                base(endpointConfigurationName, remoteAddress) {
+        public TagServiceClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, string remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
         }
         
-        public TagServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
-                base(endpointConfigurationName, remoteAddress) {
+        public TagServiceClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
         }
         
-        public TagServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
-                base(binding, remoteAddress) {
+        public TagServiceClient(System.ServiceModel.InstanceContext callbackInstance, System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, binding, remoteAddress) {
         }
         
         public void Hello() {

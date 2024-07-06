@@ -2,15 +2,29 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace RTU
 {
+    public class TagProcessingCallback : ITagServiceCallback
+    {
+        public void NotifyAnalogInputChanged(AnalogInputTag inputTag)
+        {
+            
+        }
+
+        public void NotifyDigitalInputChanged(DigitalInputTag inputTag)
+        {
+ 
+        }
+    }
+
     internal class Program
     {
         
-        private static TagServiceClient tagServiceClient = new TagServiceClient();
+        private static TagServiceClient tagServiceClient = new TagServiceClient(new InstanceContext(new TagProcessingCallback()));
 
         static void Main(string[] args)
         {

@@ -374,4 +374,18 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="NotifyAnalogInputChanged">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/Scada.models" minOccurs="0" name="inputTag" nillable="true" type="q26:AnalogInputTag" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NotifyDigitalInputChanged">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/Scada.models" minOccurs="0" name="inputTag" nillable="true" type="q27:DigitalInputTag" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

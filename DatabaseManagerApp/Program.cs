@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Net;
+using System.ServiceModel;
 using System.Xml.Linq;
 using DatabaseManagerApp.TagServiceReference;
 using DatabaseManagerApp.UserServiceReference;
@@ -7,10 +8,23 @@ using Scada.models;
 
 namespace DatabaseManagerApp
 {
+    public class TagProcessingCallback : ITagServiceCallback
+    {
+        public void NotifyAnalogInputChanged(AnalogInputTag inputTag)
+        {
+            
+        }
+
+        public void NotifyDigitalInputChanged(DigitalInputTag inputTag)
+        {
+
+        }
+    }
+
     internal class Program
     {
         private static UserServiceReference.UserServiceClient userServiceClient = new UserServiceClient();
-        private static TagServiceReference.TagServiceClient tagServiceClient = new TagServiceClient();
+        private static TagServiceReference.TagServiceClient tagServiceClient = new TagServiceClient(new InstanceContext(new TagProcessingCallback()));
         private static string currentToken = null;
 
         static void Main(string[] args)

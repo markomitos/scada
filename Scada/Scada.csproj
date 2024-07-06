@@ -135,13 +135,9 @@
   <ItemGroup>
     <Compile Include="interfaces\IUserService.cs" />
     <Compile Include="interfaces\ITagService.cs" />
-    <Compile Include="Migrations\202407021322206_TagKeyUpdate.cs" />
-    <Compile Include="Migrations\202407021322206_TagKeyUpdate.designer.cs">
-      <DependentUpon>202407021322206_TagKeyUpdate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202407021917237_TagValuesTable.cs" />
-    <Compile Include="Migrations\202407021917237_TagValuesTable.Designer.cs">
-      <DependentUpon>202407021917237_TagValuesTable.cs</DependentUpon>
+    <Compile Include="Migrations\202407062127102_InitialCreate.cs" />
+    <Compile Include="Migrations\202407062127102_InitialCreate.Designer.cs">
+      <DependentUpon>202407062127102_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="models\AnalogInputTag.cs" />
@@ -163,6 +159,7 @@
     <Compile Include="repositories\ScadaContext.cs" />
     <Compile Include="repositories\implementations\UserRepository.cs" />
     <Compile Include="services\AuthenticationService.cs" />
+    <Compile Include="callbacks\ITagServiceCallback.cs" />
     <Compile Include="services\RealTimeDriver.cs" />
     <Compile Include="services\TagProcessing.cs" />
     <Compile Include="TagService.svc.cs">
@@ -187,18 +184,15 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202407021322206_TagKeyUpdate.resx">
-      <DependentUpon>202407021322206_TagKeyUpdate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202407021917237_TagValuesTable.resx">
-      <DependentUpon>202407021917237_TagValuesTable.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\SimulationDriver\SimulationDriver.csproj">
       <Project>{c5353258-bbac-4de5-862a-7764f366398a}</Project>
       <Name>SimulationDriver</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202407062127102_InitialCreate.resx">
+      <DependentUpon>202407062127102_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
