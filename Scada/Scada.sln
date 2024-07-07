@@ -11,6 +11,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrendingApp", "..\TrendingA
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlarmDisplayApp", "..\AlarmDisplayApp\AlarmDisplayApp.csproj", "{06BA01B4-E7BD-4B37-82AC-B238F920EA48}"
+	ProjectSection(ProjectDependencies) = postProject
+		{45C9A3AB-AFD1-4D35-BC81-78AE72C9BFB5} = {45C9A3AB-AFD1-4D35-BC81-78AE72C9BFB5}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseManagerApp", "..\DatabaseManagerApp\DatabaseManagerApp.csproj", "{E347ACC0-3742-47DF-9878-DA45DF5568A0}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -18,6 +21,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseManagerApp", "..\Da
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReportManagerApp", "..\ReportManagerApp\ReportManagerApp.csproj", "{57E8F2BA-AE2E-45D9-A647-FD69CC635F7A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{45C9A3AB-AFD1-4D35-BC81-78AE72C9BFB5} = {45C9A3AB-AFD1-4D35-BC81-78AE72C9BFB5}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RTU", "..\RTU\RTU.csproj", "{DDDC8E91-1995-4AE2-B556-5768A3A4BA81}"
 	ProjectSection(ProjectDependencies) = postProject

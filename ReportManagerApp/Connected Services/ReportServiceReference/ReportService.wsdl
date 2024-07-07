@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" name="ReportService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:60822/ReportService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:60822/ReportService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IReportService_ShowAllAlarmsInTimePeriod_InputMessage">
+    <wsdl:part name="parameters" element="tns:ShowAllAlarmsInTimePeriod" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_ShowAllAlarmsInTimePeriod_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ShowAllAlarmsInTimePeriodResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_ShowAlarmsByPriority_InputMessage">
+    <wsdl:part name="parameters" element="tns:ShowAlarmsByPriority" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_ShowAlarmsByPriority_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ShowAlarmsByPriorityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_ShowTagValuesInTimePeriod_InputMessage">
+    <wsdl:part name="parameters" element="tns:ShowTagValuesInTimePeriod" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_ShowTagValuesInTimePeriod_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ShowTagValuesInTimePeriodResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_ShowLastValuesOfAITags_InputMessage">
+    <wsdl:part name="parameters" element="tns:ShowLastValuesOfAITags" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_ShowLastValuesOfAITags_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ShowLastValuesOfAITagsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_ShowLastValuesOfDITags_InputMessage">
+    <wsdl:part name="parameters" element="tns:ShowLastValuesOfDITags" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_ShowLastValuesOfDITags_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ShowLastValuesOfDITagsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_ShowValuesOfTagById_InputMessage">
+    <wsdl:part name="parameters" element="tns:ShowValuesOfTagById" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_ShowValuesOfTagById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ShowValuesOfTagByIdResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IReportService">
+    <wsdl:operation name="ShowAllAlarmsInTimePeriod">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReportService/ShowAllAlarmsInTimePeriod" message="tns:IReportService_ShowAllAlarmsInTimePeriod_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReportService/ShowAllAlarmsInTimePeriodResponse" message="tns:IReportService_ShowAllAlarmsInTimePeriod_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ShowAlarmsByPriority">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReportService/ShowAlarmsByPriority" message="tns:IReportService_ShowAlarmsByPriority_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReportService/ShowAlarmsByPriorityResponse" message="tns:IReportService_ShowAlarmsByPriority_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ShowTagValuesInTimePeriod">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReportService/ShowTagValuesInTimePeriod" message="tns:IReportService_ShowTagValuesInTimePeriod_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReportService/ShowTagValuesInTimePeriodResponse" message="tns:IReportService_ShowTagValuesInTimePeriod_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ShowLastValuesOfAITags">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReportService/ShowLastValuesOfAITags" message="tns:IReportService_ShowLastValuesOfAITags_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReportService/ShowLastValuesOfAITagsResponse" message="tns:IReportService_ShowLastValuesOfAITags_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ShowLastValuesOfDITags">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReportService/ShowLastValuesOfDITags" message="tns:IReportService_ShowLastValuesOfDITags_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReportService/ShowLastValuesOfDITagsResponse" message="tns:IReportService_ShowLastValuesOfDITags_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ShowValuesOfTagById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReportService/ShowValuesOfTagById" message="tns:IReportService_ShowValuesOfTagById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReportService/ShowValuesOfTagByIdResponse" message="tns:IReportService_ShowValuesOfTagById_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IReportService" type="tns:IReportService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ShowAllAlarmsInTimePeriod">
+      <soap:operation soapAction="http://tempuri.org/IReportService/ShowAllAlarmsInTimePeriod" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShowAlarmsByPriority">
+      <soap:operation soapAction="http://tempuri.org/IReportService/ShowAlarmsByPriority" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShowTagValuesInTimePeriod">
+      <soap:operation soapAction="http://tempuri.org/IReportService/ShowTagValuesInTimePeriod" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShowLastValuesOfAITags">
+      <soap:operation soapAction="http://tempuri.org/IReportService/ShowLastValuesOfAITags" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShowLastValuesOfDITags">
+      <soap:operation soapAction="http://tempuri.org/IReportService/ShowLastValuesOfDITags" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShowValuesOfTagById">
+      <soap:operation soapAction="http://tempuri.org/IReportService/ShowValuesOfTagById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ReportService">
+    <wsdl:port name="BasicHttpBinding_IReportService" binding="tns:BasicHttpBinding_IReportService">
+      <soap:address location="http://localhost:60822/ReportService.svc/report" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

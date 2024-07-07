@@ -1,8 +1,10 @@
+using System;
 using Scada.repositories.interfaces;
 using Scada.repositories;
 using System.Collections.Generic;
 using System.Linq;
 using Scada.models;
+using ValueType = Scada.models.ValueType;
 
 public class TagValueRepository : ITagValueRepository
 {
@@ -65,6 +67,46 @@ public class TagValueRepository : ITagValueRepository
                 .Where(tv => tv.TagName == tagName)
                 .OrderByDescending(tv => tv.TimeStamp)
                 .FirstOrDefault();
+        }
+    }
+
+    public List<TagValue> GetAllTagValuesWithinTimeFrame(DateTime startTime, DateTime endTime)
+    {
+        using (var context = new ScadaContext())
+        {
+            return context.TagValues.ToList().Where(tag => tag.TimeStamp >= startTime && tag.TimeStamp <= endTime)
+                .OrderBy(tag => tag.TimeStamp)
+                .ToList();
+        }
+    }
+
+    public List<TagValue> GetAllLatestAnalogTagValues()
+    {
+        using (var context = new ScadaContext())
+        {
+            return context.TagValues.ToList().Where(tag => tag.ValueType.Equals(ValueType.ANALOG))
+                    .GroupBy(tag => tag.TagName)
+                    .Select(g => g.OrderByDescending(tag => tag.TimeStamp).FirstOrDefault())
+                    .ToList();
+        }
+    }
+
+    public List<TagValue> GetAllLatestDigitalTagValues()
+    {
+        using (var context = new ScadaContext())
+        {
+            return context.TagValues.ToList().Where(tag => tag.ValueType.Equals(ValueType.DIGITAL) )
+                .GroupBy(tag => tag.TagName)
+                .Select(g => g.OrderByDescending(tag => tag.TimeStamp).FirstOrDefault())
+                .ToList();
+        }
+    }
+
+    public List<TagValue> GetTagValues(string tagValueId)
+    {
+        using (var context = new ScadaContext())
+        {
+            return context.TagValues.Where(tag => tag.TagName.Equals(tagValueId)).OrderBy(tag => tag.Value).ToList();
         }
     }
 }

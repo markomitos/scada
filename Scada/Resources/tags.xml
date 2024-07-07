@@ -19,4 +19,7 @@
     <Id>0</Id>
     <Alarm>true</Alarm>
   </Tag>
+  <Tag xsi:type="DigitalInputTag" Name="digi" Description="digi" IoAddress="R" Driver="SIM" ScanTime="100000" OnOffScan="true">
+    <Id>0</Id>
+  </Tag>
 </Tags>

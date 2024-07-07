@@ -27,5 +27,10 @@ namespace Scada.models
             Value = value;
             ValueType = valueType;
         }
+
+        public override string ToString()
+        {
+            return "TagName: " + TagName + ", Value: " + Value + ", Timestamp:" + TimeStamp;
+        }
     }
 }

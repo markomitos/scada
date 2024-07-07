@@ -127,12 +127,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ReportService.svc" />
     <Content Include="Resources\tags.xml" />
     <Content Include="TagService.svc" />
     <Content Include="UserService.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="interfaces\IReportService.cs" />
     <Compile Include="interfaces\IUserService.cs" />
     <Compile Include="interfaces\ITagService.cs" />
     <Compile Include="Migrations\202407071134591_InitialCreate12.cs" />
@@ -151,6 +153,9 @@
     <Compile Include="models\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReportService.svc.cs">
+      <DependentUpon>ReportService.svc</DependentUpon>
+    </Compile>
     <Compile Include="repositories\implementations\TagRepository.cs" />
     <Compile Include="repositories\implementations\TagValueRepository.cs" />
     <Compile Include="repositories\interfaces\ITagRepository.cs" />
