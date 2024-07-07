@@ -2034,7 +2034,7 @@
       <wsa10:EndpointReference>
         <wsa10:Address>http://localhost:60822/TagService.svc/tag</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>DESKTOP-VDG0TOL\marko</Upn>
+          <Upn>DESKTOP-KEIJJ3M\gligo</Upn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>

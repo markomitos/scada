@@ -135,9 +135,13 @@
   <ItemGroup>
     <Compile Include="interfaces\IUserService.cs" />
     <Compile Include="interfaces\ITagService.cs" />
-    <Compile Include="Migrations\202407071134591_InitialCreate12.cs" />
-    <Compile Include="Migrations\202407071134591_InitialCreate12.Designer.cs">
-      <DependentUpon>202407071134591_InitialCreate12.cs</DependentUpon>
+    <Compile Include="Migrations\202407021322206_TagKeyUpdate.cs" />
+    <Compile Include="Migrations\202407021322206_TagKeyUpdate.Designer.cs">
+      <DependentUpon>202407021322206_TagKeyUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202407021917237_TagValuesTable.cs" />
+    <Compile Include="Migrations\202407021917237_TagValuesTable.Designer.cs">
+      <DependentUpon>202407021917237_TagValuesTable.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="models\AnalogInputTag.cs" />
@@ -190,8 +194,11 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202407071134591_InitialCreate12.resx">
-      <DependentUpon>202407071134591_InitialCreate12.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202407021322206_TagKeyUpdate.resx">
+      <DependentUpon>202407021322206_TagKeyUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202407021917237_TagValuesTable.resx">
+      <DependentUpon>202407021917237_TagValuesTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

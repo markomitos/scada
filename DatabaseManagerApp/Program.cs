@@ -78,6 +78,7 @@ namespace DatabaseManagerApp
             Console.WriteLine("4. Toggle scan");
             Console.WriteLine("5. Get output value");
             Console.WriteLine("6. Change output value");
+            //alarm
             Console.Write("Select an option: ");
 
             string choice = Console.ReadLine();

@@ -99,6 +99,7 @@ namespace Scada.services
                 {
                     _tagService.AddTagValue(tagValue);
                     NotifyCallbacks(tagValue);
+                    //alarmiraj ako prekoraci
                 }
 
                 Thread.Sleep((int)tag.ScanTime);
