@@ -480,6 +480,12 @@ namespace TrendingApp.TagServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/Hello", ReplyAction="http://tempuri.org/ITagService/HelloResponse")]
         System.Threading.Tasks.Task HelloAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/InitTrending", ReplyAction="http://tempuri.org/ITagService/InitTrendingResponse")]
+        void InitTrending(System.Guid id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/InitTrending", ReplyAction="http://tempuri.org/ITagService/InitTrendingResponse")]
+        System.Threading.Tasks.Task InitTrendingAsync(System.Guid id);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetAllAnalogInputTags", ReplyAction="http://tempuri.org/ITagService/GetAllAnalogInputTagsResponse")]
         TrendingApp.TagServiceReference.AnalogInputTag[] GetAllAnalogInputTags();
         
@@ -640,11 +646,8 @@ namespace TrendingApp.TagServiceReference {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface ITagServiceCallback {
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ITagService/NotifyAnalogInputChanged")]
-        void NotifyAnalogInputChanged(TrendingApp.TagServiceReference.AnalogInputTag inputTag);
-        
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ITagService/NotifyDigitalInputChanged")]
-        void NotifyDigitalInputChanged(TrendingApp.TagServiceReference.DigitalInputTag inputTag);
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ITagService/NotifyValueChanged")]
+        void NotifyValueChanged(TrendingApp.TagServiceReference.TagValue inputTag);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -681,6 +684,14 @@ namespace TrendingApp.TagServiceReference {
         
         public System.Threading.Tasks.Task HelloAsync() {
             return base.Channel.HelloAsync();
+        }
+        
+        public void InitTrending(System.Guid id) {
+            base.Channel.InitTrending(id);
+        }
+        
+        public System.Threading.Tasks.Task InitTrendingAsync(System.Guid id) {
+            return base.Channel.InitTrendingAsync(id);
         }
         
         public TrendingApp.TagServiceReference.AnalogInputTag[] GetAllAnalogInputTags() {

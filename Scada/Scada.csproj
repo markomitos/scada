@@ -135,9 +135,9 @@
   <ItemGroup>
     <Compile Include="interfaces\IUserService.cs" />
     <Compile Include="interfaces\ITagService.cs" />
-    <Compile Include="Migrations\202407062127102_InitialCreate.cs" />
-    <Compile Include="Migrations\202407062127102_InitialCreate.Designer.cs">
-      <DependentUpon>202407062127102_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\202407071134591_InitialCreate12.cs" />
+    <Compile Include="Migrations\202407071134591_InitialCreate12.Designer.cs">
+      <DependentUpon>202407071134591_InitialCreate12.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="models\AnalogInputTag.cs" />
@@ -172,9 +172,6 @@
     <Compile Include="utilities\TokenGenerator.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -190,8 +187,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202407062127102_InitialCreate.resx">
-      <DependentUpon>202407062127102_InitialCreate.cs</DependentUpon>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202407071134591_InitialCreate12.resx">
+      <DependentUpon>202407071134591_InitialCreate12.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

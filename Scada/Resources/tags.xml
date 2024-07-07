@@ -15,4 +15,8 @@
     <Id>0</Id>
     <Alarm>true</Alarm>
   </Tag>
+  <Tag xsi:type="AnalogInputTag" Name="markoai" Description="ai tag" IoAddress="markoai" Driver="RTD" ScanTime="10000" OnOffScan="true" LowLimit="10" HighLimit="50" Units="s">
+    <Id>0</Id>
+    <Alarm>true</Alarm>
+  </Tag>
 </Tags>

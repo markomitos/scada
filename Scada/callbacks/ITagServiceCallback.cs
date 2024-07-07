@@ -12,9 +12,6 @@ namespace Scada.callbacks
     public interface ITagServiceCallback
     {
         [OperationContract(IsOneWay = true)]
-        void NotifyAnalogInputChanged(AnalogInputTag inputTag);
-
-        [OperationContract(IsOneWay = true)]
-        void NotifyDigitalInputChanged(DigitalInputTag inputTag);
+        void NotifyValueChanged(TagValue inputTag);
     }
 }

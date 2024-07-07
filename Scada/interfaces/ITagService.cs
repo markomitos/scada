@@ -17,6 +17,9 @@ namespace Scada.interfaces
         [OperationContract]
         void Hello();
 
+        [OperationContract]
+        void InitTrending(Guid id);
+
         // Methods for AnalogInputTag
         [OperationContract]
         List<AnalogInputTag> GetAllAnalogInputTags();

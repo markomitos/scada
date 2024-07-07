@@ -10,14 +10,8 @@ namespace RTU
 {
     public class TagProcessingCallback : ITagServiceCallback
     {
-        public void NotifyAnalogInputChanged(AnalogInputTag inputTag)
+        public void NotifyValueChanged(TagValue inputTag)
         {
-            
-        }
-
-        public void NotifyDigitalInputChanged(DigitalInputTag inputTag)
-        {
- 
         }
     }
 

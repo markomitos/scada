@@ -7,7 +7,9 @@ using Scada.models;
 using Scada.repositories.implementations;
 using Scada.services;
 using System.Security.Cryptography;
+using System.ServiceModel;
 using System.Text;
+using Scada.callbacks;
 
 namespace Scada
 {
@@ -16,6 +18,7 @@ namespace Scada
         private readonly TagRepository _tagRepository;
         private readonly TagValueRepository _tagValueRepository;
         private readonly TagProcessing _tagProcessing;
+        private readonly Dictionary<Guid,ITagServiceCallback> _callbacks = new Dictionary<Guid, ITagServiceCallback>();
 
         public TagService()
         {
@@ -31,6 +34,11 @@ namespace Scada
 
         public void Hello()
         { }
+
+        public void InitTrending(Guid id)
+        {
+            _tagProcessing.InitTrending(id, OperationContext.Current.GetCallbackChannel<ITagServiceCallback>());
+        }
 
         // Methods for AnalogInputTag
         public List<AnalogInputTag> GetAllAnalogInputTags()

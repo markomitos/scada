@@ -149,6 +149,52 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
+  <wsp:Policy wsu:Id="WSDualHttpBinding_ITagService_InitTrending_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="Sequence" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="SequenceAcknowledgement" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="AckRequested" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="ChannelInstance" Namespace="http://schemas.microsoft.com/ws/2005/02/duplex" />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSDualHttpBinding_ITagService_InitTrending_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="Sequence" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="SequenceAcknowledgement" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="AckRequested" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="ChannelInstance" Namespace="http://schemas.microsoft.com/ws/2005/02/duplex" />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
   <wsp:Policy wsu:Id="WSDualHttpBinding_ITagService_GetAllAnalogInputTags_Input_policy">
     <wsp:ExactlyOne>
       <wsp:All>
@@ -1345,30 +1391,7 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="WSDualHttpBinding_ITagService_NotifyAnalogInputChanged_output_policy">
-    <wsp:ExactlyOne>
-      <wsp:All>
-        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-          <sp:Header Name="Sequence" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
-          <sp:Header Name="SequenceAcknowledgement" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
-          <sp:Header Name="AckRequested" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
-          <sp:Header Name="ChannelInstance" Namespace="http://schemas.microsoft.com/ws/2005/02/duplex" />
-          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
-        </sp:SignedParts>
-        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-        </sp:EncryptedParts>
-      </wsp:All>
-    </wsp:ExactlyOne>
-  </wsp:Policy>
-  <wsp:Policy wsu:Id="WSDualHttpBinding_ITagService_NotifyDigitalInputChanged_output_policy">
+  <wsp:Policy wsu:Id="WSDualHttpBinding_ITagService_NotifyValueChanged_output_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -1403,6 +1426,12 @@
   </wsdl:message>
   <wsdl:message name="ITagService_Hello_OutputMessage">
     <wsdl:part name="parameters" element="tns:HelloResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITagService_InitTrending_InputMessage">
+    <wsdl:part name="parameters" element="tns:InitTrending" />
+  </wsdl:message>
+  <wsdl:message name="ITagService_InitTrending_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InitTrendingResponse" />
   </wsdl:message>
   <wsdl:message name="ITagService_GetAllAnalogInputTags_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAllAnalogInputTags" />
@@ -1560,16 +1589,17 @@
   <wsdl:message name="ITagService_setRTUValue_OutputMessage">
     <wsdl:part name="parameters" element="tns:setRTUValueResponse" />
   </wsdl:message>
-  <wsdl:message name="ITagService_NotifyAnalogInputChanged_OutputCallbackMessage">
-    <wsdl:part name="parameters" element="tns:NotifyAnalogInputChanged" />
-  </wsdl:message>
-  <wsdl:message name="ITagService_NotifyDigitalInputChanged_OutputCallbackMessage">
-    <wsdl:part name="parameters" element="tns:NotifyDigitalInputChanged" />
+  <wsdl:message name="ITagService_NotifyValueChanged_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:NotifyValueChanged" />
   </wsdl:message>
   <wsdl:portType name="ITagService">
     <wsdl:operation name="Hello">
       <wsdl:input wsaw:Action="http://tempuri.org/ITagService/Hello" message="tns:ITagService_Hello_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ITagService/HelloResponse" message="tns:ITagService_Hello_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InitTrending">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITagService/InitTrending" message="tns:ITagService_InitTrending_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITagService/InitTrendingResponse" message="tns:ITagService_InitTrending_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetAllAnalogInputTags">
       <wsdl:input wsaw:Action="http://tempuri.org/ITagService/GetAllAnalogInputTags" message="tns:ITagService_GetAllAnalogInputTags_InputMessage" />
@@ -1675,11 +1705,8 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ITagService/setRTUValue" message="tns:ITagService_setRTUValue_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ITagService/setRTUValueResponse" message="tns:ITagService_setRTUValue_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="NotifyAnalogInputChanged">
-      <wsdl:output wsaw:Action="http://tempuri.org/ITagService/NotifyAnalogInputChanged" message="tns:ITagService_NotifyAnalogInputChanged_OutputCallbackMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="NotifyDigitalInputChanged">
-      <wsdl:output wsaw:Action="http://tempuri.org/ITagService/NotifyDigitalInputChanged" message="tns:ITagService_NotifyDigitalInputChanged_OutputCallbackMessage" />
+    <wsdl:operation name="NotifyValueChanged">
+      <wsdl:output wsaw:Action="http://tempuri.org/ITagService/NotifyValueChanged" message="tns:ITagService_NotifyValueChanged_OutputCallbackMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WSDualHttpBinding_ITagService" type="tns:ITagService">
@@ -1693,6 +1720,17 @@
       </wsdl:input>
       <wsdl:output>
         <wsp:PolicyReference URI="#WSDualHttpBinding_ITagService_Hello_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InitTrending">
+      <soap12:operation soapAction="http://tempuri.org/ITagService/InitTrending" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSDualHttpBinding_ITagService_InitTrending_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSDualHttpBinding_ITagService_InitTrending_output_policy" />
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
@@ -1982,17 +2020,10 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="NotifyAnalogInputChanged">
-      <soap12:operation soapAction="http://tempuri.org/ITagService/NotifyAnalogInputChanged" style="document" />
+    <wsdl:operation name="NotifyValueChanged">
+      <soap12:operation soapAction="http://tempuri.org/ITagService/NotifyValueChanged" style="document" />
       <wsdl:output>
-        <wsp:PolicyReference URI="#WSDualHttpBinding_ITagService_NotifyAnalogInputChanged_output_policy" />
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="NotifyDigitalInputChanged">
-      <soap12:operation soapAction="http://tempuri.org/ITagService/NotifyDigitalInputChanged" style="document" />
-      <wsdl:output>
-        <wsp:PolicyReference URI="#WSDualHttpBinding_ITagService_NotifyDigitalInputChanged_output_policy" />
+        <wsp:PolicyReference URI="#WSDualHttpBinding_ITagService_NotifyValueChanged_output_policy" />
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>

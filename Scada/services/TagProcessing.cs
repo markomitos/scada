@@ -5,6 +5,7 @@ using System.Threading;
 using Scada.interfaces;
 using Scada.models;
 using Scada.callbacks;
+using System.Numerics;
 
 namespace Scada.services
 {
@@ -13,12 +14,34 @@ namespace Scada.services
         private static Dictionary<string, CancellationTokenSource> processingTags = new Dictionary<string, CancellationTokenSource>();
         private readonly object _lockObject = new object();
         private readonly object _lockObjectDict = new object();
+        private readonly object _lockObjectCallback = new object();
         private readonly ITagService _tagService;
+        private readonly Dictionary<Guid,ITagServiceCallback> _callbacks = new Dictionary<Guid, ITagServiceCallback>();
 
         public TagProcessing(ITagService tagService)
         {
             _tagService = tagService;
             StartProcessing();
+        }
+
+        public void InitTrending(Guid id, ITagServiceCallback callback)
+        {
+            
+            lock (_lockObjectCallback)
+            {
+                _callbacks[id] = callback;
+            }
+        }
+
+        public void NotifyCallbacks(TagValue tagValue)
+        {
+            lock (_lockObjectCallback)
+            {
+                foreach (var callback in _callbacks.Values)
+                {
+                    callback.NotifyValueChanged(tagValue);
+                }
+            }
         }
 
         private void processAnalogInputs(object t)
@@ -75,6 +98,7 @@ namespace Scada.services
                 lock (_lockObject)
                 {
                     _tagService.AddTagValue(tagValue);
+                    NotifyCallbacks(tagValue);
                 }
 
                 Thread.Sleep((int)tag.ScanTime);
@@ -128,6 +152,7 @@ namespace Scada.services
                 lock (_lockObject)
                 {
                     _tagService.AddTagValue(tagValue);
+                    NotifyCallbacks(tagValue);
                 }
 
                 Thread.Sleep((int)tag.ScanTime);
