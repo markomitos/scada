@@ -128,13 +128,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ReportService.svc" />
+    <Content Include="App_Data\alarmsLog.txt" />
     <Content Include="Resources\tags.xml" />
+    <Content Include="Resources\alarmConfig.xml" />
+    <Content Include="AlarmService.svc" />
     <Content Include="TagService.svc" />
     <Content Include="UserService.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="interfaces\IReportService.cs" />
+    <Compile Include="interfaces\IAlarmService.cs" />
     <Compile Include="interfaces\IUserService.cs" />
     <Compile Include="interfaces\ITagService.cs" />
     <Compile Include="Migrations\202407021322206_TagKeyUpdate.cs" />
@@ -146,6 +150,8 @@
       <DependentUpon>202407021917237_TagValuesTable.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="models\Alarm.cs" />
+    <Compile Include="models\AlarmValue.cs" />
     <Compile Include="models\AnalogInputTag.cs" />
     <Compile Include="models\AnalogOutputTag.cs" />
     <Compile Include="models\DigitalInputTag.cs" />
@@ -160,6 +166,8 @@
     <Compile Include="ReportService.svc.cs">
       <DependentUpon>ReportService.svc</DependentUpon>
     </Compile>
+    <Compile Include="repositories\implementations\AlarmRepository.cs" />
+    <Compile Include="repositories\implementations\AlarmValueRepository.cs" />
     <Compile Include="repositories\implementations\TagRepository.cs" />
     <Compile Include="repositories\implementations\TagValueRepository.cs" />
     <Compile Include="repositories\interfaces\ITagRepository.cs" />
@@ -171,6 +179,9 @@
     <Compile Include="callbacks\ITagServiceCallback.cs" />
     <Compile Include="services\RealTimeDriver.cs" />
     <Compile Include="services\TagProcessing.cs" />
+    <Compile Include="AlarmService.svc.cs">
+      <DependentUpon>AlarmService.svc</DependentUpon>
+    </Compile>
     <Compile Include="TagService.svc.cs">
       <DependentUpon>TagService.svc</DependentUpon>
     </Compile>
@@ -198,6 +209,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202407021322206_TagKeyUpdate.resx">
       <DependentUpon>202407021322206_TagKeyUpdate.cs</DependentUpon>
