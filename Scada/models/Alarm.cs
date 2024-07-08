@@ -27,7 +27,7 @@ namespace Scada.models
         public int Priority {  get; set; }
         [XmlAttribute("Treshold")]
         [Required]
-        public Double Treshold { get; set; }
+        public Double Threshold { get; set; }
         [XmlAttribute("Unit")]
         [Required]
         public string Unit { get; set; }
