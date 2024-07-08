@@ -13,11 +13,11 @@ using Scada.callbacks;
 
 namespace Scada
 {
-    public class AlarmService : IAlarmService
+    public class AlarmService : IAlarmService1
     {
         private readonly AlarmRepository _alarmRepository;
         private readonly AlarmValueRepository _alarmValueRepository;
-        private readonly Dictionary<Guid,ITagServiceCallback> _callbacks = new Dictionary<Guid, ITagServiceCallback>();
+        private readonly Dictionary<Guid, ITagServiceCallback> _callbacks = new Dictionary<Guid, ITagServiceCallback>();
 
         public AlarmService()
         {
@@ -41,14 +41,14 @@ namespace Scada
             _alarmRepository.AddAlarm(alarm);
         }
 
-       
+
         public bool RemoveAlarm(string token, string name)
         {
             if (!Authenticate(token)) throw new UnauthorizedAccessException("Invalid token");
             return _alarmRepository.RemoveAlarm(name);
         }
 
-        
+
 
     }
 }

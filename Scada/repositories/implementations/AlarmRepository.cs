@@ -8,12 +8,12 @@ using System.Xml.Serialization;
 
 namespace Scada.repositories.implementations
 {
-    public class AlarmRepository
+    public class AlarmRepository : IAlarmRepository
     {
         private List<Alarm> alarms = new List<Alarm>();
         private string file = HttpContext.Current.Server.MapPath("~/Resources/alarmConfig.xml");
 
-        public AlarmRepository() 
+        public AlarmRepository()
         {
             LoadAlarms();
         }
@@ -48,7 +48,7 @@ namespace Scada.repositories.implementations
             return alarms;
         }
 
-        public bool RemoveAlarm (string name)
+        public bool RemoveAlarm(string name)
         {
             Alarm alarmToRemove = alarms.FirstOrDefault(alarm => alarm.Name == name);
 

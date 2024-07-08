@@ -149,6 +149,10 @@
     <Compile Include="Migrations\202407021917237_TagValuesTable.Designer.cs">
       <DependentUpon>202407021917237_TagValuesTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202407082228444_AlarmValue.cs" />
+    <Compile Include="Migrations\202407082228444_AlarmValue.Designer.cs">
+      <DependentUpon>202407082228444_AlarmValue.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="models\Alarm.cs" />
     <Compile Include="models\AlarmValue.cs" />
@@ -206,9 +210,7 @@
       <Name>SimulationDriver</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202407021322206_TagKeyUpdate.resx">
@@ -216,6 +218,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202407021917237_TagValuesTable.resx">
       <DependentUpon>202407021917237_TagValuesTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202407082228444_AlarmValue.resx">
+      <DependentUpon>202407082228444_AlarmValue.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

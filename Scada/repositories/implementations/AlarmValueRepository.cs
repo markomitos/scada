@@ -7,7 +7,7 @@ using System.Web;
 
 namespace Scada.repositories.implementations
 {
-    public class AlarmValueRepository
+    public class AlarmValueRepository : IAlarmValueRepository
     {
         private readonly string logFilePath = HttpContext.Current.Server.MapPath("~/AppData/alarmsLog.txt");
 
