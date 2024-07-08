@@ -43,7 +43,12 @@ namespace Scada.repositories.implementations
             Save();
         }
 
-        public bool RemoveTag(string name)
+        public List<Alarm> GetAllAlarms()
+        {
+            return alarms;
+        }
+
+        public bool RemoveAlarm (string name)
         {
             Alarm alarmToRemove = alarms.FirstOrDefault(alarm => alarm.Name == name);
 
