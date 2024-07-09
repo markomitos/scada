@@ -16,10 +16,10 @@ namespace ReportManagerApp.ReportServiceReference {
     public interface IReportService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReportService/ShowAllAlarmsInTimePeriod", ReplyAction="http://tempuri.org/IReportService/ShowAllAlarmsInTimePeriodResponse")]
-        string ShowAllAlarmsInTimePeriod(System.DateTime startTime, System.DateTime endTime);
+        string ShowAllAlarmsInTimePeriod(System.DateTime startTime, System.DateTime endTime, bool sortByPriority);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReportService/ShowAllAlarmsInTimePeriod", ReplyAction="http://tempuri.org/IReportService/ShowAllAlarmsInTimePeriodResponse")]
-        System.Threading.Tasks.Task<string> ShowAllAlarmsInTimePeriodAsync(System.DateTime startTime, System.DateTime endTime);
+        System.Threading.Tasks.Task<string> ShowAllAlarmsInTimePeriodAsync(System.DateTime startTime, System.DateTime endTime, bool sortByPriority);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReportService/ShowAlarmsByPriority", ReplyAction="http://tempuri.org/IReportService/ShowAlarmsByPriorityResponse")]
         string ShowAlarmsByPriority(int priority);
@@ -79,12 +79,12 @@ namespace ReportManagerApp.ReportServiceReference {
                 base(binding, remoteAddress) {
         }
         
-        public string ShowAllAlarmsInTimePeriod(System.DateTime startTime, System.DateTime endTime) {
-            return base.Channel.ShowAllAlarmsInTimePeriod(startTime, endTime);
+        public string ShowAllAlarmsInTimePeriod(System.DateTime startTime, System.DateTime endTime, bool sortByPriority) {
+            return base.Channel.ShowAllAlarmsInTimePeriod(startTime, endTime, sortByPriority);
         }
         
-        public System.Threading.Tasks.Task<string> ShowAllAlarmsInTimePeriodAsync(System.DateTime startTime, System.DateTime endTime) {
-            return base.Channel.ShowAllAlarmsInTimePeriodAsync(startTime, endTime);
+        public System.Threading.Tasks.Task<string> ShowAllAlarmsInTimePeriodAsync(System.DateTime startTime, System.DateTime endTime, bool sortByPriority) {
+            return base.Channel.ShowAllAlarmsInTimePeriodAsync(startTime, endTime, sortByPriority);
         }
         
         public string ShowAlarmsByPriority(int priority) {

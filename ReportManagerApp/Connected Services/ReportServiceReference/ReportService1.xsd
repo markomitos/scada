@@ -5,6 +5,7 @@
       <xs:sequence>
         <xs:element minOccurs="0" name="startTime" type="xs:dateTime" />
         <xs:element minOccurs="0" name="endTime" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="sortByPriority" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

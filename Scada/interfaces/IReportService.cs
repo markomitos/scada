@@ -11,7 +11,7 @@ namespace Scada.interfaces
     public interface IReportService
     {
         [OperationContract]
-        string ShowAllAlarmsInTimePeriod(DateTime startTime, DateTime endTime);
+        string ShowAllAlarmsInTimePeriod(DateTime startTime, DateTime endTime, bool sortByPriority);
 
         [OperationContract]
         string ShowAlarmsByPriority(int priority);

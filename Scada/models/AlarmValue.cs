@@ -31,7 +31,10 @@ namespace Scada.models
         [DataMember]
         public DateTime Timestamp { get; set; }
 
-
+        public AlarmValue()
+        {
+            Id= DateTime.Now.GetHashCode();
+        }
         public AlarmValue(string name, 
                         AlarmType type, 
                         int priority, 
