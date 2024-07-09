@@ -2,6 +2,7 @@
 using System.Net;
 using System.ServiceModel;
 using System.Xml.Linq;
+using DatabaseManagerApp.AlarmServiceReference;
 using DatabaseManagerApp.TagServiceReference;
 using DatabaseManagerApp.UserServiceReference;
 using Scada.models;
@@ -19,6 +20,7 @@ namespace DatabaseManagerApp
     {
         private static UserServiceReference.UserServiceClient userServiceClient = new UserServiceClient();
         private static TagServiceReference.TagServiceClient tagServiceClient = new TagServiceClient(new InstanceContext(new TagProcessingCallback()));
+        private static AlarmServiceReference.AlarmServiceClient alarmServiceClient = new AlarmServiceClient();
         private static string currentToken = null;
 
         static void Main(string[] args)
@@ -78,6 +80,8 @@ namespace DatabaseManagerApp
             Console.WriteLine("4. Toggle scan");
             Console.WriteLine("5. Get output value");
             Console.WriteLine("6. Change output value");
+            Console.WriteLine("7. Add alarm");
+            Console.WriteLine("8. View all alarms");
             //alarm
             Console.Write("Select an option: ");
 
@@ -103,12 +107,19 @@ namespace DatabaseManagerApp
                 case "6":
                     ChangeOutputValue();
                     break;
+                case "7":
+                    AddAlarm();
+                    break;
+                case "8":
+                    ViewAllAlarms();
+                    break;
                 default:
                     Console.WriteLine("Invalid option. Please try again.");
                     break;
             }
         }
 
+        
         private static void ChangeOutputValue()
         {
             String IoAddress = null;
@@ -510,6 +521,68 @@ namespace DatabaseManagerApp
                 Console.WriteLine("Logout failed.");
             }
         }
+
+        private static void ViewAllAlarms()
+        {
+            throw new NotImplementedException();
+        }
+
+        private static void AddAlarm()
+        {
+            Console.Write("Enter alarm name: ");
+            string alarmName = Console.ReadLine();
+
+            Console.Write("Enter alarm type (LOW/HIGH): ");
+            string alarmTypeInput = Console.ReadLine();
+            AlarmType alarmType;
+            while (!Enum.TryParse(alarmTypeInput, true, out alarmType) || !Enum.IsDefined(typeof(AlarmType), alarmType))
+            {
+                Console.Write("Invalid alarm type. Please enter LOW or HIGH: ");
+                alarmTypeInput = Console.ReadLine();
+            }
+
+            int alarmPriority = 0;
+            while (alarmPriority < 1 || alarmPriority > 3)
+            {
+                Console.Write("Priority must be between 1-3. Enter alarm priority: ");
+                string alarmPriorityInput = Console.ReadLine();
+                
+                while (!int.TryParse(alarmPriorityInput, out alarmPriority))
+                {
+                    Console.Write("Invalid input. Please enter a valid integer for alarm priority: ");
+                    alarmPriorityInput = Console.ReadLine();
+                }
+            }
+            
+            Console.Write("Enter alarm threshold: ");
+            string alarmThresholdInput = Console.ReadLine();
+            double alarmThreshold;
+            while (!double.TryParse(alarmThresholdInput, out alarmThreshold))
+            {
+                Console.Write("Invalid input. Please enter a valid number for alarm threshold: ");
+                alarmThresholdInput = Console.ReadLine();
+            }
+
+            Console.Write("Enter alarm unit: ");
+            string alarmUnit = Console.ReadLine();
+
+            Console.Write("Enter tag name: ");
+            string tagName = Console.ReadLine();
+           
+
+            Alarm alarm = new Alarm
+            {
+                Name = alarmName,
+                Type = alarmType,
+                Priority = alarmPriority,
+                Threshold = alarmThreshold,
+                Unit = alarmUnit,
+                TagName = tagName
+            };
+
+            alarmServiceClient.AddAlarm(currentToken, alarm);
+        }
+
 
     }
 }

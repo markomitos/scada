@@ -33,7 +33,7 @@ namespace Scada.models
         public string Unit { get; set; }
         [XmlAttribute("TagName")]
         [Required] 
-        public int TagName { get; set; }
+        public string TagName { get; set; }
 
     }
 }

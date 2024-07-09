@@ -1,23 +1,23 @@
-﻿using Scada.repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Scada.callbacks;
 using Scada.interfaces;
 using Scada.models;
 using Scada.repositories.implementations;
 using Scada.services;
-using System.Security.Cryptography;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
-using Scada.callbacks;
 
 namespace Scada
 {
-    public class AlarmService : IAlarmService1
+    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "AlarmService" in code, svc and config file together.
+    // NOTE: In order to launch WCF Test Client for testing this service, please select AlarmService.svc or AlarmService.svc.cs at the Solution Explorer and start debugging.
+    public class AlarmService : IAlarmService
     {
         private readonly AlarmRepository _alarmRepository;
         private readonly AlarmValueRepository _alarmValueRepository;
-        private readonly Dictionary<Guid, ITagServiceCallback> _callbacks = new Dictionary<Guid, ITagServiceCallback>();
 
         public AlarmService()
         {
