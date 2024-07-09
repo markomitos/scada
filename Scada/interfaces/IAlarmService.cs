@@ -8,7 +8,13 @@ using System.Text;
 
 namespace Scada.interfaces
 {
-    [ServiceContract]
+    public interface IAlarmCallback
+    {
+        [OperationContract(IsOneWay = true)]
+        void NotifyAlarmTriggered(string message);
+    }
+
+    [ServiceContract(CallbackContract = typeof(IAlarmCallback))]
     public interface IAlarmService
     {
         [OperationContract]
@@ -17,5 +23,9 @@ namespace Scada.interfaces
         List<Alarm> GetAllAlarms();
         [OperationContract]
         bool RemoveAlarm(string token, string name);
+        [OperationContract]
+        List<Alarm> GetAlarmsByName(string tagName);
+        [OperationContract]
+        void LogAlarmValue(AlarmValue alarmValue);
     }
 }

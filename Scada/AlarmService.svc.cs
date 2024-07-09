@@ -35,6 +35,13 @@ namespace Scada
             return _alarmRepository.GetAllAlarms();
         }
 
+        public List<Alarm> GetAlarmsByName(string tagName)
+        {
+            return _alarmRepository.GetAllAlarms()
+                           .Where(alarm => alarm.TagName == tagName)
+                           .ToList();
+        }
+
         public void AddAlarm(string token, Alarm alarm)
         {
             if (!Authenticate(token)) throw new UnauthorizedAccessException("Invalid token");
@@ -48,7 +55,11 @@ namespace Scada
             return _alarmRepository.RemoveAlarm(name);
         }
 
-
-
+        public void LogAlarmValue(AlarmValue alarmValue)
+        {
+            _alarmValueRepository.LogAlarm(alarmValue);
+            _alarmValueRepository.AddAlarmValue(alarmValue);
+            //posalji callbackom na alarm display
+        }
     }
 }

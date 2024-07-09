@@ -22,9 +22,30 @@ namespace Scada.models
       
         public string Unit { get; set; }
        
-        public int TagName { get; set; }
+        public string TagName { get; set; }
 
         public double Value { get; set; }
         public DateTime Timestamp { get; set; }
+
+
+        public AlarmValue(string name, 
+                        AlarmType type, 
+                        int priority, 
+                        double threshold, 
+                        string unit, 
+                        string tagName, 
+                        double value, 
+                        DateTime timestamp)
+        {
+            Id= DateTime.Now.GetHashCode();
+            Name=name;
+            Type=type;
+            Priority=priority;
+            Threshold=threshold;
+            Unit=unit;
+            TagName=tagName;
+            Value=value;
+            Timestamp=timestamp;
+        }
     }
 }
