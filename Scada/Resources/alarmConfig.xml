@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Alarms xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <Alarm Name="ognjen_alarm1" Type="LOW" Priority="2" Treshold="40" Unit="kg" TagName="1">
-    <Id>0</Id>
-  </Alarm>
   <Alarm Name="ognjen_alarm2" Type="HIGH" Priority="2" Treshold="50" Unit="kg" TagName="ognjen_tag1">
     <Id>0</Id>
   </Alarm>

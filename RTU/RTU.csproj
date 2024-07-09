@@ -56,6 +56,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Connected Services\TagServiceReference\RTU.TagServiceReference.Alarm.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\TagServiceReference\RTU.TagServiceReference.AnalogInputTag.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

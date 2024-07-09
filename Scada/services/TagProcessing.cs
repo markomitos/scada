@@ -18,10 +18,10 @@ namespace Scada.services
         private readonly object _lockObject = new object();
         private readonly object _lockObjectDict = new object();
         private readonly object _lockObjectCallback = new object();
-        private readonly ITagService _tagService;
+        private readonly TagService _tagService;
         private readonly Dictionary<Guid,ITagServiceCallback> _callbacks = new Dictionary<Guid, ITagServiceCallback>();
 
-        public TagProcessing(ITagService tagService)
+        public TagProcessing(TagService tagService)
         {
             _tagService = tagService;
             StartProcessing();
@@ -101,8 +101,8 @@ namespace Scada.services
                 lock (_lockObject)
                 {
                     _tagService.AddTagValue(tagValue);
-                    NotifyCallbacks(tagValue);
                     checkAlarms(value, tag.Name);
+                    NotifyCallbacks(tagValue);
                 }
 
                 Thread.Sleep((int)tag.ScanTime);
@@ -111,14 +111,9 @@ namespace Scada.services
 
         private void checkAlarms(double tagValue, string tagName)
         {
-            if (HttpContext.Current == null)
-            {
-                return;
-            }
-            AlarmValueService alarmValueService = new AlarmValueService();
-            AlarmService alarmService = new AlarmService();
+            
 
-            List<Alarm> tagsAlarms = alarmService.GetAlarmsByName(tagName);
+            List<Alarm> tagsAlarms = _tagService.GetAlarmsByName(tagName);
 
             if (tagsAlarms == null) return;
 
@@ -126,7 +121,7 @@ namespace Scada.services
             {
                 if (tagValue > a.Threshold)
                 {
-                    alarmValueService.LogAlarmValue(new AlarmValue(a.Name, a.Type, a.Priority, a.Threshold, a.Unit, tagName, tagValue, DateTime.Now));
+                    _tagService.LogAlarmValue(new AlarmValue(a.Name, a.Type, a.Priority, a.Threshold, a.Unit, tagName, tagValue, DateTime.Now));
                 }
             }
         }

@@ -65,6 +65,9 @@
     <None Include="Connected Services\TagServiceReference\TagService2.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\TagServiceReference\TrendingApp.TagServiceReference.Alarm.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\TagServiceReference\TrendingApp.TagServiceReference.AnalogInputTag.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

@@ -34,9 +34,9 @@ namespace Scada
             return alarmService.GetAlarmsByName(tagName);
         }
 
-        public void AddAlarm(string token, Alarm alarm)
+        public bool AddAlarm(string token, Alarm alarm)
         {
-            alarmService.AddAlarm(token, alarm);
+            return alarmService.AddAlarm(token, alarm);
         }
 
 

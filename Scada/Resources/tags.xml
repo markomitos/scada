@@ -22,8 +22,4 @@
   <Tag xsi:type="DigitalInputTag" Name="digi" Description="digi" IoAddress="R" Driver="SIM" ScanTime="100000" OnOffScan="true">
     <Id>0</Id>
   </Tag>
-  <Tag xsi:type="AnalogInputTag" Name="ognjen_tag1" Description="test" IoAddress="S" Driver="SIM" ScanTime="10000" OnOffScan="true" LowLimit="0" HighLimit="100" Units="KG">
-    <Id>0</Id>
-    <Alarm>true</Alarm>
-  </Tag>
 </Tags>

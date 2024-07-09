@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="f811b2f1-8044-4ec9-b008-02bd24331935" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="30563f1c-f063-4b24-8c19-c99ba5367d3e" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,11 +22,11 @@
     <MetadataSource Address="http://localhost:60822/TagService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="TagService1.xsd" MetadataType="Schema" ID="96ce68f8-1701-460f-9d98-d929247a6902" SourceId="1" SourceUrl="http://localhost:60822/TagService.svc?xsd=xsd1" />
-    <MetadataFile FileName="TagService.xsd" MetadataType="Schema" ID="ef5107dd-30e3-48c8-ae70-3e638f983def" SourceId="1" SourceUrl="http://localhost:60822/TagService.svc?xsd=xsd2" />
-    <MetadataFile FileName="TagService.wsdl" MetadataType="Wsdl" ID="c773e6ae-e14d-4c24-a8cb-446092633dd8" SourceId="1" SourceUrl="http://localhost:60822/TagService.svc?wsdl" />
-    <MetadataFile FileName="TagService2.xsd" MetadataType="Schema" ID="1c0dfb8b-9f51-4dd8-883b-487897d9dba4" SourceId="1" SourceUrl="http://localhost:60822/TagService.svc?xsd=xsd0" />
-    <MetadataFile FileName="TagService.disco" MetadataType="Disco" ID="60c2227f-116b-4ff7-8e81-1b69eab8bc68" SourceId="1" SourceUrl="http://localhost:60822/TagService.svc?disco" />
+    <MetadataFile FileName="TagService.xsd" MetadataType="Schema" ID="cd7275ad-83df-4c19-bff7-3b411a2b4ca8" SourceId="1" SourceUrl="http://localhost:60822/TagService.svc?xsd=xsd1" />
+    <MetadataFile FileName="TagService1.xsd" MetadataType="Schema" ID="ca781577-10d9-4297-9455-8b0ab28a1eda" SourceId="1" SourceUrl="http://localhost:60822/TagService.svc?xsd=xsd2" />
+    <MetadataFile FileName="TagService.wsdl" MetadataType="Wsdl" ID="51328142-0853-4524-9280-e180a5e3896f" SourceId="1" SourceUrl="http://localhost:60822/TagService.svc?wsdl" />
+    <MetadataFile FileName="TagService2.xsd" MetadataType="Schema" ID="06f2e2f5-cb81-4f05-a8f5-cff2aa5636b9" SourceId="1" SourceUrl="http://localhost:60822/TagService.svc?xsd=xsd0" />
+    <MetadataFile FileName="TagService.disco" MetadataType="Disco" ID="54b2c1ae-637e-489f-b0e0-d89877db365f" SourceId="1" SourceUrl="http://localhost:60822/TagService.svc?disco" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

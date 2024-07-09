@@ -20,7 +20,7 @@ namespace DatabaseManagerApp
     {
         private static UserServiceReference.UserServiceClient userServiceClient = new UserServiceClient();
         private static TagServiceReference.TagServiceClient tagServiceClient = new TagServiceClient(new InstanceContext(new TagProcessingCallback()));
-        private static AlarmServiceReference.AlarmServiceClient alarmServiceClient = new AlarmServiceClient();
+        private static AlarmServiceReference.AlarmServiceClient alarmServiceClient = new AlarmServiceReference.AlarmServiceClient();
         private static string currentToken = null;
 
         static void Main(string[] args)
@@ -82,7 +82,7 @@ namespace DatabaseManagerApp
             Console.WriteLine("6. Change output value");
             Console.WriteLine("7. Add alarm");
             Console.WriteLine("8. View all alarms");
-            //alarm
+            Console.WriteLine("9. Remove alarms");
             Console.Write("Select an option: ");
 
             string choice = Console.ReadLine();
@@ -113,13 +113,30 @@ namespace DatabaseManagerApp
                 case "8":
                     ViewAllAlarms();
                     break;
+                case "9":
+                    RemoveAlarms();
+                    break;
                 default:
                     Console.WriteLine("Invalid option. Please try again.");
                     break;
             }
         }
 
-        
+        private static void RemoveAlarms()
+        {
+            Console.Write("Enter Alarm Name to remove or 'x' to go back: ");
+            string alarmName = Console.ReadLine();
+
+            if (alarmName.ToLower().Equals("x")) return;    
+            
+            if(alarmServiceClient.RemoveAlarm(currentToken, alarmName))
+            {
+                Console.WriteLine("Successfully deleted alarm...");
+                return;
+            }
+            Console.WriteLine("Unsuccessfully deleted alarm...");
+        }
+
         private static void ChangeOutputValue()
         {
             String IoAddress = null;
@@ -524,7 +541,10 @@ namespace DatabaseManagerApp
 
         private static void ViewAllAlarms()
         {
-            throw new NotImplementedException();
+            alarmServiceClient.GetAllAlarms();
+            foreach (Alarm alarm in alarmServiceClient.GetAllAlarms()) {
+                Console.WriteLine(alarm.ToString());
+            }
         }
 
         private static void AddAlarm()

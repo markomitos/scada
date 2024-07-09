@@ -443,4 +443,176 @@ namespace DatabaseManagerApp.TagServiceReference {
             return base.Channel.setRTUValueAsync(address, value, signatureBase64, hashValueBase64);
         }
     }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="TagServiceReference.IAlarmValueService", CallbackContract=typeof(DatabaseManagerApp.TagServiceReference.IAlarmValueServiceCallback))]
+    public interface IAlarmValueService {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmValueService/DoWork", ReplyAction="http://tempuri.org/IAlarmValueService/DoWorkResponse")]
+        void DoWork();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmValueService/DoWork", ReplyAction="http://tempuri.org/IAlarmValueService/DoWorkResponse")]
+        System.Threading.Tasks.Task DoWorkAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmValueService/SubOnAlarmDisplay", ReplyAction="http://tempuri.org/IAlarmValueService/SubOnAlarmDisplayResponse")]
+        void SubOnAlarmDisplay();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmValueService/SubOnAlarmDisplay", ReplyAction="http://tempuri.org/IAlarmValueService/SubOnAlarmDisplayResponse")]
+        System.Threading.Tasks.Task SubOnAlarmDisplayAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmValueService/LogAlarmValue", ReplyAction="http://tempuri.org/IAlarmValueService/LogAlarmValueResponse")]
+        void LogAlarmValue(Scada.models.AlarmValue alarmValue);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmValueService/LogAlarmValue", ReplyAction="http://tempuri.org/IAlarmValueService/LogAlarmValueResponse")]
+        System.Threading.Tasks.Task LogAlarmValueAsync(Scada.models.AlarmValue alarmValue);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IAlarmValueServiceCallback {
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IAlarmValueService/NotifyAlarmTriggered")]
+        void NotifyAlarmTriggered(string message);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IAlarmValueServiceChannel : DatabaseManagerApp.TagServiceReference.IAlarmValueService, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class AlarmValueServiceClient : System.ServiceModel.DuplexClientBase<DatabaseManagerApp.TagServiceReference.IAlarmValueService>, DatabaseManagerApp.TagServiceReference.IAlarmValueService {
+        
+        public AlarmValueServiceClient(System.ServiceModel.InstanceContext callbackInstance) : 
+                base(callbackInstance) {
+        }
+        
+        public AlarmValueServiceClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName) : 
+                base(callbackInstance, endpointConfigurationName) {
+        }
+        
+        public AlarmValueServiceClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, string remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
+        }
+        
+        public AlarmValueServiceClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
+        }
+        
+        public AlarmValueServiceClient(System.ServiceModel.InstanceContext callbackInstance, System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, binding, remoteAddress) {
+        }
+        
+        public void DoWork() {
+            base.Channel.DoWork();
+        }
+        
+        public System.Threading.Tasks.Task DoWorkAsync() {
+            return base.Channel.DoWorkAsync();
+        }
+        
+        public void SubOnAlarmDisplay() {
+            base.Channel.SubOnAlarmDisplay();
+        }
+        
+        public System.Threading.Tasks.Task SubOnAlarmDisplayAsync() {
+            return base.Channel.SubOnAlarmDisplayAsync();
+        }
+        
+        public void LogAlarmValue(Scada.models.AlarmValue alarmValue) {
+            base.Channel.LogAlarmValue(alarmValue);
+        }
+        
+        public System.Threading.Tasks.Task LogAlarmValueAsync(Scada.models.AlarmValue alarmValue) {
+            return base.Channel.LogAlarmValueAsync(alarmValue);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="TagServiceReference.IAlarmService")]
+    public interface IAlarmService {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmService/AddAlarm", ReplyAction="http://tempuri.org/IAlarmService/AddAlarmResponse")]
+        bool AddAlarm(string token, Scada.models.Alarm alarm);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmService/AddAlarm", ReplyAction="http://tempuri.org/IAlarmService/AddAlarmResponse")]
+        System.Threading.Tasks.Task<bool> AddAlarmAsync(string token, Scada.models.Alarm alarm);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmService/GetAllAlarms", ReplyAction="http://tempuri.org/IAlarmService/GetAllAlarmsResponse")]
+        Scada.models.Alarm[] GetAllAlarms();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmService/GetAllAlarms", ReplyAction="http://tempuri.org/IAlarmService/GetAllAlarmsResponse")]
+        System.Threading.Tasks.Task<Scada.models.Alarm[]> GetAllAlarmsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmService/RemoveAlarm", ReplyAction="http://tempuri.org/IAlarmService/RemoveAlarmResponse")]
+        bool RemoveAlarm(string token, string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmService/RemoveAlarm", ReplyAction="http://tempuri.org/IAlarmService/RemoveAlarmResponse")]
+        System.Threading.Tasks.Task<bool> RemoveAlarmAsync(string token, string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmService/GetAlarmsByName", ReplyAction="http://tempuri.org/IAlarmService/GetAlarmsByNameResponse")]
+        Scada.models.Alarm[] GetAlarmsByName(string tagName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmService/GetAlarmsByName", ReplyAction="http://tempuri.org/IAlarmService/GetAlarmsByNameResponse")]
+        System.Threading.Tasks.Task<Scada.models.Alarm[]> GetAlarmsByNameAsync(string tagName);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IAlarmServiceChannel : DatabaseManagerApp.TagServiceReference.IAlarmService, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class AlarmServiceClient : System.ServiceModel.ClientBase<DatabaseManagerApp.TagServiceReference.IAlarmService>, DatabaseManagerApp.TagServiceReference.IAlarmService {
+        
+        public AlarmServiceClient() {
+        }
+        
+        public AlarmServiceClient(string endpointConfigurationName) : 
+                base(endpointConfigurationName) {
+        }
+        
+        public AlarmServiceClient(string endpointConfigurationName, string remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public AlarmServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public AlarmServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(binding, remoteAddress) {
+        }
+        
+        public bool AddAlarm(string token, Scada.models.Alarm alarm) {
+            return base.Channel.AddAlarm(token, alarm);
+        }
+        
+        public System.Threading.Tasks.Task<bool> AddAlarmAsync(string token, Scada.models.Alarm alarm) {
+            return base.Channel.AddAlarmAsync(token, alarm);
+        }
+        
+        public Scada.models.Alarm[] GetAllAlarms() {
+            return base.Channel.GetAllAlarms();
+        }
+        
+        public System.Threading.Tasks.Task<Scada.models.Alarm[]> GetAllAlarmsAsync() {
+            return base.Channel.GetAllAlarmsAsync();
+        }
+        
+        public bool RemoveAlarm(string token, string name) {
+            return base.Channel.RemoveAlarm(token, name);
+        }
+        
+        public System.Threading.Tasks.Task<bool> RemoveAlarmAsync(string token, string name) {
+            return base.Channel.RemoveAlarmAsync(token, name);
+        }
+        
+        public Scada.models.Alarm[] GetAlarmsByName(string tagName) {
+            return base.Channel.GetAlarmsByName(tagName);
+        }
+        
+        public System.Threading.Tasks.Task<Scada.models.Alarm[]> GetAlarmsByNameAsync(string tagName) {
+            return base.Channel.GetAlarmsByNameAsync(tagName);
+        }
+    }
 }

@@ -34,10 +34,13 @@ namespace Scada.services
                            .ToList();
         }
 
-        public void AddAlarm(string token, Alarm alarm)
+        public bool AddAlarm(string token, Alarm alarm)
         {
             if (!Authenticate(token)) throw new UnauthorizedAccessException("Invalid token");
+            if (_alarmRepository.AlarmExists(alarm.Name)) return false;
+
             _alarmRepository.AddAlarm(alarm);
+            return true;
         }
 
 

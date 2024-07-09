@@ -14,7 +14,7 @@ namespace Scada.interfaces
     public interface IAlarmService
     {
         [OperationContract]
-        void AddAlarm(string token, Alarm alarm);
+        bool AddAlarm(string token, Alarm alarm);
         [OperationContract]
         List<Alarm> GetAllAlarms();
         [OperationContract]

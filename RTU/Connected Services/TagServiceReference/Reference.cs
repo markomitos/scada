@@ -470,6 +470,331 @@ namespace RTU.TagServiceReference {
         DIGITAL = 1,
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AlarmValue", Namespace="http://schemas.datacontract.org/2004/07/Scada.models")]
+    [System.SerializableAttribute()]
+    public partial class AlarmValue : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int PriorityField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TagNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double ThresholdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime TimestampField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private RTU.TagServiceReference.AlarmType TypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UnitField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double ValueField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Priority {
+            get {
+                return this.PriorityField;
+            }
+            set {
+                if ((this.PriorityField.Equals(value) != true)) {
+                    this.PriorityField = value;
+                    this.RaisePropertyChanged("Priority");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TagName {
+            get {
+                return this.TagNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TagNameField, value) != true)) {
+                    this.TagNameField = value;
+                    this.RaisePropertyChanged("TagName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double Threshold {
+            get {
+                return this.ThresholdField;
+            }
+            set {
+                if ((this.ThresholdField.Equals(value) != true)) {
+                    this.ThresholdField = value;
+                    this.RaisePropertyChanged("Threshold");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime Timestamp {
+            get {
+                return this.TimestampField;
+            }
+            set {
+                if ((this.TimestampField.Equals(value) != true)) {
+                    this.TimestampField = value;
+                    this.RaisePropertyChanged("Timestamp");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public RTU.TagServiceReference.AlarmType Type {
+            get {
+                return this.TypeField;
+            }
+            set {
+                if ((this.TypeField.Equals(value) != true)) {
+                    this.TypeField = value;
+                    this.RaisePropertyChanged("Type");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Unit {
+            get {
+                return this.UnitField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UnitField, value) != true)) {
+                    this.UnitField = value;
+                    this.RaisePropertyChanged("Unit");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double Value {
+            get {
+                return this.ValueField;
+            }
+            set {
+                if ((this.ValueField.Equals(value) != true)) {
+                    this.ValueField = value;
+                    this.RaisePropertyChanged("Value");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AlarmType", Namespace="http://schemas.datacontract.org/2004/07/Scada.models")]
+    public enum AlarmType : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        LOW = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        HIGH = 1,
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Alarm", Namespace="http://schemas.datacontract.org/2004/07/Scada.models")]
+    [System.SerializableAttribute()]
+    public partial class Alarm : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int PriorityField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TagNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double ThresholdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private RTU.TagServiceReference.AlarmType TypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UnitField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Priority {
+            get {
+                return this.PriorityField;
+            }
+            set {
+                if ((this.PriorityField.Equals(value) != true)) {
+                    this.PriorityField = value;
+                    this.RaisePropertyChanged("Priority");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TagName {
+            get {
+                return this.TagNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TagNameField, value) != true)) {
+                    this.TagNameField = value;
+                    this.RaisePropertyChanged("TagName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double Threshold {
+            get {
+                return this.ThresholdField;
+            }
+            set {
+                if ((this.ThresholdField.Equals(value) != true)) {
+                    this.ThresholdField = value;
+                    this.RaisePropertyChanged("Threshold");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public RTU.TagServiceReference.AlarmType Type {
+            get {
+                return this.TypeField;
+            }
+            set {
+                if ((this.TypeField.Equals(value) != true)) {
+                    this.TypeField = value;
+                    this.RaisePropertyChanged("Type");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Unit {
+            get {
+                return this.UnitField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UnitField, value) != true)) {
+                    this.UnitField = value;
+                    this.RaisePropertyChanged("Unit");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="TagServiceReference.ITagService", CallbackContract=typeof(RTU.TagServiceReference.ITagServiceCallback))]
     public interface ITagService {
@@ -900,6 +1225,178 @@ namespace RTU.TagServiceReference {
         
         public System.Threading.Tasks.Task setRTUValueAsync(string address, double value, string signatureBase64, string hashValueBase64) {
             return base.Channel.setRTUValueAsync(address, value, signatureBase64, hashValueBase64);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="TagServiceReference.IAlarmValueService", CallbackContract=typeof(RTU.TagServiceReference.IAlarmValueServiceCallback))]
+    public interface IAlarmValueService {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmValueService/DoWork", ReplyAction="http://tempuri.org/IAlarmValueService/DoWorkResponse")]
+        void DoWork();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmValueService/DoWork", ReplyAction="http://tempuri.org/IAlarmValueService/DoWorkResponse")]
+        System.Threading.Tasks.Task DoWorkAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmValueService/SubOnAlarmDisplay", ReplyAction="http://tempuri.org/IAlarmValueService/SubOnAlarmDisplayResponse")]
+        void SubOnAlarmDisplay();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmValueService/SubOnAlarmDisplay", ReplyAction="http://tempuri.org/IAlarmValueService/SubOnAlarmDisplayResponse")]
+        System.Threading.Tasks.Task SubOnAlarmDisplayAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmValueService/LogAlarmValue", ReplyAction="http://tempuri.org/IAlarmValueService/LogAlarmValueResponse")]
+        void LogAlarmValue(RTU.TagServiceReference.AlarmValue alarmValue);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmValueService/LogAlarmValue", ReplyAction="http://tempuri.org/IAlarmValueService/LogAlarmValueResponse")]
+        System.Threading.Tasks.Task LogAlarmValueAsync(RTU.TagServiceReference.AlarmValue alarmValue);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IAlarmValueServiceCallback {
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IAlarmValueService/NotifyAlarmTriggered")]
+        void NotifyAlarmTriggered(string message);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IAlarmValueServiceChannel : RTU.TagServiceReference.IAlarmValueService, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class AlarmValueServiceClient : System.ServiceModel.DuplexClientBase<RTU.TagServiceReference.IAlarmValueService>, RTU.TagServiceReference.IAlarmValueService {
+        
+        public AlarmValueServiceClient(System.ServiceModel.InstanceContext callbackInstance) : 
+                base(callbackInstance) {
+        }
+        
+        public AlarmValueServiceClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName) : 
+                base(callbackInstance, endpointConfigurationName) {
+        }
+        
+        public AlarmValueServiceClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, string remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
+        }
+        
+        public AlarmValueServiceClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
+        }
+        
+        public AlarmValueServiceClient(System.ServiceModel.InstanceContext callbackInstance, System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, binding, remoteAddress) {
+        }
+        
+        public void DoWork() {
+            base.Channel.DoWork();
+        }
+        
+        public System.Threading.Tasks.Task DoWorkAsync() {
+            return base.Channel.DoWorkAsync();
+        }
+        
+        public void SubOnAlarmDisplay() {
+            base.Channel.SubOnAlarmDisplay();
+        }
+        
+        public System.Threading.Tasks.Task SubOnAlarmDisplayAsync() {
+            return base.Channel.SubOnAlarmDisplayAsync();
+        }
+        
+        public void LogAlarmValue(RTU.TagServiceReference.AlarmValue alarmValue) {
+            base.Channel.LogAlarmValue(alarmValue);
+        }
+        
+        public System.Threading.Tasks.Task LogAlarmValueAsync(RTU.TagServiceReference.AlarmValue alarmValue) {
+            return base.Channel.LogAlarmValueAsync(alarmValue);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="TagServiceReference.IAlarmService")]
+    public interface IAlarmService {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmService/AddAlarm", ReplyAction="http://tempuri.org/IAlarmService/AddAlarmResponse")]
+        bool AddAlarm(string token, RTU.TagServiceReference.Alarm alarm);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmService/AddAlarm", ReplyAction="http://tempuri.org/IAlarmService/AddAlarmResponse")]
+        System.Threading.Tasks.Task<bool> AddAlarmAsync(string token, RTU.TagServiceReference.Alarm alarm);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmService/GetAllAlarms", ReplyAction="http://tempuri.org/IAlarmService/GetAllAlarmsResponse")]
+        RTU.TagServiceReference.Alarm[] GetAllAlarms();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmService/GetAllAlarms", ReplyAction="http://tempuri.org/IAlarmService/GetAllAlarmsResponse")]
+        System.Threading.Tasks.Task<RTU.TagServiceReference.Alarm[]> GetAllAlarmsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmService/RemoveAlarm", ReplyAction="http://tempuri.org/IAlarmService/RemoveAlarmResponse")]
+        bool RemoveAlarm(string token, string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmService/RemoveAlarm", ReplyAction="http://tempuri.org/IAlarmService/RemoveAlarmResponse")]
+        System.Threading.Tasks.Task<bool> RemoveAlarmAsync(string token, string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmService/GetAlarmsByName", ReplyAction="http://tempuri.org/IAlarmService/GetAlarmsByNameResponse")]
+        RTU.TagServiceReference.Alarm[] GetAlarmsByName(string tagName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmService/GetAlarmsByName", ReplyAction="http://tempuri.org/IAlarmService/GetAlarmsByNameResponse")]
+        System.Threading.Tasks.Task<RTU.TagServiceReference.Alarm[]> GetAlarmsByNameAsync(string tagName);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IAlarmServiceChannel : RTU.TagServiceReference.IAlarmService, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class AlarmServiceClient : System.ServiceModel.ClientBase<RTU.TagServiceReference.IAlarmService>, RTU.TagServiceReference.IAlarmService {
+        
+        public AlarmServiceClient() {
+        }
+        
+        public AlarmServiceClient(string endpointConfigurationName) : 
+                base(endpointConfigurationName) {
+        }
+        
+        public AlarmServiceClient(string endpointConfigurationName, string remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public AlarmServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public AlarmServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(binding, remoteAddress) {
+        }
+        
+        public bool AddAlarm(string token, RTU.TagServiceReference.Alarm alarm) {
+            return base.Channel.AddAlarm(token, alarm);
+        }
+        
+        public System.Threading.Tasks.Task<bool> AddAlarmAsync(string token, RTU.TagServiceReference.Alarm alarm) {
+            return base.Channel.AddAlarmAsync(token, alarm);
+        }
+        
+        public RTU.TagServiceReference.Alarm[] GetAllAlarms() {
+            return base.Channel.GetAllAlarms();
+        }
+        
+        public System.Threading.Tasks.Task<RTU.TagServiceReference.Alarm[]> GetAllAlarmsAsync() {
+            return base.Channel.GetAllAlarmsAsync();
+        }
+        
+        public bool RemoveAlarm(string token, string name) {
+            return base.Channel.RemoveAlarm(token, name);
+        }
+        
+        public System.Threading.Tasks.Task<bool> RemoveAlarmAsync(string token, string name) {
+            return base.Channel.RemoveAlarmAsync(token, name);
+        }
+        
+        public RTU.TagServiceReference.Alarm[] GetAlarmsByName(string tagName) {
+            return base.Channel.GetAlarmsByName(tagName);
+        }
+        
+        public System.Threading.Tasks.Task<RTU.TagServiceReference.Alarm[]> GetAlarmsByNameAsync(string tagName) {
+            return base.Channel.GetAlarmsByNameAsync(tagName);
         }
     }
 }

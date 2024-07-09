@@ -35,5 +35,10 @@ namespace Scada.models
         [Required] 
         public string TagName { get; set; }
 
+        public override string ToString()
+        {
+            return $"|{"Id",-5}|{"Name",-20}|{"Type",-5}|{"Priority",-8}|{"Threshold",-10}|{"Unit",-5}|{"TagName",-20}|\n" +
+                   $"|{Id,-5}|{Name,-20}|{Type,-5}|{Priority,-8}|{Threshold,-10}|{Unit,-5}|{TagName,-20}|";
+        }
     }
 }

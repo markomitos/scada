@@ -16,10 +16,10 @@ namespace DatabaseManagerApp.AlarmServiceReference {
     public interface IAlarmService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmService/AddAlarm", ReplyAction="http://tempuri.org/IAlarmService/AddAlarmResponse")]
-        void AddAlarm(string token, Scada.models.Alarm alarm);
+        bool AddAlarm(string token, Scada.models.Alarm alarm);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmService/AddAlarm", ReplyAction="http://tempuri.org/IAlarmService/AddAlarmResponse")]
-        System.Threading.Tasks.Task AddAlarmAsync(string token, Scada.models.Alarm alarm);
+        System.Threading.Tasks.Task<bool> AddAlarmAsync(string token, Scada.models.Alarm alarm);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmService/GetAllAlarms", ReplyAction="http://tempuri.org/IAlarmService/GetAllAlarmsResponse")]
         Scada.models.Alarm[] GetAllAlarms();
@@ -67,11 +67,11 @@ namespace DatabaseManagerApp.AlarmServiceReference {
                 base(binding, remoteAddress) {
         }
         
-        public void AddAlarm(string token, Scada.models.Alarm alarm) {
-            base.Channel.AddAlarm(token, alarm);
+        public bool AddAlarm(string token, Scada.models.Alarm alarm) {
+            return base.Channel.AddAlarm(token, alarm);
         }
         
-        public System.Threading.Tasks.Task AddAlarmAsync(string token, Scada.models.Alarm alarm) {
+        public System.Threading.Tasks.Task<bool> AddAlarmAsync(string token, Scada.models.Alarm alarm) {
             return base.Channel.AddAlarmAsync(token, alarm);
         }
         

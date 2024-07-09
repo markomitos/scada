@@ -39,7 +39,7 @@ namespace Scada.services
             StringBuilder sb = new StringBuilder();
             for (int i = 1; i <= alarmValue.Priority; i++)
             {
-                sb.AppendLine($"Alarm has been triggered: Id={alarmValue.Id},Tag={alarmValue.TagName},Tag value= {alarmValue.Value} ,Type={alarmValue.Type}, Priority={alarmValue.Priority}, Threshold={alarmValue.Threshold}, Timestamp={alarmValue.Timestamp}\n");
+                sb.AppendLine($"Alarm has been triggered: \n {alarmValue.ToString()}\n");
             }
             string message = sb.ToString();
             foreach (var callback in alarmCallbacks)

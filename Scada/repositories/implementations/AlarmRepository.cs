@@ -62,6 +62,8 @@ namespace Scada.repositories.implementations
             return false;
         }
 
+        
+
         private void Save()
         {
             try
@@ -76,6 +78,11 @@ namespace Scada.repositories.implementations
             {
                 Console.WriteLine("Error while saving: " + ex.Message);
             }
+        }
+
+        public bool AlarmExists(string name)
+        {
+            return alarms.Any(alarm => alarm.Name == name);
         }
     }
 }

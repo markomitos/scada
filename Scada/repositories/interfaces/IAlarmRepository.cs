@@ -8,5 +8,6 @@ namespace Scada.repositories.implementations
         void AddAlarm(Alarm alarm);
         List<Alarm> GetAllAlarms();
         bool RemoveAlarm(string name);
+        bool AlarmExists(string name);
     }
 }

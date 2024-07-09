@@ -13,18 +13,26 @@ using Scada.callbacks;
 
 namespace Scada
 {
-    public class TagService : ITagService
+    [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
+    public class TagService : IAlarmService, ITagService,  IAlarmValueService
     {
         private readonly TagRepository _tagRepository;
         private readonly TagValueRepository _tagValueRepository;
         private readonly TagProcessing _tagProcessing;
         private readonly Dictionary<Guid,ITagServiceCallback> _callbacks = new Dictionary<Guid, ITagServiceCallback>();
+        public List<IAlarmCallback> alarmCallbacks = new List<IAlarmCallback>();
+
+        public IAlarmService alarmService;
+        public IAlarmValueService alarmValueService;
+
 
         public TagService()
         {
             _tagRepository = new TagRepository();
             _tagValueRepository = new TagValueRepository();
             _tagProcessing = new TagProcessing(this);
+            alarmService = new services.AlarmService(new AlarmRepository());
+            alarmValueService = new services.AlarmValueService(new AlarmValueRepository());
         }
 
         private bool Authenticate(string token)
@@ -250,6 +258,42 @@ namespace Scada
                     return deformatter.VerifySignature(hashValue, signature);
                 }
             }
+        }
+
+        public bool AddAlarm(string token, Alarm alarm)
+        {
+            return alarmService.AddAlarm(token, alarm);
+        }
+
+        public List<Alarm> GetAllAlarms()
+        {
+            return alarmService.GetAllAlarms();
+        }
+
+        public bool RemoveAlarm(string token, string name)
+        {
+            return alarmService.RemoveAlarm(token, name);
+        }
+
+        public List<Alarm> GetAlarmsByName(string tagName)
+        {
+            return alarmService.GetAlarmsByName(tagName);
+        }
+
+        public void DoWork()
+        {
+            
+        }
+
+        public void SubOnAlarmDisplay()
+        {
+            alarmValueService.SubOnAlarmDisplay();
+        }
+
+        public void LogAlarmValue(AlarmValue alarmValue)
+        {
+            alarmValueService.LogAlarmValue(alarmValue);
+            
         }
     }
 }

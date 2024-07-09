@@ -127,6 +127,12 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Scada\Scada.csproj">
+      <Project>{45c9a3ab-afd1-4d35-bc81-78ae72c9bfb5}</Project>
+      <Name>Scada</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Connected Services\TagServiceReference\TagService.disco" />
   </ItemGroup>
   <ItemGroup>
@@ -140,12 +146,6 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Scada\Scada.csproj">
-      <Project>{45c9a3ab-afd1-4d35-bc81-78ae72c9bfb5}</Project>
-      <Name>Scada</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\AlarmServiceReference\AlarmService.disco" />
