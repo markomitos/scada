@@ -10,7 +10,6 @@
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "Scada.repositories.ScadaContext";
         }
 
         protected override void Seed(Scada.repositories.ScadaContext context)

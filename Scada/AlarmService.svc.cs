@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
+using System.Security.Claims;
 using System.ServiceModel;
 using System.Text;
 
@@ -16,50 +17,35 @@ namespace Scada
     // NOTE: In order to launch WCF Test Client for testing this service, please select AlarmService.svc or AlarmService.svc.cs at the Solution Explorer and start debugging.
     public class AlarmService : IAlarmService
     {
-        private readonly AlarmRepository _alarmRepository;
-        private readonly AlarmValueRepository _alarmValueRepository;
+        public IAlarmService alarmService;
 
         public AlarmService()
         {
-            _alarmRepository = new AlarmRepository();
-            _alarmValueRepository = new AlarmValueRepository();
-        }
-
-        private bool Authenticate(string token)
-        {
-            return AuthenticationService.AuthenticateToken(token);
+            alarmService = new services.AlarmService(new AlarmRepository());
         }
 
         public List<Alarm> GetAllAlarms()
         {
-            return _alarmRepository.GetAllAlarms();
+            return alarmService.GetAllAlarms();
         }
 
         public List<Alarm> GetAlarmsByName(string tagName)
         {
-            return _alarmRepository.GetAllAlarms()
-                           .Where(alarm => alarm.TagName == tagName)
-                           .ToList();
+            return alarmService.GetAlarmsByName(tagName);
         }
 
         public void AddAlarm(string token, Alarm alarm)
         {
-            if (!Authenticate(token)) throw new UnauthorizedAccessException("Invalid token");
-            _alarmRepository.AddAlarm(alarm);
+            alarmService.AddAlarm(token, alarm);
         }
 
 
         public bool RemoveAlarm(string token, string name)
         {
-            if (!Authenticate(token)) throw new UnauthorizedAccessException("Invalid token");
-            return _alarmRepository.RemoveAlarm(name);
+            return alarmService.RemoveAlarm(token, name);
         }
+        
 
-        public void LogAlarmValue(AlarmValue alarmValue)
-        {
-            _alarmValueRepository.LogAlarm(alarmValue);
-            _alarmValueRepository.AddAlarmValue(alarmValue);
-            //posalji callbackom na alarm display
-        }
+        
     }
 }

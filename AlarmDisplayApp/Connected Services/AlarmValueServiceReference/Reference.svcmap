@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="c400c6b3-f4f0-4084-8eb5-01fec557c0e4" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:60822/AlarmValueService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="AlarmValueService.wsdl" MetadataType="Wsdl" ID="d4f5bae5-87c1-487e-9d2c-3f31ddec947a" SourceId="1" SourceUrl="http://localhost:60822/AlarmValueService.svc?wsdl" />
+    <MetadataFile FileName="AlarmValueService.xsd" MetadataType="Schema" ID="dc87853a-30f7-434e-b2b2-8695e012999f" SourceId="1" SourceUrl="http://localhost:60822/AlarmValueService.svc?xsd=xsd1" />
+    <MetadataFile FileName="AlarmValueService1.xsd" MetadataType="Schema" ID="c34076bf-c833-4cb1-b9a1-b5949887cfb9" SourceId="1" SourceUrl="http://localhost:60822/AlarmValueService.svc?xsd=xsd2" />
+    <MetadataFile FileName="AlarmValueService.disco" MetadataType="Disco" ID="9e150d72-4c40-41f7-a45c-588b901906fc" SourceId="1" SourceUrl="http://localhost:60822/AlarmValueService.svc?disco" />
+    <MetadataFile FileName="AlarmValueService2.xsd" MetadataType="Schema" ID="09fbdccc-f215-4af1-b549-695929e3cf51" SourceId="1" SourceUrl="http://localhost:60822/AlarmValueService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

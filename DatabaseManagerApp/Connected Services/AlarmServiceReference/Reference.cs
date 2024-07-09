@@ -32,6 +32,12 @@ namespace DatabaseManagerApp.AlarmServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmService/RemoveAlarm", ReplyAction="http://tempuri.org/IAlarmService/RemoveAlarmResponse")]
         System.Threading.Tasks.Task<bool> RemoveAlarmAsync(string token, string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmService/GetAlarmsByName", ReplyAction="http://tempuri.org/IAlarmService/GetAlarmsByNameResponse")]
+        Scada.models.Alarm[] GetAlarmsByName(string tagName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmService/GetAlarmsByName", ReplyAction="http://tempuri.org/IAlarmService/GetAlarmsByNameResponse")]
+        System.Threading.Tasks.Task<Scada.models.Alarm[]> GetAlarmsByNameAsync(string tagName);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -83,6 +89,14 @@ namespace DatabaseManagerApp.AlarmServiceReference {
         
         public System.Threading.Tasks.Task<bool> RemoveAlarmAsync(string token, string name) {
             return base.Channel.RemoveAlarmAsync(token, name);
+        }
+        
+        public Scada.models.Alarm[] GetAlarmsByName(string tagName) {
+            return base.Channel.GetAlarmsByName(tagName);
+        }
+        
+        public System.Threading.Tasks.Task<Scada.models.Alarm[]> GetAlarmsByNameAsync(string tagName) {
+            return base.Channel.GetAlarmsByNameAsync(tagName);
         }
     }
 }

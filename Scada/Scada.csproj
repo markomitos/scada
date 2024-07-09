@@ -128,8 +128,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AlarmService.svc" />
+    <Content Include="AlarmValueService.svc" />
+    <Content Include="AppData\alarmsLog.txt" />
     <Content Include="ReportService.svc" />
-    <Content Include="App_Data\alarmsLog.txt" />
     <Content Include="Resources\tags.xml" />
     <Content Include="Resources\alarmConfig.xml" />
     <Content Include="TagService.svc" />
@@ -140,21 +141,17 @@
     <Compile Include="AlarmService.svc.cs">
       <DependentUpon>AlarmService.svc</DependentUpon>
     </Compile>
+    <Compile Include="AlarmValueService.svc.cs">
+      <DependentUpon>AlarmValueService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="interfaces\IAlarmValueService.cs" />
     <Compile Include="interfaces\IAlarmService.cs" />
     <Compile Include="interfaces\IReportService.cs" />
     <Compile Include="interfaces\IUserService.cs" />
     <Compile Include="interfaces\ITagService.cs" />
-    <Compile Include="Migrations\202407021322206_TagKeyUpdate.cs" />
-    <Compile Include="Migrations\202407021322206_TagKeyUpdate.Designer.cs">
-      <DependentUpon>202407021322206_TagKeyUpdate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202407021917237_TagValuesTable.cs" />
-    <Compile Include="Migrations\202407021917237_TagValuesTable.Designer.cs">
-      <DependentUpon>202407021917237_TagValuesTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202407082228444_AlarmValue.cs" />
-    <Compile Include="Migrations\202407082228444_AlarmValue.Designer.cs">
-      <DependentUpon>202407082228444_AlarmValue.cs</DependentUpon>
+    <Compile Include="Migrations\202407091418424_InitialCreate.cs" />
+    <Compile Include="Migrations\202407091418424_InitialCreate.Designer.cs">
+      <DependentUpon>202407091418424_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="models\Alarm.cs" />
@@ -215,16 +212,12 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202407021322206_TagKeyUpdate.resx">
-      <DependentUpon>202407021322206_TagKeyUpdate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202407021917237_TagValuesTable.resx">
-      <DependentUpon>202407021917237_TagValuesTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202407082228444_AlarmValue.resx">
-      <DependentUpon>202407082228444_AlarmValue.cs</DependentUpon>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202407091418424_InitialCreate.resx">
+      <DependentUpon>202407091418424_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -8,6 +8,7 @@ using Scada.callbacks;
 using System.Numerics;
 using Google.Protobuf.WellKnownTypes;
 using System.Web.ApplicationServices;
+using System.Web;
 
 namespace Scada.services
 {
@@ -102,7 +103,6 @@ namespace Scada.services
                     _tagService.AddTagValue(tagValue);
                     NotifyCallbacks(tagValue);
                     checkAlarms(value, tag.Name);
-                    //alarmiraj ako prekoraci
                 }
 
                 Thread.Sleep((int)tag.ScanTime);
@@ -111,7 +111,13 @@ namespace Scada.services
 
         private void checkAlarms(double tagValue, string tagName)
         {
+            if (HttpContext.Current == null)
+            {
+                return;
+            }
+            AlarmValueService alarmValueService = new AlarmValueService();
             AlarmService alarmService = new AlarmService();
+
             List<Alarm> tagsAlarms = alarmService.GetAlarmsByName(tagName);
 
             if (tagsAlarms == null) return;
@@ -120,7 +126,7 @@ namespace Scada.services
             {
                 if (tagValue > a.Threshold)
                 {
-                    alarmService.LogAlarmValue(new AlarmValue(a.Name, a.Type, a.Priority, a.Threshold, a.Unit, tagName, tagValue, DateTime.Now));
+                    alarmValueService.LogAlarmValue(new AlarmValue(a.Name, a.Type, a.Priority, a.Threshold, a.Unit, tagName, tagValue, DateTime.Now));
                 }
             }
         }
