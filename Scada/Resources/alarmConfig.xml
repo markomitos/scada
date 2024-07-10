@@ -9,4 +9,10 @@
   <Alarm Name="ognjen_alarm1" Type="HIGH" Priority="2" Treshold="40" Unit="KG" TagName="ognjen_tag1">
     <Id>0</Id>
   </Alarm>
+  <Alarm Name="analog" Type="HIGH" Priority="1" Treshold="100" Unit="s" TagName="analog">
+    <Id>0</Id>
+  </Alarm>
+  <Alarm Name="s" Type="LOW" Priority="2" Treshold="50" Unit="s" TagName="s">
+    <Id>0</Id>
+  </Alarm>
 </Alarms>

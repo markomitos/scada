@@ -149,9 +149,9 @@
     <Compile Include="interfaces\IReportService.cs" />
     <Compile Include="interfaces\IUserService.cs" />
     <Compile Include="interfaces\ITagService.cs" />
-    <Compile Include="Migrations\202407091418424_InitialCreate.cs" />
-    <Compile Include="Migrations\202407091418424_InitialCreate.Designer.cs">
-      <DependentUpon>202407091418424_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\202407101848213_Final1.cs" />
+    <Compile Include="Migrations\202407101848213_Final1.Designer.cs">
+      <DependentUpon>202407101848213_Final1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="models\Alarm.cs" />
@@ -218,8 +218,8 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202407091418424_InitialCreate.resx">
-      <DependentUpon>202407091418424_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202407101848213_Final1.resx">
+      <DependentUpon>202407101848213_Final1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

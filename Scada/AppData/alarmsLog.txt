@@ -85,3 +85,23 @@ Alarm with value triggered: Id=590677398,Tag=ognjen_tag1,Tag value= 58.778525229
 Alarm with value triggered: Id=590789440,Tag=ognjen_tag1,Tag value= 58.7785252292473, Priority=2, Type=HIGH, Threshold=40, Timestamp=7/9/2024 6:30:12 PM
 Alarm with value triggered: Id=960350119,Tag=ognjen_tag1,Tag value= 91.3545457642601, Priority=2, Type=HIGH, Threshold=50, Timestamp=7/9/2024 6:30:22 PM
 Alarm with value triggered: Id=960400245,Tag=ognjen_tag1,Tag value= 91.3545457642601, Priority=2, Type=HIGH, Threshold=40, Timestamp=7/9/2024 6:30:22 PM
+Alarm with value triggered: Id=-685424739,Tag=s,Tag value= 100, Priority=2, Type=LOW, Threshold=50, Timestamp=10/07/2024 21:11:32
+Alarm with value triggered: Id=-316121069,Tag=s,Tag value= 80.9016994374947, Priority=2, Type=LOW, Threshold=50, Timestamp=10/07/2024 21:11:42
+Alarm with value triggered: Id=-16291027,Tag=s,Tag value= 58.7785252292473, Priority=2, Type=LOW, Threshold=50, Timestamp=10/07/2024 21:12:12
+Alarm with value triggered: Id=-183902314,Tag=s,Tag value= 91.3545457642601, Priority=2, Type=LOW, Threshold=50, Timestamp=10/07/2024 21:12:22
+Alarm with value triggered: Id=185689604,Tag=s,Tag value= 99.4521895368273, Priority=2, Type=LOW, Threshold=50, Timestamp=10/07/2024 21:12:32
+Alarm with value triggered: Id=18431352,Tag=s,Tag value= 80.9016994374947, Priority=2, Type=LOW, Threshold=50, Timestamp=10/07/2024 21:12:42
+Alarm with value triggered: Id=326223354,Tag=s,Tag value= 58.7785252292473, Priority=2, Type=LOW, Threshold=50, Timestamp=10/07/2024 21:13:12
+Alarm with value triggered: Id=695965055,Tag=s,Tag value= 93.3580426497202, Priority=2, Type=LOW, Threshold=50, Timestamp=10/07/2024 21:13:23
+Alarm with value triggered: Id=796662746,Tag=s,Tag value= 98.7688340595138, Priority=2, Type=LOW, Threshold=50, Timestamp=10/07/2024 21:13:33
+Alarm with value triggered: Id=625316903,Tag=s,Tag value= 77.7145961456971, Priority=2, Type=LOW, Threshold=50, Timestamp=10/07/2024 21:13:43
+Alarm with value triggered: Id=928884565,Tag=s,Tag value= 62.9320391049838, Priority=2, Type=LOW, Threshold=50, Timestamp=10/07/2024 21:14:13
+Alarm with value triggered: Id=1302731401,Tag=s,Tag value= 93.3580426497202, Priority=2, Type=LOW, Threshold=50, Timestamp=10/07/2024 21:14:23
+Alarm with value triggered: Id=-1630050534,Tag=s,Tag value= 80.9016994374947, Priority=2, Type=LOW, Threshold=50, Timestamp=10/07/2024 22:35:22
+Alarm with value triggered: Id=-1797273455,Tag=s,Tag value= 99.4521895368273, Priority=2, Type=LOW, Threshold=50, Timestamp=10/07/2024 22:35:32
+Alarm with value triggered: Id=-1457003301,Tag=s,Tag value= 80.9016994374947, Priority=2, Type=LOW, Threshold=50, Timestamp=10/07/2024 22:35:42
+Alarm with value triggered: Id=-1153857389,Tag=s,Tag value= 58.7785252292473, Priority=2, Type=LOW, Threshold=50, Timestamp=10/07/2024 22:36:12
+Alarm with value triggered: Id=-1325293045,Tag=s,Tag value= 91.3545457642601, Priority=2, Type=LOW, Threshold=50, Timestamp=10/07/2024 22:36:22
+Alarm with value triggered: Id=-1224090108,Tag=s,Tag value= 99.4521895368273, Priority=2, Type=LOW, Threshold=50, Timestamp=10/07/2024 22:36:32
+Alarm with value triggered: Id=-854404190,Tag=s,Tag value= 80.9016994374947, Priority=2, Type=LOW, Threshold=50, Timestamp=10/07/2024 22:36:42
+Alarm with value triggered: Id=-546825731,Tag=s,Tag value= 58.7785252292473, Priority=2, Type=LOW, Threshold=50, Timestamp=10/07/2024 22:37:12

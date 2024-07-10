@@ -127,9 +127,9 @@ namespace DatabaseManagerApp
             Console.Write("Enter Alarm Name to remove or 'x' to go back: ");
             string alarmName = Console.ReadLine();
 
-            if (alarmName.ToLower().Equals("x")) return;    
-            
-            if(alarmServiceClient.RemoveAlarm(currentToken, alarmName))
+            if (alarmName.ToLower().Equals("x")) return;
+
+            if (alarmServiceClient.RemoveAlarm(currentToken, alarmName))
             {
                 Console.WriteLine("Successfully deleted alarm...");
                 return;
@@ -233,7 +233,7 @@ namespace DatabaseManagerApp
             {
                 toggleAnalogScan(analogInputTag);
                 return;
-            } 
+            }
 
             DigitalInputTag digitalInputTag = tagServiceClient.GetDigitalInputTag(tagName);
             if (digitalInputTag != null)
@@ -278,7 +278,8 @@ namespace DatabaseManagerApp
             string tagName = Console.ReadLine();
             Console.Write("Are you sure you want to delete " + tagName + "? (y/n): ");
             string confirmation = Console.ReadLine();
-            if (confirmation == "y") {
+            if (confirmation == "y")
+            {
 
                 bool successful = tagServiceClient.RemoveTag(currentToken, tagName);
                 Console.WriteLine(successful ? "Delete successful" : "Error: tag " + tagName + " doesn't exist.");
@@ -324,29 +325,22 @@ namespace DatabaseManagerApp
             Console.Write("Enter tag description: ");
             string tagDescription = Console.ReadLine();
 
-            Console.Write("Enter tag IO address: ");
-            string tagIoAddress = Console.ReadLine();
+            string tagDriver = EnterTagDriver();
 
-            Console.Write("Enter tag driver [SIM/RT]: ");
-            string tagDriver = Console.ReadLine();
+            string tagIoAddress = EnterTagIoAddress(tagDriver);
 
-            Console.Write("Enter tag scan time (ms): ");
-            string tagScanTime = Console.ReadLine();
+            int tagScanTime = EnterTagScanTime();
 
-            Console.Write("Enter tag on/off scan [true/false]: ");
-            string tagOnOffScan = Console.ReadLine();
+            bool tagOnOffScan = EnterTagOnOffScan();
 
-            Console.Write("Enter tag low limit: ");
-            string tagLowLimit = Console.ReadLine();
+            double tagLowLimit = EnterTagLimit("low");
 
-            Console.Write("Enter tag high limit: ");
-            string tagHighLimit = Console.ReadLine();
+            double tagHighLimit = EnterTagLimit("high");
 
             Console.Write("Enter tag units: ");
             string tagUnits = Console.ReadLine();
 
-            Console.Write("Enter tag alarms [true/false]: ");
-            string tagAlarms = Console.ReadLine();
+            bool tagAlarms = EnterTagAlarms();
 
             AnalogInputTag tag = new AnalogInputTag
             {
@@ -354,15 +348,15 @@ namespace DatabaseManagerApp
                 Description = tagDescription,
                 IoAddress = tagIoAddress,
                 Driver = tagDriver,
-                ScanTime = int.Parse(tagScanTime),
-                OnOffScan = bool.Parse(tagOnOffScan),
-                LowLimit = double.Parse(tagLowLimit),
-                HighLimit = double.Parse(tagHighLimit),
+                ScanTime = tagScanTime,
+                OnOffScan = tagOnOffScan,
+                LowLimit = tagLowLimit,
+                HighLimit = tagHighLimit,
                 Units = tagUnits,
-                Alarms = bool.Parse(tagAlarms)
+                Alarms = tagAlarms
             };
 
-               tagServiceClient.AddAnalogInputTag(currentToken, tag);
+            tagServiceClient.AddAnalogInputTag(currentToken, tag);
         }
 
         private static void AddDigitalInputTag()
@@ -372,17 +366,13 @@ namespace DatabaseManagerApp
             Console.Write("Enter tag description: ");
             string tagDescription = Console.ReadLine();
 
-            Console.Write("Enter tag driver [SIM/RT]: ");
-            string tagDriver = Console.ReadLine();
+            string tagDriver = EnterTagDriver();
 
-            Console.Write("Enter tag IO address [R/C/S/IP_Address]: ");
-            string tagIoAddress = Console.ReadLine();
+            string tagIoAddress = EnterTagIoAddress(tagDriver);
 
-            Console.Write("Enter tag scan time (ms): ");
-            string tagScanTime = Console.ReadLine();
+            int tagScanTime = EnterTagScanTime();
 
-            Console.Write("Enter tag on/off scan [true/false]: ");
-            string tagOnOffScan = Console.ReadLine();
+            bool tagOnOffScan = EnterTagOnOffScan();
 
             DigitalInputTag tag = new DigitalInputTag
             {
@@ -390,8 +380,8 @@ namespace DatabaseManagerApp
                 Description = tagDescription,
                 IoAddress = tagIoAddress,
                 Driver = tagDriver,
-                ScanTime = int.Parse(tagScanTime),
-                OnOffScan = bool.Parse(tagOnOffScan),
+                ScanTime = tagScanTime,
+                OnOffScan = tagOnOffScan,
             };
 
             tagServiceClient.AddDigitalInputTag(currentToken, tag);
@@ -404,17 +394,14 @@ namespace DatabaseManagerApp
             Console.Write("Enter tag description: ");
             string tagDescription = Console.ReadLine();
 
-            Console.Write("Enter tag IO address [R/C/S/IP_Address]: ");
+            Console.Write("Enter tag IO address (SIM: 'R'/'C'/'S'/): ");
             string tagIoAddress = Console.ReadLine();
 
-            Console.Write("Enter tag initial value: ");
-            string tagInitialValue = Console.ReadLine();
+            double tagInitialValue = EnterTagInitialValue();
 
-            Console.Write("Enter tag low limit: ");
-            string tagLowLimit = Console.ReadLine();
+            double tagLowLimit = EnterTagLimit("low");
 
-            Console.Write("Enter tag high limit: ");
-            string tagHighLimit = Console.ReadLine();
+            double tagHighLimit = EnterTagLimit("high");
 
             Console.Write("Enter tag units: ");
             string tagUnits = Console.ReadLine();
@@ -424,10 +411,10 @@ namespace DatabaseManagerApp
                 Name = tagName,
                 Description = tagDescription,
                 IoAddress = tagIoAddress,
-                LowLimit = double.Parse(tagLowLimit),
-                HighLimit = double.Parse(tagHighLimit),
+                LowLimit = tagLowLimit,
+                HighLimit = tagHighLimit,
                 Units = tagUnits,
-                InitialValue = double.Parse(tagInitialValue)
+                InitialValue = tagInitialValue
             };
 
             tagServiceClient.AddAnalogOutputTag(currentToken, tag);
@@ -443,15 +430,14 @@ namespace DatabaseManagerApp
             Console.Write("Enter tag IO address [R/C/S/IP_Address]: ");
             string tagIoAddress = Console.ReadLine();
 
-            Console.Write("Enter tag initial value: ");
-            string tagInitialValue = Console.ReadLine();
+            double tagInitialValue = EnterTagInitialValue();
 
             DigitalOutputTag tag = new DigitalOutputTag
             {
                 Name = tagName,
                 Description = tagDescription,
                 IoAddress = tagIoAddress,
-                InitialValue = double.Parse(tagInitialValue)
+                InitialValue = tagInitialValue
             };
 
             tagServiceClient.AddDigitalOutputTag(currentToken, tag);
@@ -467,7 +453,7 @@ namespace DatabaseManagerApp
                 Console.Write("Enter tag name: ");
                 tagName = Console.ReadLine();
 
-                isUnique = tagServiceClient.IsTagNameUnique(currentToken,tagName);
+                isUnique = tagServiceClient.IsTagNameUnique(currentToken, tagName);
 
                 if (!isUnique)
                 {
@@ -478,6 +464,142 @@ namespace DatabaseManagerApp
 
             return tagName;
         }
+
+        private static string EnterTagDriver()
+        {
+            string tagDriver;
+            while (true)
+            {
+                Console.Write("Enter tag driver [SIM/RTD]: ");
+                tagDriver = Console.ReadLine().ToUpper();
+                if (tagDriver == "SIM" || tagDriver == "RTD")
+                {
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Invalid input. Driver must be SIM or RTD.");
+                }
+            }
+            return tagDriver;
+        }
+
+        private static string EnterTagIoAddress(string tagDriver)
+        {
+            string tagIoAddress;
+            while (true)
+            {
+                Console.Write("Enter tag IO address (SIM: 'R'/'C'/'S'/): ");
+                tagIoAddress = Console.ReadLine().ToUpper();
+                if (tagDriver == "SIM")
+                {
+                    if (tagIoAddress == "R" || tagIoAddress == "C" || tagIoAddress == "S")
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid input. IO address must be R, C, or S when driver is SIM.");
+                    }
+                }
+                else
+                {
+                    break;
+                }
+            }
+            return tagIoAddress;
+        }
+
+        private static int EnterTagScanTime()
+        {
+            int tagScanTime;
+            while (true)
+            {
+                Console.Write("Enter tag scan time (ms): ");
+                if (int.TryParse(Console.ReadLine(), out tagScanTime) && tagScanTime > 0)
+                {
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Invalid input. Scan time must be a positive number.");
+                }
+            }
+            return tagScanTime;
+        }
+
+        private static bool EnterTagOnOffScan()
+        {
+            bool tagOnOffScan;
+            while (true)
+            {
+                Console.Write("Enter tag on/off scan [true/false]: ");
+                if (bool.TryParse(Console.ReadLine(), out tagOnOffScan))
+                {
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Invalid input. On/Off scan must be true or false.");
+                }
+            }
+            return tagOnOffScan;
+        }
+
+        private static double EnterTagLimit(string limitType)
+        {
+            double tagLimit;
+            while (true)
+            {
+                Console.Write($"Enter tag {limitType} limit: ");
+                if (double.TryParse(Console.ReadLine(), out tagLimit))
+                {
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine($"Invalid input. {limitType} limit must be a number.");
+                }
+            }
+            return tagLimit;
+        }
+
+        private static double EnterTagInitialValue()
+        {
+            double tagInitialValue;
+            while (true)
+            {
+                Console.Write("Enter tag initial value: ");
+                if (double.TryParse(Console.ReadLine(), out tagInitialValue))
+                {
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Invalid input. Initial value must be a number.");
+                }
+            }
+            return tagInitialValue;
+        }
+
+        private static bool EnterTagAlarms()
+        {
+            bool tagAlarms;
+            while (true)
+            {
+                Console.Write("Enter tag alarms [true/false]: ");
+                if (bool.TryParse(Console.ReadLine(), out tagAlarms))
+                {
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Invalid input. Alarms must be true or false.");
+                }
+            }
+            return tagAlarms;
+        }
+
 
         private static void RegisterUser()
         {
@@ -542,7 +664,8 @@ namespace DatabaseManagerApp
         private static void ViewAllAlarms()
         {
             alarmServiceClient.GetAllAlarms();
-            foreach (Alarm alarm in alarmServiceClient.GetAllAlarms()) {
+            foreach (Alarm alarm in alarmServiceClient.GetAllAlarms())
+            {
                 Console.WriteLine(alarm.ToString());
             }
         }
@@ -566,14 +689,14 @@ namespace DatabaseManagerApp
             {
                 Console.Write("Priority must be between 1-3. Enter alarm priority: ");
                 string alarmPriorityInput = Console.ReadLine();
-                
+
                 while (!int.TryParse(alarmPriorityInput, out alarmPriority))
                 {
                     Console.Write("Invalid input. Please enter a valid integer for alarm priority: ");
                     alarmPriorityInput = Console.ReadLine();
                 }
             }
-            
+
             Console.Write("Enter alarm threshold: ");
             string alarmThresholdInput = Console.ReadLine();
             double alarmThreshold;
@@ -588,7 +711,7 @@ namespace DatabaseManagerApp
 
             Console.Write("Enter tag name: ");
             string tagName = Console.ReadLine();
-           
+
 
             Alarm alarm = new Alarm
             {

@@ -22,4 +22,23 @@
   <Tag xsi:type="DigitalInputTag" Name="digi" Description="digi" IoAddress="R" Driver="SIM" ScanTime="100000" OnOffScan="true">
     <Id>0</Id>
   </Tag>
+  <Tag xsi:type="AnalogInputTag" Name="analog" Description="analog" IoAddress="analog" Driver="SIM" ScanTime="10000" OnOffScan="true" LowLimit="1" HighLimit="150" Units="s">
+    <Id>0</Id>
+    <Alarm>true</Alarm>
+  </Tag>
+  <Tag xsi:type="DigitalInputTag" Name="digital\" Description="ditig" IoAddress="S" Driver="SIm" ScanTime="1000000" OnOffScan="true">
+    <Id>0</Id>
+  </Tag>
+  <Tag xsi:type="AnalogInputTag" Name="sim" Description="sim" IoAddress="sim" Driver="SIM" ScanTime="100007" OnOffScan="true" LowLimit="1" HighLimit="100" Units="s">
+    <Id>0</Id>
+    <Alarm>true</Alarm>
+  </Tag>
+  <Tag xsi:type="AnalogInputTag" Name="s" Description="s" IoAddress="S" Driver="SIM" ScanTime="10000" OnOffScan="true" LowLimit="1" HighLimit="100" Units="s">
+    <Id>0</Id>
+    <Alarm>true</Alarm>
+  </Tag>
+  <Tag xsi:type="AnalogInputTag" Name="dada" Description="" IoAddress="S" Driver="SIM" ScanTime="10000" OnOffScan="true" LowLimit="1" HighLimit="2" Units="s">
+    <Id>0</Id>
+    <Alarm>true</Alarm>
+  </Tag>
 </Tags>
