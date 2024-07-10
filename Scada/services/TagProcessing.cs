@@ -6,6 +6,9 @@ using Scada.interfaces;
 using Scada.models;
 using Scada.callbacks;
 using System.Numerics;
+using Google.Protobuf.WellKnownTypes;
+using System.Web.ApplicationServices;
+using System.Web;
 
 namespace Scada.services
 {
@@ -15,10 +18,10 @@ namespace Scada.services
         private readonly object _lockObject = new object();
         private readonly object _lockObjectDict = new object();
         private readonly object _lockObjectCallback = new object();
-        private readonly ITagService _tagService;
+        private readonly TagService _tagService;
         private readonly Dictionary<Guid,ITagServiceCallback> _callbacks = new Dictionary<Guid, ITagServiceCallback>();
 
-        public TagProcessing(ITagService tagService)
+        public TagProcessing(TagService tagService)
         {
             _tagService = tagService;
             StartProcessing();
@@ -98,10 +101,28 @@ namespace Scada.services
                 lock (_lockObject)
                 {
                     _tagService.AddTagValue(tagValue);
+                    checkAlarms(value, tag.Name);
                     NotifyCallbacks(tagValue);
                 }
 
                 Thread.Sleep((int)tag.ScanTime);
+            }
+        }
+
+        private void checkAlarms(double tagValue, string tagName)
+        {
+            
+
+            List<Alarm> tagsAlarms = _tagService.GetAlarmsByName(tagName);
+
+            if (tagsAlarms == null) return;
+
+            foreach (Alarm a in tagsAlarms)
+            {
+                if (tagValue > a.Threshold)
+                {
+                    _tagService.LogAlarmValue(new AlarmValue(a.Name, a.Type, a.Priority, a.Threshold, a.Unit, tagName, tagValue, DateTime.Now));
+                }
             }
         }
 

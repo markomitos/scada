@@ -7,13 +7,13 @@ namespace Scada.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.5.1")]
-    public sealed partial class TagKeyUpdate : IMigrationMetadata
+    public sealed partial class InitialCreate : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(TagKeyUpdate));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialCreate));
         
         string IMigrationMetadata.Id
         {
-            get { return "202407021322206_TagKeyUpdate"; }
+            get { return "202407091418424_InitialCreate"; }
         }
         
         string IMigrationMetadata.Source

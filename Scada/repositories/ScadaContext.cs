@@ -14,5 +14,6 @@ namespace Scada.repositories
     {
         public DbSet<User> Users { get; set; }
         public DbSet<TagValue> TagValues { get; set; }
+        public DbSet<AlarmValue> AlarmValues { get; set; }
     }
 }

@@ -127,21 +127,35 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AlarmService.svc" />
+    <Content Include="AlarmValueService.svc" />
+    <Content Include="AppData\alarmsLog.txt" />
     <Content Include="ReportService.svc" />
     <Content Include="Resources\tags.xml" />
+    <Content Include="Resources\alarmConfig.xml" />
     <Content Include="TagService.svc" />
     <Content Include="UserService.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlarmService.svc.cs">
+      <DependentUpon>AlarmService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="AlarmValueService.svc.cs">
+      <DependentUpon>AlarmValueService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="interfaces\IAlarmValueService.cs" />
+    <Compile Include="interfaces\IAlarmService.cs" />
     <Compile Include="interfaces\IReportService.cs" />
     <Compile Include="interfaces\IUserService.cs" />
     <Compile Include="interfaces\ITagService.cs" />
-    <Compile Include="Migrations\202407071134591_InitialCreate12.cs" />
-    <Compile Include="Migrations\202407071134591_InitialCreate12.Designer.cs">
-      <DependentUpon>202407071134591_InitialCreate12.cs</DependentUpon>
+    <Compile Include="Migrations\202407091418424_InitialCreate.cs" />
+    <Compile Include="Migrations\202407091418424_InitialCreate.Designer.cs">
+      <DependentUpon>202407091418424_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="models\Alarm.cs" />
+    <Compile Include="models\AlarmValue.cs" />
     <Compile Include="models\AnalogInputTag.cs" />
     <Compile Include="models\AnalogOutputTag.cs" />
     <Compile Include="models\DigitalInputTag.cs" />
@@ -156,6 +170,10 @@
     <Compile Include="ReportService.svc.cs">
       <DependentUpon>ReportService.svc</DependentUpon>
     </Compile>
+    <Compile Include="repositories\implementations\AlarmRepository.cs" />
+    <Compile Include="repositories\implementations\AlarmValueRepository.cs" />
+    <Compile Include="repositories\interfaces\IAlarmValueRepository.cs" />
+    <Compile Include="repositories\interfaces\IAlarmRepository.cs" />
     <Compile Include="repositories\implementations\TagRepository.cs" />
     <Compile Include="repositories\implementations\TagValueRepository.cs" />
     <Compile Include="repositories\interfaces\ITagRepository.cs" />
@@ -163,6 +181,8 @@
     <Compile Include="repositories\interfaces\IUserRepository.cs" />
     <Compile Include="repositories\ScadaContext.cs" />
     <Compile Include="repositories\implementations\UserRepository.cs" />
+    <Compile Include="services\AlarmService.cs" />
+    <Compile Include="services\AlarmValueService.cs" />
     <Compile Include="services\AuthenticationService.cs" />
     <Compile Include="callbacks\ITagServiceCallback.cs" />
     <Compile Include="services\RealTimeDriver.cs" />
@@ -192,11 +212,14 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202407071134591_InitialCreate12.resx">
-      <DependentUpon>202407071134591_InitialCreate12.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202407091418424_InitialCreate.resx">
+      <DependentUpon>202407091418424_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

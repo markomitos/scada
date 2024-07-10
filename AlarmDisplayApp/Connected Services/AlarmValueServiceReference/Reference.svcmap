@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="b2e55ca2-1610-484b-8a86-61f0b5526cc9" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:60822/TagService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="TagService.xsd" MetadataType="Schema" ID="85076da1-7f4a-4088-a09e-a267d18f56a6" SourceId="1" SourceUrl="http://localhost:60822/TagService.svc?xsd=xsd1" />
+    <MetadataFile FileName="TagService1.xsd" MetadataType="Schema" ID="7427e043-a4aa-4616-804e-5d7cd6218c59" SourceId="1" SourceUrl="http://localhost:60822/TagService.svc?xsd=xsd2" />
+    <MetadataFile FileName="TagService.wsdl" MetadataType="Wsdl" ID="1dcc0650-e4fc-47a4-92a0-9431a678e4ba" SourceId="1" SourceUrl="http://localhost:60822/TagService.svc?wsdl" />
+    <MetadataFile FileName="TagService2.xsd" MetadataType="Schema" ID="155aa4ed-ae7e-4b7b-aff5-bce9d77832f2" SourceId="1" SourceUrl="http://localhost:60822/TagService.svc?xsd=xsd0" />
+    <MetadataFile FileName="TagService.disco" MetadataType="Disco" ID="543c7779-7e92-4ed2-8917-094e309964d4" SourceId="1" SourceUrl="http://localhost:60822/TagService.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

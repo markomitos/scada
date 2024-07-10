@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="70ec11f9-daa7-480a-b364-90feccdb86ae" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:60822/AlarmService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="AlarmService.xsd" MetadataType="Schema" ID="219ecf73-9b05-4a8e-8d64-d532fa7d5b63" SourceId="1" SourceUrl="http://localhost:60822/AlarmService.svc?xsd=xsd1" />
+    <MetadataFile FileName="AlarmService1.xsd" MetadataType="Schema" ID="48a10f8d-dde4-40df-ae1f-e45bf9715963" SourceId="1" SourceUrl="http://localhost:60822/AlarmService.svc?xsd=xsd0" />
+    <MetadataFile FileName="AlarmService2.xsd" MetadataType="Schema" ID="51c57ba0-36f4-4453-a5a9-fd11bc414a99" SourceId="1" SourceUrl="http://localhost:60822/AlarmService.svc?xsd=xsd2" />
+    <MetadataFile FileName="AlarmService.disco" MetadataType="Disco" ID="91bd70ff-0af6-45cd-801f-391e322f25fd" SourceId="1" SourceUrl="http://localhost:60822/AlarmService.svc?disco" />
+    <MetadataFile FileName="AlarmService.wsdl" MetadataType="Wsdl" ID="e67d1ff3-56b5-4629-befb-fa4eefd5c7ce" SourceId="1" SourceUrl="http://localhost:60822/AlarmService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

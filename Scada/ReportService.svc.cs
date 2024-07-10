@@ -16,15 +16,46 @@ namespace Scada
     public class ReportService : IReportService
     {
         private readonly TagValueRepository _tagValueRepository = new TagValueRepository();
+        private readonly AlarmValueRepository _alarmRepository = new AlarmValueRepository();
 
-        public string ShowAllAlarmsInTimePeriod(DateTime startTime, DateTime endTime)
+        public string ShowAllAlarmsInTimePeriod(DateTime startTime, DateTime endTime, bool sortByPriority)
         {
-            return "TODO";
+            List<AlarmValue> alarmValues = _alarmRepository.GetAllAlarmValues();
+            StringBuilder builder = new StringBuilder();
+            List<AlarmValue> unsortedAlarmValues = alarmValues.Where(a => a.Timestamp >= startTime && a.Timestamp <= endTime).ToList();
+            List<AlarmValue> sortedAlarmValues;
+
+            if (sortByPriority)
+            {
+                sortedAlarmValues = SortAlarmsByPriority(unsortedAlarmValues);
+            }
+            else
+            {
+                sortedAlarmValues = SortAlarmsByTimestamp(unsortedAlarmValues);
+            }
+
+            foreach (AlarmValue alarm in sortedAlarmValues)
+            {
+                builder.Append("--------------------------------------------------------------------\n");
+                builder.Append(alarm.ToString());
+                builder.Append("\n");
+            }
+
+            return builder.ToString();
         }
 
         public string ShowAlarmsByPriority(int priority)
         {
-            return "TODO";
+            List<AlarmValue> alarmValues = _alarmRepository.GetAllAlarmValues();
+            StringBuilder builder = new StringBuilder();
+            foreach (AlarmValue alarm in SortAlarmsByTimestamp(alarmValues.Where(a => a.Priority == priority).ToList()))
+            {
+                builder.Append("--------------------------------------------------------------------\n");
+                builder.Append(alarm.ToString());
+                builder.Append("\n");
+            }
+
+            return builder.ToString();
         }
 
         public string ShowTagValuesInTimePeriod(DateTime startTime, DateTime endTime)
@@ -81,6 +112,16 @@ namespace Scada
             }
 
             return builder.ToString();
+        }
+
+        private List<AlarmValue> SortAlarmsByPriority(List<AlarmValue> alarmValues)
+        {
+            return alarmValues.OrderBy(a => a.Priority).ToList();
+        }
+
+        private List<AlarmValue> SortAlarmsByTimestamp(List<AlarmValue> alarmValues)
+        {
+            return alarmValues.OrderBy(a => a.Timestamp).ToList();
         }
     }
 }

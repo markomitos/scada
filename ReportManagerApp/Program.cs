@@ -34,7 +34,8 @@ namespace ReportManagerApp
                     {
                         case "1":
                             GetTimePeriod(out DateTime startTime, out DateTime endTime);
-                            Console.Write(client.ShowAllAlarmsInTimePeriod(startTime, endTime));
+                            GetSortingAttribute(out bool sortByPriority);
+                            Console.Write(client.ShowAllAlarmsInTimePeriod(startTime, endTime, sortByPriority));
                             break;
                         case "2":
                             int priority = GetPriority();
@@ -96,6 +97,20 @@ namespace ReportManagerApp
                     Console.WriteLine("Invalid start time format. Please try again.");
                 }
             }
+        }
+
+        public static void GetSortingAttribute(out bool sortByPriority)
+        {
+            Console.Write("Do you want to sort by priority? (yes/no): ");
+            string input = Console.ReadLine().Trim().ToLower();
+
+            while (input != "yes" && input != "no")
+            {
+                Console.Write("Invalid input. Please enter 'yes' or 'no': ");
+                input = Console.ReadLine().Trim().ToLower();
+            }
+
+            sortByPriority = input == "yes";
         }
 
         static int GetPriority()
